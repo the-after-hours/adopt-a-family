@@ -23,9 +23,14 @@
 			"error",
 			"always",
 			{
+				"line": {
 				"ignorePattern": "pragma|ignored",
-				"ignoreInlineComments": true,
 				"ignoreConsecutiveComments": true
+				},
+				"block": {
+					"ignoreInlineComments": true,
+					"ignorePattern": "blockignore"
+				}
 			}
 		],
 		"spaced-comment": ["error", "always", {
