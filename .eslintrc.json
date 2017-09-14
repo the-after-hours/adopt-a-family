@@ -8,7 +8,7 @@
 	},
 	"rules": {
 		"indent": ["error", 2, {
-			"VariableDeclarator":{
+			"VariableDeclarator": {
 				"var": 2,
 				"let": 2,
 				"const": 3
@@ -16,6 +16,30 @@
 		}],
 		"semi": [2, "always"],
 		"quotes": [1, "single"],
-		"no-mixed-spaces-and-tabs": [2, "smart-tabs"]
+		"no-mixed-spaces-and-tabs": [2, "smart-tabs"],
+		"comma-style": ["error", "last"],
+		"comma-spacing": ["error", { "before": false, "after": true }],
+		"capitalized-comments": [
+			"error",
+			"always",
+			{
+				"ignorePattern": "pragma|ignored",
+				"ignoreInlineComments": true,
+				"ignoreConsecutiveComments": true
+			}
+		],
+		"spaced-comment": ["error", "always", {
+			"line": {
+				"markers": ["/"],
+				"exceptions": ["-", "+", "*"]
+			},
+			"block": {
+				"markers": ["!"],
+				"exceptions": ["*"],
+				"balanced": false
+			}
+		}],
+		"camelcase": "error",
+		"one-var-declaration-per-line": ["error", "initializations"]
 	}
 }
