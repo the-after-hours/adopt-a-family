@@ -15,19 +15,34 @@ let f,
     g = 0;
 
 //this is a bad comment, (no space, no cap)
-// this is still bad (no caps)
+// this is not a bad (despite no caps) because it's a consecutive comment
 // Good comment (space and caps)
+
+console.log('comment test split');
+// This is good
+console.log('comment test split');
+// this is bad
+console.log('comment test split');
+// still bad
 
 /**
 * i am jsdoc
-* JS Doc don't care about your comment caps
+* JS Doc DOES care about your comment caps
 */
-
 
 /*
-block comments and '-','+' are excluded
-from comment restrictions (assuming there is a new line after the exclusions)
+* I am good js doc, I capitalize
 */
+
+/*
+blockignore block comments are ignored from comment restrictions
+when using the 'blockignore' tag as first word
+*/
+
+/*
+this is not block ignored and will be wrong
+*/
+
 console.log(/* inline block comments also do what they want for caps, but need space*/'testing inline comments');
 
 //--
