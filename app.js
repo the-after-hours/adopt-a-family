@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 
 // DASHBOARD ROUTE
 app.get('/dashboard', function(req, res) {
-    var sampleEjsText = 'amazing';
+    var sampleEjsText = 'DASHBOARD ROUTE';
     res.render('dashboard', {
         sampleEjsText: sampleEjsText // This is how you pass stuff to your EJS partial.
     });
