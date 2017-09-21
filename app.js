@@ -28,6 +28,22 @@ app.get('/wishlist', (req, res) => {
   });
 });
 
+// PAIRING (SECURE) ROUTE
+app.get('/pairing', (req, res) => {
+  var sampleEjsText = 'PAIRING ROUTE';
+  res.render('pairing', {
+    sampleEjsText: sampleEjsText
+  });
+});
+
+// MESSAGING (SECURE) ROUTE
+app.get('/messaging', (req, res) => {
+  var sampleEjsText = 'MESSAGING ROUTE';
+  res.render('messaging', {
+    sampleEjsText: sampleEjsText
+  });
+});
+
 // ORGANIZER (SECURE) ROUTE
 app.get('/secure/org', (req, res) => {
   res.render('org/list');
