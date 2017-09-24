@@ -28,7 +28,7 @@ const Main = (props) => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
 export default Main;
