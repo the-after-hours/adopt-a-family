@@ -12,4 +12,4 @@ class Pairing extends React.Component {
   }
 }
 
-export default Pairing
+export default Pairing;
