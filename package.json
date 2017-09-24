@@ -1,0 +1,30 @@
+{
+  "name": "adopt-a-family",
+  "version": "0.1.0",
+  "description": "basic routes",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5-gwoap/adopt-a-family.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/5-gwoap/adopt-a-family/issues"
+  },
+  "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "ejs": "2.5.7",
+    "express": "4.15.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.2"
+  }
+}
