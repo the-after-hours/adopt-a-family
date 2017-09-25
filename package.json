@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "eslint ./"
   },
   "repository": {
@@ -20,11 +22,14 @@
   },
   "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
   "dependencies": {
-    "body-parser": "^1.18.1",
-    "ejs": "2.5.7",
-    "express": "4.15.4"
+    "express": "4.15.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.7.2"
+    "eslint": "^4.7.2",
+    "react-scripts": "^1.0.13"
   }
 }
