@@ -22,8 +22,6 @@
   },
   "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
   "dependencies": {
-    "body-parser": "^1.18.1",
-    "ejs": "2.5.7",
     "express": "4.15.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
