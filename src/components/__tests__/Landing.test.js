@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from '../Landing.js';
+import Landing from '../landing.js';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 
