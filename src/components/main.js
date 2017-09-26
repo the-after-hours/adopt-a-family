@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Landing from './landing';
-import Dashboard from './dashboard';
-import WishlistPublic from './wishlistPublic';
-import WishlistPrivate from './wishlistPrivate';
-import Pairing from './pairing';
-import Messaging from './messaging';
-import SecureOrg from './secureOrg';
+import Landing from './Landing';
+import Dashboard from './Dashboard';
+import WishlistPublic from './WishlistPublic';
+import WishlistPrivate from './WishlistPrivate';
+import Pairing from './Pairing';
+import Messaging from './Messaging';
+import SecureOrg from './SecureOrg';
 
 const Main = (props) => {
   return (
