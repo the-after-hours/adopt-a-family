@@ -1,5 +1,5 @@
 import React from 'react';
-import Messaging from '../messaging.js';
+import Messaging from '../Messaging.js';
 import renderer from 'react-test-renderer';
 
 describe('Messaging', () => {

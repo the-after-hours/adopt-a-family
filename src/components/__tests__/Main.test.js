@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from '../main.js';
+import Main from '../Main.js';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 
