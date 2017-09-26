@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../App';
+import App from '../App.js';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom'; {/* For testing, otherwise snapshot will fail */}
 
