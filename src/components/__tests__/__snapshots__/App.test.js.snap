@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App App snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <h1>
+        Landing page
+      </h1>
+      <ul>
+        <li>
+          <a
+            href="/dashboard"
+            onClick={[Function]}
+          >
+            Click me for dashboard
+          </a>
+        </li>
+        <li>
+          <a
+            href="/secure/pairing"
+            onClick={[Function]}
+          >
+            Click me for secure/pairing
+          </a>
+        </li>
+        <li>
+          <a
+            href="/secure/messaging"
+            onClick={[Function]}
+          >
+            Click me for messaging
+          </a>
+        </li>
+        <li>
+          <a
+            href="/wishlist"
+            onClick={[Function]}
+          >
+            Click me for wishlistPublic
+          </a>
+        </li>
+        <li>
+          <a
+            href="/secure/wishlist"
+            onClick={[Function]}
+          >
+            Click me for secure/wishlistPrivate
+          </a>
+        </li>
+        <li>
+          <a
+            href="/secure/org"
+            onClick={[Function]}
+          >
+            Click me for secure/org
+          </a>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <a
+        href="/"
+      >
+        <button>
+          Home
+        </button>
+      </a>
+    </footer>
+  </div>
+</div>
+`;
