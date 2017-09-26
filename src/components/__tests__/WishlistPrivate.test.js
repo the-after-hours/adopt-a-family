@@ -1,5 +1,5 @@
 import React from 'react';
-import WishlistPrivate from '../WishlistPrivate';
+import WishlistPrivate from '../WishlistPrivate.js';
 import renderer from 'react-test-renderer';
 
 describe('WishlistPrivate', () => {

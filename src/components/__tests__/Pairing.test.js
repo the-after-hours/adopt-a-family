@@ -1,5 +1,5 @@
 import React from 'react';
-import Pairing from '../Pairing';
+import Pairing from '../Pairing.js';
 import renderer from 'react-test-renderer';
 
 describe('Pairing', () => {
