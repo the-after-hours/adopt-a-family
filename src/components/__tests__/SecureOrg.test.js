@@ -1,5 +1,5 @@
 import React from 'react';
-import SecureOrg from '../SecureOrg.js';
+import SecureOrg from '../SecureOrg';
 import renderer from 'react-test-renderer';
 
 describe('SecureOrg', () => {
