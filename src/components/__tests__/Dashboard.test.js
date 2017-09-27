@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from '../Dashboard.js';
+import Dashboard from '../Dashboard';
 import renderer from 'react-test-renderer';
 
 describe('Dashboard', () => {
