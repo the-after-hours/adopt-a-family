@@ -2,14 +2,12 @@
 
 import React from 'react';
 
-class Messaging extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Messaging page</h1>
-      </div>
-    );
-  }
-}
+const Messaging = (props) => {
+  return (
+    <div>
+      <h1>Messaging page</h1>
+    </div>
+  );
+};
 
 export default Messaging;
