@@ -1,10 +1,10 @@
 import React from 'react';
-import Pairing from '../Pairing';
+import AboutUs from '../AboutUs';
 import renderer from 'react-test-renderer';
 
-describe('Pairing', () => {
-  test('Pairing snapshot', () => {
-    const component = renderer.create(<Pairing />);
+describe('AboutUs', () => {
+  test('AboutUs snapshot', () => {
+    const component = renderer.create(<AboutUs />);
     const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();
