@@ -69,6 +69,7 @@ exports[`App App snapshot 1`] = `
     <footer>
       <a
         href="/"
+        onClick={[Function]}
       >
         <button>
           Home

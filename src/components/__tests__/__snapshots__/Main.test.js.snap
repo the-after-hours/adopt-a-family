@@ -68,6 +68,7 @@ exports[`Main Main snapshot 1`] = `
   <footer>
     <a
       href="/"
+      onClick={[Function]}
     >
       <button>
         Home
