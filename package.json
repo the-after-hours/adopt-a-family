@@ -4,7 +4,8 @@
   "description": "basic routes",
   "main": "app.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"react-scripts start\"",
+    "server": "nodemon server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom && eslint ./"
   },
@@ -26,7 +27,9 @@
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "eslint": "^4.7.2",
+    "nodemon": "^1.12.1",
     "react-scripts": "^1.0.13",
     "react-test-renderer": "^16.0.0"
   }
