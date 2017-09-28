@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import WishlistPublic from './WishlistPublic';
@@ -23,11 +23,11 @@ const Main = (props) => {
         <Route path="/secure/org" component={SecureOrg} /> {/* Secure */}
       </Switch>
       <footer>
-        <a href="/">
+        <Link to="/">
           <button>
             Home
           </button>
-        </a>
+        </Link>
       </footer>
     </div>
   );
