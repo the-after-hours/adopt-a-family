@@ -32,5 +32,6 @@
     "nodemon": "^1.12.1",
     "react-scripts": "^1.0.13",
     "react-test-renderer": "^16.0.0"
-  }
+  },
+  "proxy": "http://localhost:3005/"
 }
