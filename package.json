@@ -1,0 +1,33 @@
+{
+  "name": "adopt-a-family",
+  "version": "0.1.0",
+  "description": "basic routes",
+  "main": "app.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom && eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5-gwoap/adopt-a-family.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/5-gwoap/adopt-a-family/issues"
+  },
+  "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "react-scripts": "^1.0.13",
+    "react-test-renderer": "^16.0.0"
+  }
+}
