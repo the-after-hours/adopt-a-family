@@ -6,6 +6,10 @@
       "jsx": true
     }
   },
+  "plugins": [
+    "react"
+  ],
+  "extends": "plugin:react/recommended",
   "rules": {
     "camelcase": "error",
     "capitalized-comments": [
