@@ -8,10 +8,12 @@ import AboutUs from './AboutUs';
 import Pairing from './Pairing';
 import Messaging from './Messaging';
 import SecureOrg from './SecureOrg';
+import Nav from './Nav';
 
 const Main = (props) => {
   return (
     <div>
+      <Nav />
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/dashboard" component={Dashboard} />
