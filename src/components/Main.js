@@ -9,6 +9,7 @@ import Pairing from './Pairing';
 import Messaging from './Messaging';
 import SecureOrg from './SecureOrg';
 import Nav from './Nav';
+import Footer from './Footer';
 
 const Main = (props) => {
   return (
@@ -24,6 +25,8 @@ const Main = (props) => {
         <Route path="/secure/messaging" component={Messaging} /> {/* Secure */}
         <Route path="/secure/org" component={SecureOrg} /> {/* Secure */}
       </Switch>
+
+      <Footer />
     </div>
   );
 };
