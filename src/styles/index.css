@@ -1,3 +1,32 @@
+body a {
+  color: #000;
+  text-decoration-style: dotted;
+}
+
+body a:visited {
+  color: #000;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+.block-center {
+  margin: 5px auto;
+  width: 30%;
+  min-width: 180px;
+  padding: 0 15px;
+
+}
+
+.social-icon-group a.social-icon {
+  color: #006064;
+  display: inline;
+  margin: 0 25px;
+  text-decoration: none;
+}
+
+.footer-text {
+  font-size: .75rem;
+  color: #808080;
 }
