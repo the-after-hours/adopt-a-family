@@ -23,7 +23,14 @@ class Nav extends Component {
     return (
       <div>
         <AppBar
-          title="Adopt-a-Family"
+          title={
+            <Link style={{
+              color: '#ffffff',
+              textDecoration: 'none'
+            }} to="/">
+              Adopt-a-Family
+            </Link>
+          }
           onLeftIconButtonTouchTap={this.handleDrawerToggle}
         />
         <Drawer
