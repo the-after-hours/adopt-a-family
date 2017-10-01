@@ -21,10 +21,12 @@
   "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "material-ui": "^0.19.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
