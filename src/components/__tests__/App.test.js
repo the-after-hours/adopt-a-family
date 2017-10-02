@@ -10,12 +10,7 @@ const context = {
 
 describe('App', () => {
   test('App snapshot', () => {
-    const component = shallow(
-      (
-        <App />
-      ),
-      { context }
-    );
+    const component = shallow(<App />, { context });
     const tree = toJson(component);
 
     expect(tree).toMatchSnapshot();
