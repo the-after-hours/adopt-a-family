@@ -40,30 +40,31 @@ class Nav extends Component {
             drawerOpen: open
           })}
         >
-          <MenuItem>
-            <Link to="/">Home</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/dashboard">Dashboard</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/wishlist">Wishlist</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/aboutus">About Us</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/secure/wishlist">Wishlist Secure</Link> {/* Secure */}
-          </MenuItem>
-          <MenuItem>
-            <Link to="/secure/pairing"> Pairing</Link> {/* Secure */}
-          </MenuItem>
-          <MenuItem>
-            <Link to="/secure/messaging">Messaging</Link> {/* Secure */}
-          </MenuItem>
-          <MenuItem>
-            <Link to="/secure/org">Org</Link> {/* Secure */}
-          </MenuItem>
+
+          <Link to="/">
+            <MenuItem>Home</MenuItem>
+          </Link>
+          <Link to="/dashboard">
+            <MenuItem>Dashboard</MenuItem>
+          </Link>
+          <Link to="/wishlist">
+            <MenuItem>Wishlist</MenuItem>
+          </Link>
+          <Link to="/aboutus">
+            <MenuItem>About Us</MenuItem>
+          </Link>
+          <Link to="/secure/wishlist">
+            <MenuItem>Wishlist Secure</MenuItem> {/* Secure */}
+          </Link>
+          <Link to="/secure/pairing">
+            <MenuItem> Pairing</MenuItem> {/* Secure */}
+          </Link>
+          <Link to="/secure/messaging">
+            <MenuItem>Messaging</MenuItem> {/* Secure */}
+          </Link>
+          <Link to="/secure/org">
+            <MenuItem>Org</MenuItem> {/* Secure */}
+          </Link>
         </Drawer>
       </div>
     );
