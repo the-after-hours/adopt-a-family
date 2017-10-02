@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Main snapshot 1`] = `
+<div>
+  <AppBar
+    onLeftIconButtonTouchTap={[Function]}
+    showMenuIconButton={true}
+    title={
+      <Link
+        replace={false}
+        style={
+          Object {
+            "color": "#ffffff",
+            "textDecoration": "none",
+          }
+        }
+        to="/"
+      >
+        Adopt-a-Family
+      </Link>
+    }
+    zDepth={1}
+  />
+  <Drawer
+    disableSwipeToOpen={false}
+    docked={false}
+    onRequestChange={[Function]}
+    open={false}
+    openSecondary={false}
+    swipeAreaWidth={30}
+    width={null}
+    zDepth={2}
+  >
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/dashboard"
+      >
+        Dashboard
+      </Link>
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/wishlist"
+      >
+        Wishlist
+      </Link>
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/aboutus"
+      >
+        About Us
+      </Link>
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/secure/wishlist"
+      >
+        Wishlist Secure
+      </Link>
+       
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/secure/pairing"
+      >
+         Pairing
+      </Link>
+       
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/secure/messaging"
+      >
+        Messaging
+      </Link>
+       
+    </MenuItem>
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    >
+      <Link
+        replace={false}
+        to="/secure/org"
+      >
+        Org
+      </Link>
+       
+    </MenuItem>
+  </Drawer>
+</div>
+`;
