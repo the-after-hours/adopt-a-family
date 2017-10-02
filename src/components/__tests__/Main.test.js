@@ -1,16 +1,17 @@
 import React from 'react';
 import Main from '../Main';
-import renderer from 'react-test-renderer';
-import { MemoryRouter } from 'react-router-dom';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import customTheme from '../../theme';
+
+const context = {
+  muiTheme: customTheme
+};
 
 describe('Main', () => {
   test('Main snapshot', () => {
-    const component = renderer.create(
-      <MemoryRouter>
-        <Main />
-      </MemoryRouter>
-    );
-    const tree = component.toJSON();
+    const component = shallow(<Main />, { context });
+    const tree = toJson(component);
 
     expect(tree).toMatchSnapshot();
   });

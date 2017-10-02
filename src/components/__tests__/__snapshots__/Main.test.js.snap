@@ -2,78 +2,45 @@
 
 exports[`Main Main snapshot 1`] = `
 <div>
-  <div>
-    <h1>
-      Landing page
-    </h1>
-    <ul>
-      <li>
-        <a
-          href="/dashboard"
-          onClick={[Function]}
-        >
-          Click me for dashboard
-        </a>
-      </li>
-      <li>
-        <a
-          href="/secure/pairing"
-          onClick={[Function]}
-        >
-          Click me for secure/pairing
-        </a>
-      </li>
-      <li>
-        <a
-          href="/secure/messaging"
-          onClick={[Function]}
-        >
-          Click me for messaging
-        </a>
-      </li>
-      <li>
-        <a
-          href="/wishlist"
-          onClick={[Function]}
-        >
-          Click me for wishlistPublic
-        </a>
-      </li>
-      <li>
-        <a
-          href="/secure/wishlist"
-          onClick={[Function]}
-        >
-          Click me for secure/wishlistPrivate
-        </a>
-      </li>
-      <li>
-        <a
-          href="/secure/org"
-          onClick={[Function]}
-        >
-          Click me for secure/org
-        </a>
-      </li>
-      <li>
-        <a
-          href="/aboutus"
-          onClick={[Function]}
-        >
-          Click me for about us
-        </a>
-      </li>
-    </ul>
-  </div>
-  <footer>
-    <a
-      href="/"
-      onClick={[Function]}
-    >
-      <button>
-        Home
-      </button>
-    </a>
-  </footer>
+  <Nav />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/dashboard"
+    />
+    <Route
+      component={[Function]}
+      path="/wishlist"
+    />
+    <Route
+      component={[Function]}
+      path="/aboutus"
+    />
+    <Route
+      component={[Function]}
+      path="/secure/wishlist"
+    />
+     
+    <Route
+      component={[Function]}
+      path="/secure/pairing"
+    />
+     
+    <Route
+      component={[Function]}
+      path="/secure/messaging"
+    />
+     
+    <Route
+      component={[Function]}
+      path="/secure/org"
+    />
+     
+  </Switch>
 </div>
 `;
