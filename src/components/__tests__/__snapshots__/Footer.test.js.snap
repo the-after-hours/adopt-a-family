@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Footer snapshot 1`] = `
+<div
+  id="footer"
+>
+  <div
+    className="block-center"
+  >
+    <div
+      className="social-icon-group"
+    >
+      <table>
+        <tr>
+          <td>
+            <a
+              className="social-icon"
+              href="https://github.com/5-gwoap"
+            >
+              <i
+                className="fa fa-github fa-2x"
+              />
+            </a>
+          </td>
+          <td>
+            <a
+              className="social-icon"
+              href="mailto:5gwoap@gmail.com"
+            >
+              <i
+                className="fa fa-envelope fa-2x"
+              />
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div
+    className="block-center"
+  >
+    <div
+      className="footer-text"
+    >
+      Code written under 
+      <a
+        href="https://opensource.org/licenses/mit-license.html"
+      >
+        MIT license
+      </a>
+    </div>
+  </div>
+</div>
+`;
