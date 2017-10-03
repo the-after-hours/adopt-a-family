@@ -13,20 +13,27 @@ body {
 
 .block-center {
   margin: 5px auto;
-  width: 30%;
   min-width: 180px;
   padding: 0 15px;
-
+  width: 30%;
 }
 
-.social-icon-group a.social-icon {
+.social-icon-group table {
+  margin: 0 auto;
+}
+
+.social-icon-group table td {
+  margin: 0 15px;
+}
+
+.social-icon-group i {
   color: #006064;
-  display: inline;
-  margin: 0 25px;
+  margin: 0 15px;
   text-decoration: none;
 }
 
 .footer-text {
+  text-align: center;
   font-size: .75rem;
   color: #808080;
 }
