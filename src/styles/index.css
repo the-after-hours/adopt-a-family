@@ -37,3 +37,9 @@ body {
   font-size: .75rem;
   color: #808080;
 }
+
+#footer { /* Temporary positioning */
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
