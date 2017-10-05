@@ -1,7 +1,6 @@
 // Page to create/About Us
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import links from '../constants/links';
 
 const AboutUs = (props) => {
