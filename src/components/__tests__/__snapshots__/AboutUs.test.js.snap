@@ -5,5 +5,12 @@ exports[`AboutUs AboutUs snapshot 1`] = `
   <h1>
     AboutUs page
   </h1>
+  Check us out on 
+  <a
+    href="https://github.com/5-gwoap"
+  >
+    Github
+  </a>
+  !
 </div>
 `;
