@@ -57,7 +57,7 @@ class Nav extends Component {
             <MenuItem>Wishlist Secure</MenuItem> {/* Secure */}
           </Link>
           <Link to="/secure/pairing">
-            <MenuItem> Pairing</MenuItem> {/* Secure */}
+            <MenuItem>Pairing</MenuItem> {/* Secure */}
           </Link>
           <Link to="/secure/messaging">
             <MenuItem>Messaging</MenuItem> {/* Secure */}
