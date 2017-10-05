@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Registration snapshot 1`] = `
+<div>
+  <div>
+    <div
+      className="contact"
+    >
+      <form>
+        <span
+          className="contact-label"
+        >
+          First Name:
+        </span>
+        <input
+          maxlength={undefined}
+          pattern={undefined}
+          placeholder="First Name"
+          size={undefined}
+          title={undefined}
+          type="text"
+        />
+        <br />
+        <span
+          className="contact-label"
+        >
+          Middle Initial:
+        </span>
+        <input
+          maxlength="1"
+          pattern={undefined}
+          placeholder="Middle Initial"
+          size={undefined}
+          title={undefined}
+          type="text"
+        />
+        <br />
+        <span
+          className="contact-label"
+        >
+          Last Name:
+        </span>
+        <input
+          maxlength={undefined}
+          pattern={undefined}
+          placeholder="Last Name"
+          size={undefined}
+          title={undefined}
+          type="text"
+        />
+        <br />
+        <span
+          className="contact-label"
+        >
+          Account Type:
+        </span>
+        <select>
+          <option
+            value="donator"
+          >
+            Donator
+          </option>
+          <option
+            value="family"
+          >
+            Family
+          </option>
+          <option
+            value="organizer"
+          >
+            Organizer
+          </option>
+        </select>
+        <br />
+        <span
+          className="contact-label"
+        >
+          Email:
+        </span>
+        <input
+          maxlength={undefined}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
+          placeholder="Email"
+          size={undefined}
+          title={undefined}
+          type="email"
+        />
+        <br />
+        <span
+          className="contact-label"
+        >
+          Password:
+        </span>
+        <input
+          maxlength={undefined}
+          pattern=".{6,}"
+          placeholder="Password"
+          size={undefined}
+          title="Must be at least 6 characters."
+          type="password"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;
