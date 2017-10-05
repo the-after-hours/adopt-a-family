@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Select snapshot 1`] = `
+<select>
+  <option
+    value="donator"
+  >
+    Donator
+  </option>
+  <option
+    value="family"
+  >
+    Family
+  </option>
+  <option
+    value="organizer"
+  >
+    Organizer
+  </option>
+</select>
+`;
