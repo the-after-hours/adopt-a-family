@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Input snapshot 1`] = `
+<input
+  maxlength={undefined}
+  pattern={undefined}
+  placeholder={undefined}
+  size={undefined}
+  title={undefined}
+  type={undefined}
+/>
+`;
