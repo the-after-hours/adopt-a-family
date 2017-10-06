@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 const Input = (props) => {
   return (
-      <input
-        maxlength={props.maxlength}
-        size={props.size}
-        placeholder={props.placeholder}
-        type={props.type}
-        pattern={props.pattern}
-        title={props.title}
-      />
-    )
-}
+    <input
+      maxLength={props.maxlength}
+      size={props.size}
+      placeholder={props.placeholder}
+      type={props.type}
+      pattern={props.pattern}
+      title={props.title}
+    />
+  );
+};
 
 Input.propTypes = {
   maxlength: PropTypes.string,
