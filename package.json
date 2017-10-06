@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
   "dependencies": {
-    "express": "^4.15.4",
-    "material-ui": "^0.19.2",
+    "express": "^4.16.1",
+    "material-ui": "^0.19.3",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -30,13 +30,13 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-16": "^1.0.0",
-    "enzyme-to-json": "^3.0.1",
-    "eslint": "^4.7.2",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "enzyme-to-json": "^3.1.1",
+    "eslint": "^4.8.0",
     "eslint-plugin-react": "^7.4.0",
     "nodemon": "^1.12.1",
-    "react-scripts": "^1.0.13",
+    "react-scripts": "^1.0.14",
     "react-test-renderer": "^16.0.0"
   },
   "proxy": "http://localhost:3005/"
