@@ -10,6 +10,7 @@ const Input = (props) => {
       type={props.type}
       pattern={props.pattern}
       title={props.title}
+      name={props.name}
     />
   );
 };
@@ -20,7 +21,8 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.string,
   pattern: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default Input;
