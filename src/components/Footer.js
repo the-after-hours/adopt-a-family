@@ -3,7 +3,7 @@ import links from '../constants/links';
 
 const Footer = (props) => {
   return (
-    <div id="footer">
+    <footer id="footer">
       <div className ="block-center">
         <div className="social-icon-group">
           <table>
@@ -27,7 +27,7 @@ const Footer = (props) => {
           Code written under <a href={links.license}>MIT license</a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
