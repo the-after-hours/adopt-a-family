@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select Select snapshot 1`] = `
-<select>
+<select
+  name={undefined}
+>
   <option
     value="donator"
   >
