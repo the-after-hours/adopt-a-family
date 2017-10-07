@@ -7,7 +7,7 @@
     "start": "concurrently \"npm run server\" \"react-scripts start\"",
     "server": "nodemon server/app.js",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom && eslint ./"
+    "test": "eslint ./ && react-scripts test --env=jsdom"
   },
   "repository": {
     "type": "git",
