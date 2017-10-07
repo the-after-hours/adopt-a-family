@@ -12,6 +12,7 @@ class Form extends React.Component {
               First Name:
             </span>
             <Input
+              name="firstName"
               placeholder="First Name"
               type="text"
             /><br />
@@ -19,6 +20,7 @@ class Form extends React.Component {
               Middle Initial:
             </span>
             <Input
+              name="middleInitial"
               maxlength="1"
               placeholder="Middle Initial"
               type="text"
@@ -27,6 +29,7 @@ class Form extends React.Component {
               Last Name:
             </span>
             <Input
+              name="lastName"
               placeholder="Last Name"
               type="text"
             /><br />
@@ -34,17 +37,19 @@ class Form extends React.Component {
               Address
             </span>
             <Input
+              name="address"
               placeholder="Address"
               type="text"
             /><br />
             <span className="contact-label">
               Account Type:
             </span>
-            <Select /><br />
+            <Select name="accountType"/><br />
             <span className="contact-label">
               Email:
             </span>
             <Input
+              name="email"
               placeholder="Email"
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -61,6 +66,7 @@ class Form extends React.Component {
               Password:
             </span>
             <Input
+              name="password"
               placeholder="Password"
               type="password"
               pattern=".{6,}"
@@ -70,12 +76,12 @@ class Form extends React.Component {
               Confirm Password
             </span>
             <Input
-              placeholder='Confirm Password'
+              placeholder="Confirm Password"
               type="password"
               pattern=".{6,}"
               title="Must be at least 6 characters"
             /><br />
-            <input className="contact-label" type="submit" value='Submit' />
+            <button type="submit">SUBMIT</button>
           </form>
         </div>
       </div>
