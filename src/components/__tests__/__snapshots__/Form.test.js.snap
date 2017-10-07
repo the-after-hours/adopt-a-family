@@ -12,7 +12,7 @@ exports[`Form Form snapshot 1`] = `
         First Name:
       </span>
       <input
-        maxlength={undefined}
+        maxLength={undefined}
         pattern={undefined}
         placeholder="First Name"
         size={undefined}
@@ -26,7 +26,7 @@ exports[`Form Form snapshot 1`] = `
         Middle Initial:
       </span>
       <input
-        maxlength="1"
+        maxLength="1"
         pattern={undefined}
         placeholder="Middle Initial"
         size={undefined}
@@ -40,9 +40,23 @@ exports[`Form Form snapshot 1`] = `
         Last Name:
       </span>
       <input
-        maxlength={undefined}
+        maxLength={undefined}
         pattern={undefined}
         placeholder="Last Name"
+        size={undefined}
+        title={undefined}
+        type="text"
+      />
+      <br />
+      <span
+        className="contact-label"
+      >
+        Address
+      </span>
+      <input
+        maxLength={undefined}
+        pattern={undefined}
+        placeholder="Address"
         size={undefined}
         title={undefined}
         type="text"
@@ -77,9 +91,23 @@ exports[`Form Form snapshot 1`] = `
         Email:
       </span>
       <input
-        maxlength={undefined}
+        maxLength={undefined}
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
         placeholder="Email"
+        size={undefined}
+        title={undefined}
+        type="email"
+      />
+      <br />
+      <span
+        className="contact-label"
+      >
+        Confirm Email
+      </span>
+      <input
+        maxLength={undefined}
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
+        placeholder="Confirm Email"
         size={undefined}
         title={undefined}
         type="email"
@@ -91,12 +119,32 @@ exports[`Form Form snapshot 1`] = `
         Password:
       </span>
       <input
-        maxlength={undefined}
+        maxLength={undefined}
         pattern=".{6,}"
         placeholder="Password"
         size={undefined}
         title="Must be at least 6 characters."
         type="password"
+      />
+      <br />
+      <span
+        className="contact-label"
+      >
+        Confirm Password
+      </span>
+      <input
+        maxLength={undefined}
+        pattern=".{6,}"
+        placeholder="Confirm Password"
+        size={undefined}
+        title="Must be at least 6 characters"
+        type="password"
+      />
+      <br />
+      <input
+        className="contact-label"
+        type="submit"
+        value="Submit"
       />
     </form>
   </div>
