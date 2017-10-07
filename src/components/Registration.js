@@ -3,10 +3,10 @@ import Form from './Form';
 
 const Registration = (props) => {
   return (
-      <div>
-        <Form />
-      </div>
-    )
-}
+    <div>
+      <Form />
+    </div>
+  );
+};
 
 export default Registration;
