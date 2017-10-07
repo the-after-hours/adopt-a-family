@@ -13,6 +13,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name="firstName"
         pattern={undefined}
         placeholder="First Name"
         size={undefined}
@@ -27,6 +28,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength="1"
+        name="middleInitial"
         pattern={undefined}
         placeholder="Middle Initial"
         size={undefined}
@@ -41,6 +43,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name="lastName"
         pattern={undefined}
         placeholder="Last Name"
         size={undefined}
@@ -55,6 +58,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name="address"
         pattern={undefined}
         placeholder="Address"
         size={undefined}
@@ -67,7 +71,9 @@ exports[`Form Form snapshot 1`] = `
       >
         Account Type:
       </span>
-      <select>
+      <select
+        name="accountType"
+      >
         <option
           value="donator"
         >
@@ -92,6 +98,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name="email"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
         placeholder="Email"
         size={undefined}
@@ -106,6 +113,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name={undefined}
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
         placeholder="Confirm Email"
         size={undefined}
@@ -120,6 +128,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name="password"
         pattern=".{6,}"
         placeholder="Password"
         size={undefined}
@@ -134,6 +143,7 @@ exports[`Form Form snapshot 1`] = `
       </span>
       <input
         maxLength={undefined}
+        name={undefined}
         pattern=".{6,}"
         placeholder="Confirm Password"
         size={undefined}
@@ -141,11 +151,11 @@ exports[`Form Form snapshot 1`] = `
         type="password"
       />
       <br />
-      <input
-        className="contact-label"
+      <button
         type="submit"
-        value="Submit"
-      />
+      >
+        SUBMIT
+      </button>
     </form>
   </div>
 </div>
