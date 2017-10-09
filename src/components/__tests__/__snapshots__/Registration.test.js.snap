@@ -15,6 +15,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength={undefined}
           name="firstName"
+          onChange={undefined}
           pattern={undefined}
           placeholder="First Name"
           size={undefined}
@@ -30,6 +31,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength="1"
           name="middleInitial"
+          onChange={undefined}
           pattern={undefined}
           placeholder="Middle Initial"
           size={undefined}
@@ -45,6 +47,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength={undefined}
           name="lastName"
+          onChange={undefined}
           pattern={undefined}
           placeholder="Last Name"
           size={undefined}
@@ -60,6 +63,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength={undefined}
           name="address"
+          onChange={undefined}
           pattern={undefined}
           placeholder="Address"
           size={undefined}
@@ -100,6 +104,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength={undefined}
           name="email"
+          onChange={[Function]}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
           placeholder="Email"
           size={undefined}
@@ -114,7 +119,8 @@ exports[`Registration Registration snapshot 1`] = `
         </span>
         <input
           maxLength={undefined}
-          name={undefined}
+          name="confirmEmail"
+          onChange={[Function]}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,3}$"
           placeholder="Confirm Email"
           size={undefined}
@@ -130,6 +136,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength={undefined}
           name="password"
+          onChange={undefined}
           pattern=".{6,}"
           placeholder="Password"
           size={undefined}
@@ -145,6 +152,7 @@ exports[`Registration Registration snapshot 1`] = `
         <input
           maxLength={undefined}
           name={undefined}
+          onChange={undefined}
           pattern=".{6,}"
           placeholder="Confirm Password"
           size={undefined}
@@ -153,6 +161,7 @@ exports[`Registration Registration snapshot 1`] = `
         />
         <br />
         <button
+          onClick={[Function]}
           type="submit"
         >
           SUBMIT
