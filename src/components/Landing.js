@@ -29,6 +29,9 @@ const Landing = (props) => {
         <li>
           <Link to="/aboutus">Click me for about us</Link>
         </li>
+        <li>
+          <Link to="/registration"><button>Register</button></Link>
+        </li>
       </ul>
     </div>
   );
