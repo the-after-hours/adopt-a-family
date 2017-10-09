@@ -62,6 +62,16 @@ exports[`Landing Landing snapshot 1`] = `
         Click me for about us
       </a>
     </li>
+    <li>
+      <a
+        href="/registration"
+        onClick={[Function]}
+      >
+        <button>
+          Register
+        </button>
+      </a>
+    </li>
   </ul>
 </div>
 `;
