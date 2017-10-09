@@ -3,6 +3,49 @@ import Input from './Input';
 import Select from './Select';
 
 class Form extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleChange = this.handleChange.bind(this);
+    this.validateMatch = this.validateMatch.bind(this);
+    this.validateLength = this.validateLength.bind(this);
+  }
+
+  handleChange(event) {
+    const state = this.state;
+
+    state[event.target.name] = event.target.value;
+
+    this.setState(state);
+
+    if (event.target.name === 'confirmEmail') {
+      this.validateLength(event);
+    }
+  }
+
+  validateMatch(event) {
+    const email = this.state.email;
+    const confirmEmail = this.state.confirmEmail;
+
+    if(email !== confirmEmail) {
+      alert('email does not match');
+    }
+  }
+
+  validateLength(event) {
+    const email = this.state.email;
+    const confirmEmail = this.state.confirmEmail;
+
+    if (email.length !== confirmEmail.length) {
+      // Add a color border(red) to the input box
+      console.log('email length doesnt match');
+    } else {
+      // Add a green border to the input box
+      console.log('length matches');
+    }
+  }
+
   render() {
     return (
       <div>
@@ -53,14 +96,17 @@ class Form extends React.Component {
               placeholder="Email"
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              onChange={this.handleChange}
             /><br />
             <span className="contact-label">
               Confirm Email
             </span>
             <Input
+              name="confirmEmail"
               placeholder="Confirm Email"
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              onChange={this.handleChange}
             /><br />
             <span className="contact-label">
               Password:
@@ -81,7 +127,7 @@ class Form extends React.Component {
               pattern=".{6,}"
               title="Must be at least 6 characters"
             /><br />
-            <button type="submit">SUBMIT</button>
+            <button type="submit" onClick={this.validateMatch}>SUBMIT</button>
           </form>
         </div>
       </div>
