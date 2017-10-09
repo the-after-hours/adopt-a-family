@@ -11,6 +11,7 @@ const Input = (props) => {
       pattern={props.pattern}
       title={props.title}
       name={props.name}
+      onChange={props.onChange}
     />
   );
 };
@@ -19,10 +20,11 @@ Input.propTypes = {
   maxlength: PropTypes.string,
   size: PropTypes.string,
   placeholder: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.string.isRequired,
   pattern: PropTypes.string,
   title: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func
 };
 
 export default Input;
