@@ -2,6 +2,7 @@
 
 exports[`Input Input snapshot 1`] = `
 <input
+  className={undefined}
   maxLength={undefined}
   name={undefined}
   onChange={undefined}
