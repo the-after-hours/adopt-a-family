@@ -43,3 +43,12 @@ body {
   width: 100%;
   bottom: 0;
 }
+
+.emailValid {
+  border-color: green;
+}
+
+.emailInvalid {
+  border-color: red;
+}
+
