@@ -13,15 +13,15 @@ class Form extends React.Component {
   }
 
   handleChange(event) {
-    const state = this.state;
+    let state = Object.assign({}, this.state);
 
     state[event.target.name] = event.target.value;
 
-    this.setState(state);
+    let currentEvent = event.target.name;
+    this.setState(state, () => {
+      currentEvent === 'confirmEmail' && this.validateLength(event);
+    });
 
-    if (event.target.name === 'confirmEmail') {
-      this.validateLength(event);
-    }
   }
 
   validateMatch(event) {
@@ -29,7 +29,8 @@ class Form extends React.Component {
     const confirmEmail = this.state.confirmEmail;
 
     if(email !== confirmEmail) {
-      alert('email does not match');
+      event.preventDefault();
+      alert('email doesn\'t match');
     }
   }
 
@@ -38,15 +39,16 @@ class Form extends React.Component {
     const confirmEmail = this.state.confirmEmail;
 
     if (email.length !== confirmEmail.length) {
-      // Add a color border(red) to the input box
-      console.log('email length doesnt match');
+      // Add an invalidated color to the input box (red)
+      this.setState({emailValidation: false});
     } else {
-      // Add a green border to the input box
-      console.log('length matches');
+      // Add a validated color to the border       (green)
+      this.setState({emailValidation: true});
     }
   }
 
   render() {
+    let isValidated = this.state.emailValidation ? 'emailValid' : 'emailInvalid';
     return (
       <div>
         <div className="contact">
@@ -107,6 +109,7 @@ class Form extends React.Component {
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
               onChange={this.handleChange}
+              className={isValidated}
             /><br />
             <span className="contact-label">
               Password:
