@@ -6,7 +6,7 @@ import Dashboard from './Dashboard';
 import Footer from './Footer';
 import Landing from './Landing';
 import Messaging from './Messaging';
-import Nav from './Nav';
+import Header from './Header';
 import Pairing from './Pairing';
 import Registration from './Registration';
 import SecureOrg from './SecureOrg';
@@ -16,7 +16,7 @@ import WishlistPublic from './WishlistPublic';
 const Main = (props) => {
   return (
     <div>
-      <Nav />
+      <Header />
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/aboutus" component={AboutUs} />
