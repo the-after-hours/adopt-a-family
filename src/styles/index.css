@@ -1,0 +1,129 @@
+body a {
+  color: #000;
+  text-decoration-style: none;
+}
+
+body a:visited {
+  color: #000;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header, header a, header a:visited {
+  background-color: #363F4B;
+  color: #8F959C;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: white;
+  height: 2em;
+  line-height: 1.5rem;
+  padding: 4em 2em;
+  width: auto;
+  text-decoration: none;
+}
+
+header div {
+  display: inline;
+}
+
+.headerText {
+  float: left;
+  text-decoration: none;
+}
+
+.headerLinks {
+  float: right;
+
+}
+
+.headerMission {
+  border-color: red;
+  padding: 1.3em;
+}
+
+.headerFamily {
+  padding: 1.3em;
+}
+
+.headerAbout a {
+  padding: 1.3em;
+}
+
+.headerDonate {
+  padding: 1.3em;
+}
+
+.buttonLogin {
+  background-color: red;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+footer {
+  background-color: #363F4B;
+  color: #8F959C;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .75rem;
+  height: 2em;
+  line-height: 1.5rem;
+  padding: 4em 2em;
+  width: auto;
+}
+
+footer a {
+  color: #8F959C;
+}
+
+footer a:visited {
+  color: #8F959C;
+}
+
+footer a:active {
+  color: #8F959C;
+}
+
+footer div {
+  display: inline;
+}
+
+.fa {
+  color: white;
+}
+
+.footerText {
+  float: left;
+}
+
+.footerText div {
+  display: inline;
+  padding: 0 1.3em;
+}
+
+.footerText a {
+  text-decoration: none;
+}
+
+.footerText a:visited {
+  text-decoration: none;
+}
+
+.footerIcons {
+  float: right;
+  padding-right: 10%;
+}
+
+.footerIcons a {
+  display: inline;
+  padding: 0 1.3em;
+  ;
+}
+
+.emailValid {
+  border-color: green;
+}
+
+.emailInvalid {
+  border-color: red;
+}
