@@ -1,19 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer Footer snapshot 1`] = `
-<footer
-  className="footer"
-  id="footer"
->
+<footer>
   <div
     className="footerText"
   >
     <div
       className="footerCopyright"
     >
-      © 
-      2017
-       Adopt A Family
+      © 2017 Adopt A Family
     </div>
     <div
       className="footerSpacer"
