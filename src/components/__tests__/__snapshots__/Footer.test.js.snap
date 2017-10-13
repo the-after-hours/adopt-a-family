@@ -2,53 +2,75 @@
 
 exports[`Footer Footer snapshot 1`] = `
 <footer
+  className="footer"
   id="footer"
 >
   <div
-    className="block-center"
+    className="footerText"
   >
     <div
-      className="social-icon-group"
+      className="footerCopyright"
     >
-      <table>
-        <tr>
-          <td>
-            <a
-              className="social-icon"
-              href="https://github.com/5-gwoap"
-            >
-              <i
-                className="fa fa-github fa-2x"
-              />
-            </a>
-          </td>
-          <td>
-            <a
-              className="social-icon"
-              href="mailto:5gwoap@gmail.com"
-            >
-              <i
-                className="fa fa-envelope fa-2x"
-              />
-            </a>
-          </td>
-        </tr>
-      </table>
+      © 
+      2017
+       Adopt A Family
+    </div>
+    <div
+      className="footerSpacer"
+    >
+       | 
+    </div>
+    <div
+      className="footerPrivacy"
+    >
+      <a
+        href="http://www.theuselessweb.com/"
+        target="_blank"
+      >
+        Privacy Policy
+      </a>
+    </div>
+    <div
+      className="footerContact"
+    >
+      <a
+        href="http://www.theuselessweb.com/"
+        target="_blank"
+      >
+        Contact Us
+      </a>
     </div>
   </div>
   <div
-    className="block-center"
+    className="footerIcons"
   >
-    <div
-      className="footer-text"
+    <a
+      className="social-icon"
+      href="https://github.com/5-gwoap/adopt-a-family"
+      target="_blank"
     >
-      Code written under 
-      <a
-        href="https://opensource.org/licenses/mit-license.html"
-      >
-        MIT license
-      </a>
-    </div>
+      <i
+        className="fa fa-github fa-2x"
+      />
+    </a>
+    <a
+      className="social-icon"
+      href="mailto:5gwoap@gmail.com"
+      target="_blank"
+    >
+      <i
+        className="fa fa-envelope fa-2x"
+      />
+    </a>
+    <a
+      className="social-icon"
+      href="https://github.com/5-gwoap"
+      target="_blank"
+    >
+      <i
+        className=" fa fa-user-circle fa-2x"
+      />
+    </a>
   </div>
 </footer>
 `;
