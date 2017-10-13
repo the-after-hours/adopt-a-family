@@ -11,7 +11,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.footer {
+footer {
   background-color: #363F4B;
   color: #8F959C;
   font-family: 'Open Sans', sans-serif;
@@ -22,19 +22,19 @@ body {
   width: auto;
 }
 
-.footer a {
+footer a {
   color: #8F959C;
 }
 
-.footer a:visited {
+footer a:visited {
   color: #8F959C;
 }
 
-.footer a:active {
+footer a:active {
   color: #8F959C;
 }
 
-.footer div {
+footer div {
   display: inline;
 }
 
