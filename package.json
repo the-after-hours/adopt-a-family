@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/5-gwoap/adopt-a-family/issues"
   },
-  "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
+  "homepage": "https://test-aaf.herokuapp.com/",
   "dependencies": {
     "express": "^4.16.1",
     "material-ui": "^0.19.3",
