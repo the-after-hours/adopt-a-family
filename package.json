@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/5-gwoap/adopt-a-family/issues"
   },
-  "homepage": "https://github.com/5-gwoap/adopt-a-family#readme",
+  "homepage": "https://test-aaf.herokuapp.com/",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "express": "^4.16.1",
