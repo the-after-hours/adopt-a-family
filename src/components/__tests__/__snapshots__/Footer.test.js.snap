@@ -20,6 +20,7 @@ exports[`Footer Footer snapshot 1`] = `
     >
       <a
         href="http://www.theuselessweb.com/"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Privacy Policy
@@ -30,6 +31,7 @@ exports[`Footer Footer snapshot 1`] = `
     >
       <a
         href="http://www.theuselessweb.com/"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Contact Us
@@ -42,6 +44,7 @@ exports[`Footer Footer snapshot 1`] = `
     <a
       className="social-icon"
       href="https://github.com/5-gwoap/adopt-a-family"
+      rel="noopener noreferrer"
       target="_blank"
     >
       <i
@@ -51,6 +54,7 @@ exports[`Footer Footer snapshot 1`] = `
     <a
       className="social-icon"
       href="mailto:5gwoap@gmail.com"
+      rel="noopener noreferrer"
       target="_blank"
     >
       <i
@@ -60,6 +64,7 @@ exports[`Footer Footer snapshot 1`] = `
     <a
       className="social-icon"
       href="https://github.com/5-gwoap"
+      rel="noopener noreferrer"
       target="_blank"
     >
       <i
