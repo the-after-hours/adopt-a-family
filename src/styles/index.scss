@@ -1,13 +1,13 @@
-body{
+body {
   font-family: 'Roboto', sans-serif;
 
   a {
     color: #000;
     text-decoration-style: dotted;
-  }
 
-  a:visited {
-    color: #000;
+    &:visited {
+      color: #000;
+    }
   }
 }
 
@@ -21,8 +21,12 @@ footer {
   padding: 4em 2em;
   width: auto;
 
-  a, a:visited, a:active {
-    color: #8F959C;
+  a {
+    &,
+    &:visited,
+    &:active {
+      color: #8F959C;
+    }
   }
 
   div {
@@ -31,10 +35,10 @@ footer {
 }
 
 .fa {
-  color: white;
+  color: #FFF;
 }
 
-.footerText {
+.footer-text {
   float: left;
 
   div {
@@ -47,7 +51,7 @@ footer {
   }
 }
 
-.footerIcons {
+.footer-icons {
   float: right;
   padding-right: 10%;
 
@@ -57,10 +61,10 @@ footer {
   }
 }
 
-.emailValid {
-  border-color: green;
+.email-valid {
+  border-color: #0F0;
 }
 
-.emailInvalid {
-  border-color: red;
+.email-invalid {
+  border-color: #F00;
 }
