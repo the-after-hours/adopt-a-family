@@ -4,8 +4,8 @@
   "description": "basic routes",
   "main": "app.js",
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/build",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/build/ --watch --recursive",
+    "build-css": "node-sass-chokidar src/ -o src/devBuild",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/devBuild/ --watch --recursive",
     "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
     "server": "nodemon server/app.js",
     "build": "react-scripts build",

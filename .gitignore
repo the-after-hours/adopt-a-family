@@ -59,7 +59,7 @@ typings/
 
 build
 
-src/build
+src/devBuild
 
 # Ignore css build files
 src/**/*.css
