@@ -1,0 +1,66 @@
+body{
+  font-family: 'Roboto', sans-serif;
+
+  a {
+    color: #000;
+    text-decoration-style: dotted;
+  }
+
+  a:visited {
+    color: #000;
+  }
+}
+
+footer {
+  background-color: #363F4B;
+  color: #8F959C;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .75rem;
+  height: 2em;
+  line-height: 1.5rem;
+  padding: 4em 2em;
+  width: auto;
+
+  a, a:visited, a:active {
+    color: #8F959C;
+  }
+
+  div {
+    display: inline;
+  }
+}
+
+.fa {
+  color: white;
+}
+
+.footerText {
+  float: left;
+
+  div {
+    display: inline;
+    padding: 0 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.footerIcons {
+  float: right;
+  padding-right: 10%;
+
+  a {
+    display: inline;
+    padding: 0 15px;
+  }
+}
+
+.emailValid {
+  border-color: green;
+}
+
+.emailInvalid {
+  border-color: red;
+}
