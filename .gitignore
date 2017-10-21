@@ -58,3 +58,8 @@ typings/
 .env
 
 build
+
+src/devBuild
+
+# Ignore css build files
+src/**/*.css
