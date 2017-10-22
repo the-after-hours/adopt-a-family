@@ -4,12 +4,13 @@
   "description": "basic routes",
   "main": "app.js",
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/devBuild",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/devBuild/ --watch --recursive",
-    "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
-    "server": "nodemon server/app.js",
     "build": "react-scripts build",
-    "test": "eslint ./ && sass-lint -c .sass-lint.yml && react-scripts test --env=jsdom"
+    "build-css": "node-sass-chokidar src/ -o src/devBuild",
+    "sass-lint": "sass-lint ./src --config .sass-lint.yml 'src/**/*.scss' --verbose --ignore 'node_modules/**/*'",
+    "server": "nodemon server/app.js",
+    "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
+    "test": "eslint ./ && react-scripts test --env=jsdom",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/devBuild/ --watch --recursive"
   },
   "repository": {
     "type": "git",
