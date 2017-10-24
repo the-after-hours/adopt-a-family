@@ -9,7 +9,7 @@
     "sass-lint": "sass-lint ./src --config .sass-lint.yml 'src/**/*.scss' --verbose --ignore 'node_modules/**/*'",
     "server": "nodemon server/app.js",
     "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
-    "test": "eslint ./ && react-scripts test --env=jsdom",
+    "test": "eslint ./ && npm run sass-lint && react-scripts test --env=jsdom",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/devBuild/ --watch --recursive"
   },
   "repository": {
