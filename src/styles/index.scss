@@ -1,4 +1,4 @@
-@import './shared';
+@import './constants/shared';
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -10,6 +10,17 @@ body {
     &:visited {
       color: #000;
     }
+  }
+}
+
+header {
+  div {
+    display: inline;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
   }
 }
 
