@@ -1,10 +1,11 @@
 @import './constants/shared';
 
 body {
+  background-image: url('../../assets/pexels-photo-377058.jpeg');
+  background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
 
   a {
-    color: #000;
     text-decoration-style: dotted;
 
     &:visited {
@@ -13,14 +14,55 @@ body {
   }
 }
 
+.header-container {
+  padding: 1em;
+  width: 100%;
+}
+
 header {
-  div {
-    display: inline;
-  }
+  font-size: 1.5rem;
+  height: 8em;
+  width: 100%;
 
   a {
-    color: #000;
-    text-decoration: none;
+    &,
+    &:visited,
+    &:active {
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+
+  div {
+    color: #FFF;
+    display: inline;
+    padding-right: 1em;
+  }
+
+  .header-text {
+    float: left;
+    margin: 2em;
+  }
+
+  .header-links-group {
+    float: right;
+    height: auto;
+    margin: 1.5em;
+
+    .header-links {
+      margin: 1em;
+    }
+  }
+
+  .btn-registration {
+    background-color: $btn-bg;
+    border-radius: .5em;
+    border-width: 0;
+    color: #FFF;
+    font-size: 1rem;
+    height: auto;
+    margin: 0 2em;
+    padding: 1em;
   }
 }
 
