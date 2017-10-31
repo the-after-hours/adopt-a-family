@@ -3,34 +3,36 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
   local: {
-    username: String,
-    email: String,
-    password: String
+    username: {
+      type: String,
+      required: true,
+      index: { unique: true }
+    },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    phone: String
   }
 });
 
-// Generating a hash
-userSchema.methods.generateHash = password => {
-  return bcrypt.hash(password, saltRounds, function (err, hash) {
-    if (err) {
-      console.log('There was an error: ', err);
-    } else {
-      return hash;
-    }
+// Hash password before saving
+userSchema.pre('save', (next) => {
+  bcrypt.hash(this.password, saltRounds, (err, hash) => {
+    if (err) return next(err);
+    this.password = hash;
+    next();
+  });
+});
+
+// Compare entered password with the hash stored in User
+userSchema.methods.comparePassword = (password, cb) => {
+  return bcrypt.compare(password, this.local.password, (err, isMatch) => {
+    if (err) return cb(err);
+    cb(null, isMatch);
   });
 };
 
-// Compare entered password with the hash stored in User
-userSchema.methods.validPassword = password => {
-  return bcrypt.compare(password, this.local.password, (err, res) => {
-    if (err) {
-      console.log('There was an error: ', err);
-    } else {
-      return res;
-    }
-  });
-};
+// TODO: Logout
 
 module.exports = mongoose.model('User', userSchema);
