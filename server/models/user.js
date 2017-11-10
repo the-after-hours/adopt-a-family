@@ -8,16 +8,16 @@ const userSchema = new mongoose.Schema({
     username: {
       type: String,
       required: true,
-      index: { unique: true }
+      index: { unique: true },
     },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    phone: String
-  }
+    phone: String,
+  },
 });
 
 // Hash password before saving
-userSchema.pre('save', (next) => {
+userSchema.pre('save', next => {
   bcrypt.hash(this.password, saltRounds, (err, hash) => {
     if (err) return next(err);
     this.password = hash;
