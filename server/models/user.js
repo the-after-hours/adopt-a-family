@@ -1,18 +1,37 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   local: {
     username: {
       type: String,
       required: true,
       index: { unique: true },
     },
+    name: {
+      type: Schema.Types.ObjectId,
+      ref: 'Name',
+      required: true,
+    },
     email: { type: String, required: true },
     password: { type: String, required: true },
     phone: String,
+    // Check below fields, if present, user is of that type
+    _donor: {
+      type: Schema.Types.ObjectId,
+      ref: 'Donor',
+    },
+    _family: {
+      type: Schema.Types.ObjectId,
+      ref: 'Family',
+    },
+    _organizer: {
+      type: Schema.Types.ObjectId,
+      ref: 'Organizer',
+    },
   },
 });
 
@@ -35,4 +54,6 @@ userSchema.methods.comparePassword = (password, cb) => {
 
 // TODO: Logout
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
