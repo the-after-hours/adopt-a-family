@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Main Main snapshot 1`] = `
-<div>
+<div
+  className="header-container"
+>
   <div
-    className="header-text"
+    className="col-3 header-group header-text"
   >
     <Link
       replace={false}
@@ -13,41 +15,45 @@ exports[`Main Main snapshot 1`] = `
     </Link>
   </div>
   <div
-    className="header-links"
+    className="col-8 header-group header-links-group"
   >
-    <div
-      className="header-mission"
+    <Link
+      className="header-links"
+      replace={false}
+      to="/mission"
     >
       Mission
-    </div>
-    <div
-      className="header-family"
+    </Link>
+    <Link
+      className="header-links"
+      replace={false}
+      to="/families"
     >
       Our Families
-    </div>
-    <div
-      className="header-about"
+    </Link>
+    <Link
+      className="header-links"
+      replace={false}
+      to="/aboutus"
     >
-      <Link
-        replace={false}
-        to="/aboutus"
-      >
-        About us
-      </Link>
-    </div>
-    <div
-      className="header-donate"
+      About us
+    </Link>
+    <Link
+      className="header-links"
+      replace={false}
+      to="/donate"
     >
       Donate
-    </div>
+    </Link>
     <Link
+      className="header-links"
       replace={false}
       to="/registration"
     >
       <button
-        className="button-login"
+        className="btn-registration"
       >
-        ADOPT A FAMILY
+        Adopt A Family
       </button>
     </Link>
   </div>
