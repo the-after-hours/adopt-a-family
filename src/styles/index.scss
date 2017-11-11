@@ -1,8 +1,11 @@
 @import './constants/shared';
 
 body {
+  background-attachment: fixed;
   background-image: url('../../assets/pexels-photo-377058.jpeg');
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Roboto', sans-serif;
 
   a {
@@ -14,14 +17,31 @@ body {
   }
 }
 
-.header-container {
-  padding: 1em;
-  width: 100%;
+// For desktop:
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  // For mobile phones:
+  [class*='col-'] {
+    width: 100%;
+  }
 }
 
 header {
-  font-size: 1.5rem;
-  height: 8em;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: bold;
   width: 100%;
 
   a {
@@ -33,37 +53,58 @@ header {
     }
   }
 
-  div {
-    color: #FFF;
-    display: inline;
-    padding-right: 1em;
+  .header-container {
+    font-size: 1em;
+    height: auto;
+    padding: 1em;
+    width: 100%;
+  }
+
+  .header-group {
+    height: $bar-height;
+    margin: auto;
   }
 
   .header-text {
+    align-items: center;
+    display: flex;
     float: left;
-    margin: 2em;
+    height: $bar-height;
+    justify-content: center;
+    max-width: 9em;
+
+    & > a {
+      font-size: 1.2rem;
+      font-weight: bold;
+      line-height: 1.5rem;
+    }
+
   }
 
   .header-links-group {
     float: right;
-    height: auto;
-    margin: 1.5em;
+    height: $bar-height;
+    width: auto;
 
     .header-links {
-      margin: 1em;
+      display: inline-flex;
+      line-height: 1.5rem;
+      margin: 0 1em;
+    }
+
+    .btn-registration {
+      background-color: $btn-bg;
+      border-radius: .5em;
+      border-width: 0;
+      color: #FFF;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      height: $bar-height;
+      padding: 1em 1.5em;
     }
   }
 
-  .btn-registration {
-    background-color: $btn-bg;
-    border-radius: .5em;
-    border-width: 0;
-    color: #FFF;
-    font-size: 1rem;
-    height: auto;
-    margin: 0 2em;
-    padding: 1em;
-  }
 }
 
 footer {
