@@ -16,7 +16,7 @@ exports[`Footer Footer snapshot 1`] = `
        | 
     </div>
     <div
-      className="footer-item footer-item"
+      className="footer-item"
     >
       <a
         href="http://www.theuselessweb.com/"
