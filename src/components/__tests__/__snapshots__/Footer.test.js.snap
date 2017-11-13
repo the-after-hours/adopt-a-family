@@ -3,20 +3,20 @@
 exports[`Footer Footer snapshot 1`] = `
 <footer>
   <div
-    className="footerText"
+    className="footer-text"
   >
     <div
-      className="footerCopyright"
+      className="footer-item footer-copyright"
     >
       © 2017 Adopt A Family
     </div>
     <div
-      className="footerSpacer"
+      className="footer-item footer-spacer"
     >
        | 
     </div>
     <div
-      className="footerPrivacy"
+      className="footer-item footer-item"
     >
       <a
         href="http://www.theuselessweb.com/"
@@ -27,7 +27,7 @@ exports[`Footer Footer snapshot 1`] = `
       </a>
     </div>
     <div
-      className="footerContact"
+      className="footer-item"
     >
       <a
         href="http://www.theuselessweb.com/"
@@ -39,10 +39,10 @@ exports[`Footer Footer snapshot 1`] = `
     </div>
   </div>
   <div
-    className="footerIcons"
+    className="footer-icons"
   >
     <a
-      className="social-icon"
+      className="social-icon footer-item"
       href="https://github.com/5-gwoap/adopt-a-family"
       rel="noopener noreferrer"
       target="_blank"
@@ -52,7 +52,7 @@ exports[`Footer Footer snapshot 1`] = `
       />
     </a>
     <a
-      className="social-icon"
+      className="social-icon footer-item"
       href="mailto:5gwoap@gmail.com"
       rel="noopener noreferrer"
       target="_blank"
@@ -62,7 +62,7 @@ exports[`Footer Footer snapshot 1`] = `
       />
     </a>
     <a
-      className="social-icon"
+      className="social-icon footer-item"
       href="https://github.com/5-gwoap"
       rel="noopener noreferrer"
       target="_blank"
