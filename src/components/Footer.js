@@ -7,7 +7,7 @@ const Footer = (props) => {
       <div className="footer-text">
         <div className="footer-item footer-copyright">&copy; 2017 Adopt A Family</div>
         <div className="footer-item footer-spacer"> | </div>
-        <div className="footer-item footer-item">
+        <div className="footer-item">
           <a href={links.placeholder} rel="noopener noreferrer" target="_blank">Privacy Policy</a>
         </div>
         <div className="footer-item">
