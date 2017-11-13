@@ -21,46 +21,48 @@ exports[`Messaging Messaging snapshot 1`] = `
     </span>
   </p>
   <table>
-    <tr>
-      <th>
-        From
-      </th>
-      <th>
-        Date
-      </th>
-    </tr>
-    <tr>
-      <td>
-        John Doe
-      </td>
-      <td>
-        Today
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Jane Doe
-      </td>
-      <td>
-        Yesterday
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Maggie Smith
-      </td>
-      <td>
-        2 Days Ago
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Will Billiam
-      </td>
-      <td>
-        9/25/17
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <th>
+          From
+        </th>
+        <th>
+          Date
+        </th>
+      </tr>
+      <tr>
+        <td>
+          John Doe
+        </td>
+        <td>
+          Today
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Jane Doe
+        </td>
+        <td>
+          Yesterday
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Maggie Smith
+        </td>
+        <td>
+          2 Days Ago
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Will Billiam
+        </td>
+        <td>
+          9/25/17
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
 `;
