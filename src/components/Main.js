@@ -13,25 +13,23 @@ import SecureOrg from './SecureOrg';
 import WishlistPrivate from './WishlistPrivate';
 import WishlistPublic from './WishlistPublic';
 
-const Main = (props) => {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route path="/aboutus" component={AboutUs} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/secure/messaging" component={Messaging} /> {/* Secure */}
-        <Route path="/secure/org" component={SecureOrg} /> {/* Secure */}
-        <Route path="/secure/pairing" component={Pairing} /> {/* Secure */}
-        <Route path="/secure/wishlist" component={WishlistPrivate} /> {/* Secure */}
-        <Route path="/registration" component={Registration} />
-        <Route path="/wishlist" component={WishlistPublic} />
-      </Switch>
+const Main = (props) => (
+  <div>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route path="/aboutus" component={AboutUs} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/secure/messaging" component={Messaging} /> {/* Secure */}
+      <Route path="/secure/org" component={SecureOrg} /> {/* Secure */}
+      <Route path="/secure/pairing" component={Pairing} /> {/* Secure */}
+      <Route path="/secure/wishlist" component={WishlistPrivate} /> {/* Secure */}
+      <Route path="/registration" component={Registration} />
+      <Route path="/wishlist" component={WishlistPublic} />
+    </Switch>
 
-      <Footer />
-    </div>
-  );
-};
+    <Footer />
+  </div>
+);
 
 export default Main;
