@@ -1,16 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Select = (props) => (
-  <select name={props.name}>
-    <option value="donator">Donator</option>
-    <option value="family">Family</option>
-    <option value="organizer">Organizer</option>
-  </select>
-);
+import options from '../constants/options';
+
+const Select = props => {
+  const dropdownItems = options[props.menuType].map(optionItem => {
+    return (
+      <option key={optionItem.toLowerCase()} value={optionItem.toLowerCase()}>
+        {optionItem}
+      </option>
+    );
+  });
+
+  return (
+    <select form={props.form} name={props.menuType}>
+      {dropdownItems}
+    </select>
+  );
+};
 
 Select.propTypes = {
-  name: PropTypes.string
+  form: PropTypes.string,
+  menuType: PropTypes.string,
+  optionItem: PropTypes.string
 };
 
 export default Select;
