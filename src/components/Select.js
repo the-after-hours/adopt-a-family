@@ -3,29 +3,26 @@ import PropTypes from 'prop-types';
 
 import options from '../constants/options';
 
-const Select = (props) => {
-  const {menuType} = props;
+const Select = props => {
+  const dropdownItems = options[props.menuType].map(optionItem => {
+    return (
+      <option key={optionItem.toLowerCase()} value={optionItem.toLowerCase()}>
+        {optionItem}
+      </option>
+    );
+  });
 
-  const dropdownItems = options[menuType].map(
-    (optionItem) => {
-      return (
-        <option
-          key={optionItem}
-          name={optionItem}
-          value={optionItem}
-        >
-          {optionItem}
-        </option>
-      );
-    }
+  return (
+    <select form={props.form} name={props.menuType}>
+      {dropdownItems}
+    </select>
   );
-
-  return <select>{ dropdownItems }</select>;
 };
 
 Select.propTypes = {
-  optionItem: PropTypes.string,
-  menuType: PropTypes.string.isRequired
+  form: PropTypes.string,
+  menuType: PropTypes.string,
+  optionItem: PropTypes.string
 };
 
 export default Select;

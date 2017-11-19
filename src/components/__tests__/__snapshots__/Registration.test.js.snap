@@ -6,7 +6,9 @@ exports[`Registration Registration snapshot 1`] = `
     <div
       className="contact"
     >
-      <form>
+      <form
+        id="registration"
+      >
         <div
           className="form-item"
         >
@@ -115,304 +117,257 @@ exports[`Registration Registration snapshot 1`] = `
           >
             State
           </span>
-          <select>
+          <select
+            form="registration"
+            name="states"
+          >
             <option
-              name="AK"
-              value="AK"
+              value="ak"
             >
               AK
             </option>
             <option
-              name="AL"
-              value="AL"
+              value="al"
             >
               AL
             </option>
             <option
-              name="AZ"
-              value="AZ"
+              value="az"
             >
               AZ
             </option>
             <option
-              name="AR"
-              value="AR"
+              value="ar"
             >
               AR
             </option>
             <option
-              name="CA"
-              value="CA"
+              value="ca"
             >
               CA
             </option>
             <option
-              name="CO"
-              value="CO"
+              value="co"
             >
               CO
             </option>
             <option
-              name="CT"
-              value="CT"
+              value="ct"
             >
               CT
             </option>
             <option
-              name="DE"
-              value="DE"
+              value="de"
             >
               DE
             </option>
             <option
-              name="FL"
-              value="FL"
+              value="fl"
             >
               FL
             </option>
             <option
-              name="GA"
-              value="GA"
+              value="ga"
             >
               GA
             </option>
             <option
-              name="HI"
-              value="HI"
+              value="hi"
             >
               HI
             </option>
             <option
-              name="ID"
-              value="ID"
+              value="id"
             >
               ID
             </option>
             <option
-              name="IL"
-              value="IL"
+              value="il"
             >
               IL
             </option>
             <option
-              name="IN"
-              value="IN"
+              value="in"
             >
               IN
             </option>
             <option
-              name="IA"
-              value="IA"
+              value="ia"
             >
               IA
             </option>
             <option
-              name="KS"
-              value="KS"
+              value="ks"
             >
               KS
             </option>
             <option
-              name="KY"
-              value="KY"
+              value="ky"
             >
               KY
             </option>
             <option
-              name="LA"
-              value="LA"
+              value="la"
             >
               LA
             </option>
             <option
-              name="ME"
-              value="ME"
+              value="me"
             >
               ME
             </option>
             <option
-              name="MD"
-              value="MD"
+              value="md"
             >
               MD
             </option>
             <option
-              name="MA"
-              value="MA"
+              value="ma"
             >
               MA
             </option>
             <option
-              name="MI"
-              value="MI"
+              value="mi"
             >
               MI
             </option>
             <option
-              name="MN"
-              value="MN"
+              value="mn"
             >
               MN
             </option>
             <option
-              name="MS"
-              value="MS"
+              value="ms"
             >
               MS
             </option>
             <option
-              name="MO"
-              value="MO"
+              value="mo"
             >
               MO
             </option>
             <option
-              name="MT"
-              value="MT"
+              value="mt"
             >
               MT
             </option>
             <option
-              name="NE"
-              value="NE"
+              value="ne"
             >
               NE
             </option>
             <option
-              name="NV"
-              value="NV"
+              value="nv"
             >
               NV
             </option>
             <option
-              name="NH"
-              value="NH"
+              value="nh"
             >
               NH
             </option>
             <option
-              name="NJ"
-              value="NJ"
+              value="nj"
             >
               NJ
             </option>
             <option
-              name="NM"
-              value="NM"
+              value="nm"
             >
               NM
             </option>
             <option
-              name="NY"
-              value="NY"
+              value="ny"
             >
               NY
             </option>
             <option
-              name="NC"
-              value="NC"
+              value="nc"
             >
               NC
             </option>
             <option
-              name="ND"
-              value="ND"
+              value="nd"
             >
               ND
             </option>
             <option
-              name="OH"
-              value="OH"
+              value="oh"
             >
               OH
             </option>
             <option
-              name="OK"
-              value="OK"
+              value="ok"
             >
               OK
             </option>
             <option
-              name="OR"
-              value="OR"
+              value="or"
             >
               OR
             </option>
             <option
-              name="PA"
-              value="PA"
+              value="pa"
             >
               PA
             </option>
             <option
-              name="RI"
-              value="RI"
+              value="ri"
             >
               RI
             </option>
             <option
-              name="SC"
-              value="SC"
+              value="sc"
             >
               SC
             </option>
             <option
-              name="SD"
-              value="SD"
+              value="sd"
             >
               SD
             </option>
             <option
-              name="TN"
-              value="TN"
+              value="tn"
             >
               TN
             </option>
             <option
-              name="TX"
-              value="TX"
+              value="tx"
             >
               TX
             </option>
             <option
-              name="UT"
-              value="UT"
+              value="ut"
             >
               UT
             </option>
             <option
-              name="VT"
-              value="VT"
+              value="vt"
             >
               VT
             </option>
             <option
-              name="VA"
-              value="VA"
+              value="va"
             >
               VA
             </option>
             <option
-              name="WA"
-              value="WA"
+              value="wa"
             >
               WA
             </option>
             <option
-              name="WV"
-              value="WV"
+              value="wv"
             >
               WV
             </option>
             <option
-              name="WI"
-              value="WI"
+              value="wi"
             >
               WI
             </option>
             <option
-              name="WY"
-              value="WY"
+              value="wy"
             >
               WY
             </option>
@@ -426,22 +381,22 @@ exports[`Registration Registration snapshot 1`] = `
           >
             Account Type
           </span>
-          <select>
+          <select
+            form="registration"
+            name="accountTypes"
+          >
             <option
-              name="Donator"
-              value="Donator"
+              value="donator"
             >
               Donator
             </option>
             <option
-              name="Family"
-              value="Family"
+              value="family"
             >
               Family
             </option>
             <option
-              name="Organizer"
-              value="Organizer"
+              value="organizer"
             >
               Organizer
             </option>

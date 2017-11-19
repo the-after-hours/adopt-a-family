@@ -52,7 +52,7 @@ class Form extends React.Component {
     return (
       <div>
         <div className="contact">
-          <form>
+          <form id="registration">
             <div className="form-item">
               <span className="contact-label">First Name</span>
               <Input
@@ -96,12 +96,12 @@ class Form extends React.Component {
 
             <div className="form-item">
               <span className="contact-label">State</span>
-              <Select menuType="states" name="states"/>
+              <Select form="registration" menuType="states" name="states"/>
             </div>
 
             <div className="form-item">
               <span className="contact-label">Account Type</span>
-              <Select menuType="accountTypes" name="accountTypes"/>
+              <Select form="registration" menuType="accountTypes" name="accountTypes"/>
             </div>
 
             <div className="form-item">

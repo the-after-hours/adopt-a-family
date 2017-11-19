@@ -1,3 +1,5 @@
+// Select dropdown options should return an array of options.
+
 module.exports = {
   states: [
     'AK',
