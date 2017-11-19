@@ -96,12 +96,12 @@ class Form extends React.Component {
 
             <div className="form-item">
               <span className="contact-label">State</span>
-              <Select menuType="states" name="accountType"/>
+              <Select menuType="states" name="states"/>
             </div>
 
             <div className="form-item">
               <span className="contact-label">Account Type</span>
-              <Select name="accountType"/>
+              <Select menuType="accountTypes" name="accountTypes"/>
             </div>
 
             <div className="form-item">

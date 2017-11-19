@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 describe('Select', () => {
   test('Select snapshot', () => {
-    const component = renderer.create(<Select />);
+    const component = renderer.create(<Select menuType="states"/>);
     const tree = component.toJSON();
 
     expect(tree).toMatchSnapshot();
