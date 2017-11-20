@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Input = (props) => (
   <input
-    maxLength={props.maxlength}
+    maxLength={props.maxLength}
     size={props.size}
     placeholder={props.placeholder}
     type={props.type}
@@ -16,8 +16,8 @@ const Input = (props) => (
 );
 
 Input.propTypes = {
-  maxlength: PropTypes.string,
-  size: PropTypes.string,
+  maxLength: PropTypes.number,
+  size: PropTypes.number,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   pattern: PropTypes.string,
