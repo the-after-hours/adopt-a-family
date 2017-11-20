@@ -39,7 +39,7 @@ exports[`Registration Registration snapshot 1`] = `
           </span>
           <input
             className={undefined}
-            maxLength="1"
+            maxLength={1}
             name="middleInitial"
             onChange={undefined}
             pattern={undefined}

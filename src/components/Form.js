@@ -65,7 +65,7 @@ class Form extends React.Component {
               <span className="contact-label">Middle Initial</span>
               <Input
                 name="middleInitial"
-                maxlength="1"
+                maxLength={1}
                 type="text"
               />
             </div>
