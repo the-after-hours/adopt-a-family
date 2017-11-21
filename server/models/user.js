@@ -45,7 +45,7 @@ userSchema.pre('save', next => {
 });
 
 // Compare entered password with the hash stored in User
-userSchema.methods.comparePassword = (password, cb) => {
+userSchema.methods.comparePassword = function(password, cb) {
   return bcrypt.compare(password, this.local.password, (err, isMatch) => {
     if (err) return cb(err);
     cb(null, isMatch);
