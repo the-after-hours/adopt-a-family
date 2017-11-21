@@ -12,7 +12,7 @@ const donorSchema = new Schema({
   },
   matchedFamily: {
     type: Schema.Types.ObjectId,
-    ref: 'Event',
+    ref: 'Family',
   },
 });
 
