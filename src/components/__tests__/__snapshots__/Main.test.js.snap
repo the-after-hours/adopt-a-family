@@ -2,7 +2,7 @@
 
 exports[`Main Main snapshot 1`] = `
 <div>
-  <Nav />
+  <Header />
   <Switch>
     <Route
       component={[Function]}
