@@ -2,15 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from  'react-router-dom';
 import App from './components/App';
-import './styles/index.css';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import customTheme from './theme';
+import './devBuild/styles/index.css';
 
 ReactDOM.render(
   <Router>
-    <MuiThemeProvider muiTheme={customTheme}>
-      <App />
-    </MuiThemeProvider>
+    <App />
   </Router>,
   document.getElementById('root')
 );

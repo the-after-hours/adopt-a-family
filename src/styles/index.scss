@@ -1,0 +1,164 @@
+@import './constants/shared';
+
+body {
+  background-attachment: fixed;
+  background-image: url('../../assets/AAF-BG.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+
+  a {
+    text-decoration-style: dotted;
+
+    &:visited {
+      color: #000;
+    }
+  }
+}
+
+// For desktop:
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  // For mobile phones:
+  [class*='col-'] {
+    width: 100%;
+  }
+}
+
+header {
+  background-color: transparent;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: $header-font-weight;
+  left: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 100%;
+
+  a {
+    &,
+    &:visited,
+    &:active {
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+
+  .header-container {
+    font-size: 1em;
+    height: auto;
+    padding: 1em;
+    width: 100%;
+  }
+
+  .header-group {
+    height: $bar-height;
+    margin: auto;
+  }
+
+  .header-text {
+    align-items: center;
+    display: flex;
+    float: left;
+    height: $bar-height;
+    justify-content: center;
+    max-width: 9em;
+
+    & > a {
+      font-size: 1.2rem;
+      font-weight: $header-font-weight;
+      line-height: 1.5rem;
+    }
+
+  }
+
+  .header-links-group {
+    float: right;
+    height: $bar-height;
+    width: auto;
+
+    .header-links {
+      display: inline-flex;
+      line-height: 1.5rem;
+      margin: 0 1em;
+    }
+
+    .btn-registration {
+      background-color: $btn-bg;
+      border-radius: .5em;
+      border-width: 0;
+      color: #FFF;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: $header-font-weight;
+      height: $bar-height;
+      padding: 1em 1.5em;
+    }
+  }
+
+}
+
+footer {
+  background-color: $bar-bg;
+  bottom: 0;
+  color: $secondary-text;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .75rem;
+  height: 2em;
+  left: 0;
+  max-width: 100%;
+  padding: $bar-height 1em;
+  position: relative;
+  right: 0;
+
+  a {
+    &,
+    &:visited,
+    &:active {
+      color: $secondary-text;
+      text-decoration: none;
+    }
+  }
+
+  .fa {
+    color: $social-icon-color;
+    margin-right: 1em;
+  }
+
+  .footer-icons {
+    float: right;
+  }
+
+  .footer-text {
+    float: left;
+    line-height: 1.5rem;
+
+    .footer-item {
+      display: inline-flex;
+      margin: 0 1em;
+    }
+  }
+}
+
+.email-valid {
+  border-color: #0F0;
+}
+
+.email-invalid {
+  border-color: #F00;
+}
