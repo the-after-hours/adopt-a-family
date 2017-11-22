@@ -56,3 +56,8 @@ typings/
 
 # dotenv environment variables file
 .env
+
+src/devBuild
+
+# Ignore css build files
+src/**/*.css
