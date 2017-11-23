@@ -1,0 +1,8 @@
+@import './constants/shared';
+
+.select-wrapper {
+  & select {
+    appearance: none;
+  }
+
+}

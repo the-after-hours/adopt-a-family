@@ -53,7 +53,7 @@ module.exports = {
     'WI',
     'WY'
   ],
-  accountTypes: [
+  accountType: [
     'Donator',
     'Family',
     'Organizer'
