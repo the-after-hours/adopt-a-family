@@ -59,5 +59,3 @@ typings/
 
 src/devBuild
 
-# Ignore css build files
-src/**/*.css
