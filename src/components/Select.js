@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 
 import options from '../constants/options';
 
-const Select = props => {
+const optionKeys = Object.keys(options);
+
+const Select = (props) => {
+  const {
+    animate,
+    form,
+    label,
+    menuType
+  } = props;
+
   const dropdownItems = options[props.menuType].map(optionItem => {
     return (
       <option key={optionItem.toLowerCase()} value={optionItem.toLowerCase()}>
@@ -13,15 +22,29 @@ const Select = props => {
   });
 
   return (
-    <select form={props.form} name={props.menuType}>
-      {dropdownItems}
-    </select>
+    <div className="select-wrapper form-item">
+      {animate &&
+        <label className="input-label">{label}</label>
+      }
+
+      <select
+        form={form}
+        name={menuType}
+      >
+        {dropdownItems}
+      </select>
+    </div>
   );
 };
 
 Select.propTypes = {
+  animate: PropTypes.bool,
   form: PropTypes.string,
-  menuType: PropTypes.string,
+  label: PropTypes.string,
+  menuType: PropTypes.oneOfType([
+    PropTypes.oneOf(optionKeys),
+    PropTypes.string
+  ]),
   optionItem: PropTypes.string
 };
 

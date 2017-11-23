@@ -1,0 +1,40 @@
+@import './constants/shared';
+
+.input-wrapper {
+  margin-bottom: 45px;
+  position: relative;
+
+  input {
+    border: 0;
+    border-bottom: solid 1px $bar-bg;
+    padding: 10px 10px 10px 5px;
+    width: 300px;
+  }
+
+  input,
+  span {
+    display: block;
+  }
+
+  .input-label {
+    font-size: 1rem;
+    // margin-bottom: -(1.5rem);
+    z-index: 1;
+  }
+
+  .input-field {
+    line-height: 25px;
+    padding: 5px 10px;
+    z-index: 0;
+  }
+
+  .highlight {
+    height: 60%;
+    left: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    position: absolute;
+    top: 25%;
+    width: 100px;
+  }
+}

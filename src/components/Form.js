@@ -21,7 +21,6 @@ class Form extends React.Component {
     this.setState(state, () => {
       currentEvent === 'confirmEmail' && this.validateLength(event);
     });
-
   }
 
   validateMatch(event) {
@@ -49,100 +48,99 @@ class Form extends React.Component {
 
   render() {
     let isValidated = this.state.emailValidation ? 'emailValid' : 'emailInvalid';
+
+    const animate = true;
+
     return (
-      <div>
+      <div className="form-wrapper">
         <div className="contact">
           <form id="registration">
-            <div className="form-item">
-              <span className="contact-label">First Name</span>
-              <Input
-                name="firstName"
-                type="text"
-              />
-            </div>
+            <Input
+              animate={animate}
+              label="First Name"
+              name="firstName"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Middle Initial</span>
-              <Input
-                name="middleInitial"
-                maxLength={1}
-                type="text"
-              />
-            </div>
+            <Input
+              animate={animate}
+              label="Middle Initial"
+              maxLength={1}
+              name="middleInitial"
+              size={1}
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Last Name</span>
-              <Input
-                name="lastName"
-                type="text"
-              />
-            </div>
+            <Input
+              animate={animate}
+              label="Last Name"
+              name="lastName"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Address</span>
-              <Input
-                name="address"
-                type="text"
-              />
-            </div>
+            <Input
+              animate={animate}
+              label="Address"
+              name="address"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">City</span>
-              <Input
-                name="city"
-                type="text"
-              />
-            </div>
+            <Input
+              animate={animate}
+              label="City"
+              name="city"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">State</span>
-              <Select form="registration" menuType="states" name="states"/>
-            </div>
+            <Input
+              animate={animate}
+              label="Zipcode"
+              name="zipcode"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Account Type</span>
-              <Select form="registration" menuType="accountTypes" name="accountTypes"/>
-            </div>
+            <Select
+              animate={animate}
+              form="registration"
+              label="State"
+              menuType="states"
+              name="states"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Email</span>
-              <Input
-                name="email"
-                type="email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                onChange={this.handleChange}
-              />
-            </div>
+            <Select
+              animate={animate}
+              form="registration"
+              label="Account Type"
+              menuType="accountType"
+              name="accountType"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Confirm Email</span>
-              <Input
-                name="confirmEmail"
-                type="email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                onChange={this.handleChange}
-                className={isValidated}
-              />
-            </div>
+            <Input
+              label="Email"
+              name="email"
+              onChange={this.handleChange}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              type="email"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Password:</span>
-              <Input
-                name="password"
-                type="password"
-                pattern=".{6,}"
-                title="Must be at least 6 characters."
-              />
-            </div>
+            <Input
+              className={isValidated}
+              label="Confirm Email"
+              name="emailConfirm"
+              onChange={this.handleChange}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              type="email"
+            />
 
-            <div className="form-item">
-              <span className="contact-label">Confirm Password</span>
-              <Input
-                type="password"
-                pattern=".{6,}"
-                title="Must be at least 6 characters"
-              />
-            </div>
+            <Input
+              label="Password"
+              name="password"
+              pattern=".{6,}"
+              title="Must be at least 6 characters."
+              type="password"
+            />
+
+            <Input
+              label="Confirm Password"
+              name="password"
+              pattern=".{6,}"
+              title="Must be at least 6 characters."
+              type="password"
+            />
 
             <div className="form-item">
               <button type="submit" onClick={this.validateMatch}>SUBMIT</button>
