@@ -2,13 +2,14 @@
 
 import React from 'react';
 
-const Messaging = (props) => {
-  return (
-    <div>
-      <h1>Messaging page</h1>
-      <p>Message List<span style={{align: 'right', marginLeft: '2em'}}><button>COMPOSE</button></span></p>
-      <table>
-        <tbody>
+
+const Messaging = (props) => (
+  <div>
+    <h1>Messaging page</h1>
+    <p>Message List<span style={{align: 'right', marginLeft: '2em'}}><button>COMPOSE</button></span></p>
+    <table>
+      <tbody>
+
         <tr>
           <th>From</th>
           <th>Date</th>
@@ -29,10 +30,10 @@ const Messaging = (props) => {
           <td>Will Billiam</td>
           <td>9/25/17</td>
         </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-};
+      </tbody>
+    </table>
+  </div>
+);
+
 
 export default Messaging;

@@ -1,69 +1,36 @@
 import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
 
 class Nav extends Component {
-  
-  state = {
-      drawerOpen: false,
-    }
 
-
-handleDrawerToggle() {
-  this.setState({
-    drawerOpen: !this.state.drawerOpen
-  })
-}
-  
   render () {
     return (
-      <div>
-        <AppBar
-          title={
-            <Link style={{
-              color: '#ffffff',
-              textDecoration: 'none'
-            }} to="/">
-              Adopt-a-Family
-            </Link>
-          }
-          onLeftIconButtonTouchTap={() => this.handleDrawerToggle()}
-        />
-        <Drawer
-          docked={false}
-          open={this.state.drawerOpen}
-          onRequestChange={(open) => this.setState({
-            drawerOpen: open
-          })}
-        >
-
+      <div className="header-container">
+        <div className="col-3 header-group header-text">
           <Link to="/">
-            <MenuItem>Home</MenuItem>
+            Adopt A Family
           </Link>
-          <Link to="/dashboard">
-            <MenuItem>Dashboard</MenuItem>
+        </div>
+
+        <div className="col-8 header-group header-links-group">
+          <Link className="header-links" to="/mission">
+            Mission
           </Link>
-          <Link to="/wishlist">
-            <MenuItem>Wishlist</MenuItem>
+          <Link className="header-links" to="/families">
+            Our Families
           </Link>
-          <Link to="/aboutus">
-            <MenuItem>About Us</MenuItem>
+          <Link className="header-links" to="/aboutus">
+            About us
           </Link>
-          <Link to="/secure/wishlist">
-            <MenuItem>Wishlist Secure</MenuItem> {/* Secure */}
+          <Link className="header-links" to="/donate">
+            Donate
           </Link>
-          <Link to="/secure/pairing">
-            <MenuItem>Pairing</MenuItem> {/* Secure */}
+          <Link className="header-links" to="/registration">
+            <button className="btn-registration">
+              Adopt A Family
+            </button>
           </Link>
-          <Link to="/secure/messaging">
-            <MenuItem>Messaging</MenuItem> {/* Secure */}
-          </Link>
-          <Link to="/secure/org">
-            <MenuItem>Org</MenuItem> {/* Secure */}
-          </Link>
-        </Drawer>
+        </div>
       </div>
     );
   }
