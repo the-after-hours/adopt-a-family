@@ -1,6 +1,7 @@
 import React from 'react';
 import links from '../constants/links';
 
+
 const Footer = (props) => (
   <footer>
     <div className="footer-text">

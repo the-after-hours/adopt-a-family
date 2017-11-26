@@ -2,12 +2,14 @@
 
 import React from 'react';
 
+
 const Messaging = (props) => (
   <div>
     <h1>Messaging page</h1>
     <p>Message List<span style={{align: 'right', marginLeft: '2em'}}><button>COMPOSE</button></span></p>
     <table>
       <tbody>
+
         <tr>
           <th>From</th>
           <th>Date</th>
@@ -32,5 +34,6 @@ const Messaging = (props) => (
     </table>
   </div>
 );
+
 
 export default Messaging;

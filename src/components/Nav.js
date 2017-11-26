@@ -6,7 +6,6 @@ class Nav extends Component {
   render () {
     return (
       <div className="header-container">
-
         <div className="col-3 header-group header-text">
           <Link to="/">
             Adopt A Family

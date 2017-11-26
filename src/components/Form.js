@@ -4,15 +4,23 @@ import Select from './Select';
 
 class Form extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleChange = this.handleChange.bind(this);
-    this.validateMatch = this.validateMatch.bind(this);
-    this.validateLength = this.validateLength.bind(this);
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+  //   this.handleChange = this.handleChange.bind(this);
+  //   this.validateMatch = this.validateMatch.bind(this);
+  //   this.validateLength = this.validateLength.bind(this);
+  // }
+
+  state = {
+    // variables did not exist in state before but was declared
+    confirmEmail: false,
+    email: null,
+    emailValidation: null,
   }
 
-  handleChange(event) {
+
+  handleChange = (event) => {
     let state = Object.assign({}, this.state);
 
     state[event.target.name] = event.target.value;
@@ -24,7 +32,8 @@ class Form extends React.Component {
 
   }
 
-  validateMatch(event) {
+  validateMatch = (event) => {
+    event.preventDefault();
     const email = this.state.email;
     const confirmEmail = this.state.confirmEmail;
 
@@ -34,7 +43,7 @@ class Form extends React.Component {
     }
   }
 
-  validateLength(event) {
+  validateLength= (event) => {
     const email = this.state.email;
     const confirmEmail = this.state.confirmEmail;
 
@@ -53,46 +62,46 @@ class Form extends React.Component {
       <div>
         <div className="contact">
           <form>
-            <span className="contact-label">
+            <label className="contact-label">
               First Name:
-            </span>
+            </label>
             <Input
               name="firstName"
               placeholder="First Name"
               type="text"
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Middle Initial:
-            </span>
+            </label>
             <Input
               name="middleInitial"
               maxlength="1"
               placeholder="Middle Initial"
               type="text"
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Last Name:
-            </span>
+            </label>
             <Input
               name="lastName"
               placeholder="Last Name"
               type="text"
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Address
-            </span>
+            </label>
             <Input
               name="address"
               placeholder="Address"
               type="text"
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Account Type:
-            </span>
+            </label>
             <Select name="accountType"/><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Email:
-            </span>
+            </label>
             <Input
               name="email"
               placeholder="Email"
@@ -100,9 +109,9 @@ class Form extends React.Component {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
               onChange={this.handleChange}
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Confirm Email
-            </span>
+            </label>
             <Input
               name="confirmEmail"
               placeholder="Confirm Email"
@@ -111,9 +120,9 @@ class Form extends React.Component {
               onChange={this.handleChange}
               className={isValidated}
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Password:
-            </span>
+            </label>
             <Input
               name="password"
               placeholder="Password"
@@ -121,9 +130,9 @@ class Form extends React.Component {
               pattern=".{6,}"
               title="Must be at least 6 characters."
             /><br />
-            <span className="contact-label">
+            <label className="contact-label">
               Confirm Password
-            </span>
+            </label>
             <Input
               placeholder="Confirm Password"
               type="password"
