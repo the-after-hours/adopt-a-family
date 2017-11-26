@@ -5,20 +5,18 @@ import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
 
 class Nav extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  
+  state = {
       drawerOpen: false,
-    };
+    }
 
-    this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
-  }
-  handleDrawerToggle() {
-    this.setState({
-      drawerOpen: !this.state.drawerOpen
-    });
-  }
+
+handleDrawerToggle() {
+  this.setState({
+    drawerOpen: !this.state.drawerOpen
+  })
+}
+  
   render () {
     return (
       <div>
@@ -31,7 +29,7 @@ class Nav extends Component {
               Adopt-a-Family
             </Link>
           }
-          onLeftIconButtonTouchTap={this.handleDrawerToggle}
+          onLeftIconButtonTouchTap={() => this.handleDrawerToggle()}
         />
         <Drawer
           docked={false}

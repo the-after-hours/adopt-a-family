@@ -7,6 +7,7 @@ const Footer = (props) => {
       <div className ="block-center">
         <div className="social-icon-group">
           <table>
+          <tbody>
             <tr>
               <td>
                 <a href={links.github} className="social-icon">
@@ -19,6 +20,7 @@ const Footer = (props) => {
                 </a>
               </td>
             </tr>
+            </tbody>
           </table>
         </div>
       </div>
