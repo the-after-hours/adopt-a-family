@@ -39,7 +39,6 @@ class Input extends React.Component {
 
     return (
       <div className="input-wrapper form-item">
-        <span className="highlight" />
         <input
           animate={animate}
           className={this.state.selected}
@@ -56,7 +55,7 @@ class Input extends React.Component {
         />
 
         {animate &&
-          <span className="input-label">{label}</span>
+          <label className="input-label">{label}</label>
         }
       </div>
     );
