@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const port = process.env.PORT || 3005;
 const indexRoutes = require('./routes');
 const apiRoutes = require('./routes/api');
@@ -9,6 +10,12 @@ const apiRoutes = require('./routes/api');
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('build'));
 }
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 
 app.use('/', indexRoutes);
 app.use('/api', apiRoutes);
