@@ -4,21 +4,21 @@ const Schema = mongoose.Schema;
 const wishlistSchema = new Schema({
   family: {
     type: Schema.objectId,
-    ref: 'Family',
+    ref: 'Family'
   },
   list: [
     // An array of objects
     {
-      itemName: String,
-      itemQuantity: Number,
+      itemName: { type: String, required: true },
+      itemQuantity: { type: Number, required: true },
       itemCost: Number,
       totalListCost: Number,
       dateLastUpdated: {
         type: Date,
-        default: Date.now,
-      },
-    },
-  ],
+        default: Date.now
+      }
+    }
+  ]
 });
 
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);
