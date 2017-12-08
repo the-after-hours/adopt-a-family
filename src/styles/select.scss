@@ -3,6 +3,38 @@
 .select-wrapper {
   & select {
     appearance: none;
+    background-color: transparent;
+    margin-bottom: 45px;
+    min-width: 50%;
   }
 
+  select {
+    border: 0;
+    border-bottom: 1px solid $secondary-text;
+    display: block;
+    font-size: 1rem;
+    padding: 7px 7px 7px 5px;
+    width: 300px;
+
+    &:focus {
+      border-bottom: 1px solid $accent1-color;
+      outline: none;
+    }
+
+    &:focus ~ label {
+      font-size: 0.75rem;
+      top: -10px;
+    }
+  }
+
+  label {
+    color: $secondary-text;
+    font-size: 1rem;
+    font-weight: normal;
+    left: 5px;
+    pointer-events: none;
+    position: absolute;
+    top: 5px;
+    transition: 0.2s ease;
+  }
 }
