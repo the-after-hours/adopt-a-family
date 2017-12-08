@@ -55,59 +55,65 @@ class Form extends React.Component {
       <div className="form-wrapper">
         <div className="contact">
           <form id="registration">
-            <Input
-              animate={animate}
-              label="First Name"
-              name="firstName"
-            />
+            <div className="form-field-group">
+              <Input
+                animate={animate}
+                label="First Name"
+                name="firstName"
+              />
 
-            <Input
-              animate={animate}
-              label="Middle Initial"
-              maxLength={1}
-              name="middleInitial"
-              size={1}
-            />
+              <Input
+                animate={animate}
+                label="Middle Initial"
+                maxLength={1}
+                name="middleInitial"
+                size={1}
+              />
 
-            <Input
-              animate={animate}
-              label="Last Name"
-              name="lastName"
-            />
+              <Input
+                animate={animate}
+                label="Last Name"
+                name="lastName"
+              />
+            </div>
 
-            <Input
-              animate={animate}
-              label="Address"
-              name="address"
-            />
+            <div className="form-field-group">
+              <Input
+                animate={animate}
+                label="Address"
+                name="address"
+              />
 
-            <Input
-              animate={animate}
-              label="City"
-              name="city"
-            />
+              <Input
+                animate={animate}
+                label="City"
+                name="city"
+              />
+            </div>
 
-            <Input
-              animate={animate}
-              label="Zipcode"
-              name="zipcode"
-            />
+            <div className="form-field-group">
+              <Input
+                animate={animate}
+                label="Zipcode"
+                name="zipcode"
+              />
 
-            <Select
-              animate={animate}
-              form="registration"
-              label="State"
-              menuType="states"
-              name="states"
-            />
+              <Select
+                animate={animate}
+                form="registration"
+                label="State"
+                menuType="states"
+                name="states"
+              />
 
-            <Select
-              animate={animate}
-              form="registration"
-              label="Account Type"
-              menuType="accountType"
-              name="accountType"
-            />
+              <Select
+                animate={animate}
+                form="registration"
+                label="Account Type"
+                menuType="accountType"
+                name="accountType"
+              />
+            </div>
 
             <Input
               label="Email"

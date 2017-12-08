@@ -13,11 +13,11 @@
     width: 300px;
 
     &:focus {
+      border-bottom: 1px solid $accent1-color;
       outline: none;
     }
 
     &:focus ~ label {
-      color: $accent1-color;
       font-size: 0.75rem;
       top: -10px;
     }

@@ -4,6 +4,15 @@
   background: #FFF;
   display: block;
   margin: 30px auto 0;
-  padding: 10px 50px 50px;
-  width: 600px;
+  padding: 50px;
+  width: 80%;
+
+  .form-field-group {
+    display: inline-flex;
+
+    input,
+    select {
+      margin: 5px;
+    }
+  }
 }
