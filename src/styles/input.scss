@@ -9,8 +9,9 @@
     border-bottom: 1px solid $secondary-text;
     display: block;
     font-size: 1rem;
+    max-width: 300px;
+    min-width: 100px;
     padding: 7px 7px 7px 5px;
-    width: 300px;
 
     &:focus {
       border-bottom: 1px solid $accent1-color;
@@ -25,7 +26,7 @@
 
   label {
     color: $secondary-text;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: normal;
     left: 5px;
     pointer-events: none;

@@ -3,7 +3,7 @@ import Form from './Form';
 
 const Registration = (props) => (
   <div>
-    <Form />
+    <Form formTitle="Registration"/>
   </div>
 );
 
