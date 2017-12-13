@@ -4,8 +4,9 @@
   background: #FFF;
   display: block;
   margin: 30px auto 0;
+  max-width: 80vh;
+  min-width: 60vh;
   padding: 50px;
-  width: 80%;
 
   .form-field-group {
     display: inline-flex;

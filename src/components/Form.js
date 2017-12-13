@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Input from './Input';
 import Select from './Select';
 
 class Form extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -49,10 +50,13 @@ class Form extends React.Component {
   render() {
     let isValidated = this.state.emailValidation ? 'emailValid' : 'emailInvalid';
 
+    const {formTitle} = this.props;
+
     const animate = true;
 
     return (
       <div className="form-wrapper">
+        <h2>Registration</h2> {/* Should pass in title prop */}
         <div className="contact">
           <form id="registration">
             <div className="form-field-group">
@@ -157,5 +161,9 @@ class Form extends React.Component {
     );
   }
 }
+
+Form.PropTypes = {
+  formTitle: PropTypes.string
+};
 
 export default Form;
