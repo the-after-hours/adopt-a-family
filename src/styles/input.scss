@@ -18,7 +18,8 @@
       outline: none;
     }
 
-    &:focus ~ label {
+    &:focus ~ label,
+    &.has-text ~ label {
       font-size: 0.75rem;
       top: -10px;
     }
