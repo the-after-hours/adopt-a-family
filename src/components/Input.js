@@ -4,27 +4,28 @@ import PropTypes from 'prop-types';
 class Input extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selected: ''};
+    this.state = {};
   }
 
   handleOnBlur(e) {
-    this.setState({selected: ''});
+    e.target.classList.remove('selected');
   }
 
   handleOnClick(e) {
-    this.setState({selected: 'selected'});
+    e.target.classList.add('selected');
   }
 
   handleOnChange(e) {
-    let state = Object.assign({}, this.state);
+    const classList = e.target.classList;
+    const hasText = e.target.value;
 
-    console.log(state);
+    hasText ? classList.add('has-text') : classList.remove('has-text');
   }
+
 
   render() {
     const {
       animate = true,
-      className = '',
       label,
       maxLength,
       name,
@@ -34,19 +35,15 @@ class Input extends React.Component {
       type = 'text'
     } = this.props;
 
-    console.log(className);
-    // Need to figure out how to assign classes to input
-
     return (
       <div className="input-wrapper form-item">
         <input
           animate={animate}
-          className={this.state.selected}
           maxLength={maxLength}
           name={name}
-          onClick={this.handleOnClick.bind(this)}
           onBlur={this.handleOnBlur.bind(this)}
           onChange={this.handleOnChange.bind(this)}
+          onClick={this.handleOnClick.bind(this)}
           pattern={pattern}
           placeholder={!animate ? label : null}
           size={size}
@@ -74,7 +71,5 @@ Input.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string
 };
-
-// Handle state too
 
 export default Input;
