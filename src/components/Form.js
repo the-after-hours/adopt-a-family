@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from './Input';
-import Select from './Select';
+// import Select from './Select';
 
 class Form extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class Form extends React.Component {
 
     return (
       <div className="form-wrapper">
-        <h2>Registration</h2> {/* Should pass in title prop */}
+        <h2>{formTitle}</h2>
         <div className="contact">
           <form id="registration">
             <div className="form-field-group">
@@ -102,20 +102,20 @@ class Form extends React.Component {
                 name="zipcode"
               />
 
-              <Select
+              <Input
                 animate={animate}
-                form="registration"
                 label="State"
                 menuType="states"
                 name="states"
+                list="states"
               />
 
-              <Select
+              <Input
                 animate={animate}
-                form="registration"
                 label="Account Type"
                 menuType="accountType"
                 name="accountType"
+                list="accountType"
               />
             </div>
 
