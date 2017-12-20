@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from './Input';
-// import Select from './Select';
+import {ACCOUNT_TYPE, STATES} from '../constants/options';
 
 class Form extends React.Component {
   constructor(props) {
@@ -105,7 +105,7 @@ class Form extends React.Component {
               <Input
                 animate={animate}
                 label="State"
-                menuType="states"
+                menuType={STATES}
                 name="states"
                 list="states"
               />
@@ -113,7 +113,7 @@ class Form extends React.Component {
               <Input
                 animate={animate}
                 label="Account Type"
-                menuType="accountType"
+                menuType={ACCOUNT_TYPE}
                 name="accountType"
                 list="accountType"
               />

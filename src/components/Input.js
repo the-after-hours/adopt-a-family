@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import options from '../constants/options';
-
-const optionKeys = Object.keys(options);
-
 class Input extends React.Component {
   constructor(props) {
     super(props);
@@ -39,9 +35,8 @@ class Input extends React.Component {
       title,
       type = 'text'
     } = this.props;
-    console.log(this.props);
 
-    const dropdownItems = menuType && options[menuType].map(optionItem => {
+    const dropdownItems = menuType && menuType.map(optionItem => {
       return (
         <option key={optionItem.toUpperCase()} value={optionItem.toUpperCase()}>
           {optionItem}
@@ -86,10 +81,7 @@ Input.propTypes = {
   label: PropTypes.string,
   list: PropTypes.string,
   maxLength: PropTypes.number,
-  menuType: PropTypes.oneOfType([
-    PropTypes.oneOf(optionKeys),
-    PropTypes.string
-  ]),
+  menuType: PropTypes.array,
   name: PropTypes.string,
   onChange: PropTypes.func,
   pattern: PropTypes.string,
