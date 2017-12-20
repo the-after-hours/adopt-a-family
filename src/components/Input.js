@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import options from '../constants/options';
+
+const optionKeys = Object.keys(options);
+
 class Input extends React.Component {
   constructor(props) {
     super(props);
@@ -22,23 +26,40 @@ class Input extends React.Component {
     hasText ? classList.add('has-text') : classList.remove('has-text');
   }
 
-
   render() {
     const {
       animate = true,
       label,
+      list,
       maxLength,
+      menuType,
       name,
       pattern,
       size,
       title,
       type = 'text'
     } = this.props;
+    console.log(this.props);
+
+    const dropdownItems = menuType && options[menuType].map(optionItem => {
+      return (
+        <option key={optionItem.toUpperCase()} value={optionItem.toUpperCase()}>
+          {optionItem}
+        </option>
+      );
+    });
 
     return (
       <div className="input-wrapper form-item">
+        {list &&
+          <datalist id={list}>
+            {dropdownItems}
+          </datalist>
+        }
+
         <input
           animate={animate}
+          list={list}
           maxLength={maxLength}
           name={name}
           onBlur={this.handleOnBlur.bind(this)}
@@ -63,7 +84,12 @@ Input.propTypes = {
   animate: PropTypes.bool,
   className: PropTypes.string,
   label: PropTypes.string,
+  list: PropTypes.string,
   maxLength: PropTypes.number,
+  menuType: PropTypes.oneOfType([
+    PropTypes.oneOf(optionKeys),
+    PropTypes.string
+  ]),
   name: PropTypes.string,
   onChange: PropTypes.func,
   pattern: PropTypes.string,
