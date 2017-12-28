@@ -162,7 +162,7 @@ class Form extends React.Component {
   }
 }
 
-Form.PropTypes = {
+Form.propTypes = {
   formTitle: PropTypes.string
 };
 
