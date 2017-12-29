@@ -105,7 +105,7 @@ class Form extends React.Component {
               <Input
                 animate={animate}
                 label="State"
-                menuType={STATES}
+                menuDataSource={STATES}
                 name="states"
                 list="states"
               />
@@ -113,7 +113,7 @@ class Form extends React.Component {
               <Input
                 animate={animate}
                 label="Account Type"
-                menuType={ACCOUNT_TYPE}
+                menuDataSource={ACCOUNT_TYPE}
                 name="accountType"
                 list="accountType"
               />

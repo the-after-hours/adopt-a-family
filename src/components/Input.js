@@ -28,7 +28,7 @@ class Input extends React.Component {
       label,
       list,
       maxLength,
-      menuType,
+      menuDataSource,
       name,
       pattern,
       size,
@@ -36,7 +36,7 @@ class Input extends React.Component {
       type = 'text'
     } = this.props;
 
-    const dropdownItems = menuType && menuType.map(optionItem => {
+    const dropdownItems = menuDataSource && menuDataSource.map(optionItem => {
       return (
         <option key={optionItem.toUpperCase()} value={optionItem.toUpperCase()}>
           {optionItem}
@@ -81,7 +81,7 @@ Input.propTypes = {
   label: PropTypes.string,
   list: PropTypes.string,
   maxLength: PropTypes.number,
-  menuType: PropTypes.array,
+  menuDataSource: PropTypes.array,
   name: PropTypes.string,
   onChange: PropTypes.func,
   pattern: PropTypes.string,
