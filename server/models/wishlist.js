@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const wishlistSchema = new Schema({
   family: {
-    type: Schema.objectId,
-    ref: 'Family'
+    type: Schema.ObjectId,
+    ref: 'Family',
   },
   list: [
     // An array of objects
@@ -15,10 +15,10 @@ const wishlistSchema = new Schema({
       totalListCost: Number,
       dateLastUpdated: {
         type: Date,
-        default: Date.now
-      }
-    }
-  ]
+        default: Date.now,
+      },
+    },
+  ],
 });
 
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);
