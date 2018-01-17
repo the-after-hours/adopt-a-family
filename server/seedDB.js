@@ -51,7 +51,7 @@ const MOCK_USERS = [
       last: 'Groove',
     },
     email: 'test@test.com',
-    password: '',
+    password: 'password',
     phone: '555-555-5555',
     userType: FAMILY,
     userOptions: {
@@ -64,40 +64,83 @@ mongoose.connect(localDB, {
   useMongoClient: true,
 });
 
+mongoose.Promise = global.Promise;
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error: '));
+
+async function clearDatabase() {
+  // Clear any existing entires in the database
+
+  await Donor.remove({}, (err, p) => {
+    if (err) {
+      console.error(`Error deleting Donors. Error: ${err}`);
+    }
+    console.log(`Successfully deleted ${p} Donors`);
+  });
+  await Family.remove({}, (err, p) => {
+    if (err) {
+      console.error(`Error deleting Families. Error: ${err}`);
+    }
+    console.log(`Successfully deleted ${p} Families`);
+  });
+  await Name.remove({}, (err, p) => {
+    if (err) {
+      console.error(`Error deleting Names. Error: ${err}`);
+    }
+    console.log(`Successfully deleted ${p} Names`);
+  });
+  await Organizer.remove({}, (err, p) => {
+    if (err) {
+      console.error(`Error deleting Organizers. Error: ${err}`);
+    }
+    console.log(`Successfully deleted ${p} Organizers`);
+  });
+  await User.remove({}, (err, p) => {
+    if (err) {
+      console.error(`Error deleting Users. Error: ${err}`);
+    }
+    console.log(`Successfully deleted ${p} Users`);
+  });
+  await Wishlist.remove({}, (err, p) => {
+    if (err) {
+      console.error(`Error deleting Wishlist. Error: ${err}`);
+    }
+    console.log(`Successfully deleted ${p} Wishlist`);
+  });
+}
+
+clearDatabase();
 
 const familyCreate = (headOfFamilyNameModel, wishlist, size) => {
   const newWishlist = wishlist ? new Wishlist({ list: wishlist }) : undefined;
 
-  return new Family({
+  const newFamily = new Family({
     name: headOfFamilyNameModel,
     wishlist: newWishlist,
     size,
-  }).save((err, family) => {
-    if (err) return console.error(err);
   });
+
+  return newFamily;
 };
 
 const donorCreate = (nameModel, budget, matchedFamily) => {
-  return new Donor({ name: nameModel, budget, matchedFamily }).save(
-    (err, donor) => {
-      if (err) return console.error(err);
-      return donor;
-    }
-  );
+  const newDonor = new Donor({ name: nameModel, budget, matchedFamily });
+
+  return newDonor;
 };
 
 const organizerCreate = (nameModel, organization) => {
-  return new Organizer({ name: nameModel, organization }).save(
-    (err, organizer) => {
-      if (err) return console.error(err);
-      return organizer;
-    }
-  );
+  const newOrganizer = new Organizer({ name: nameModel, organization });
+
+  return newOrganizer;
 };
 
-const userCreate = (
+/*
+  Make the users based on MOCK_USERS
+  Creates references to family, donor, or organizer as needed to determine user type
+*/
+const userCreate = async (
   username,
   name = {},
   email,
@@ -107,6 +150,15 @@ const userCreate = (
   userOptions
 ) => {
   const nameModel = new Name(name);
+
+  await nameModel.save((err, name) => {
+    if (err) {
+      console.error(`Error creating Name.  Error: ${err}`);
+      return;
+    }
+    console.log('Successfully created name');
+  });
+
   let userFields = {
     username,
     name: nameModel,
@@ -128,7 +180,7 @@ const userCreate = (
     case DONOR:
       const donorModel = donorCreate(
         nameModel,
-        name.budget,
+        userOptions.budget,
         name.matchedFamily
       );
       userFields._donor = donorModel;
@@ -144,12 +196,19 @@ const userCreate = (
       return;
   }
 
-  new User(userFields).save((err, user) => {
-    if (err) return console.error(err);
-    console.log(`Successfully created ${user}`);
+  await new User(userFields).save((err, user) => {
+    if (err) {
+      console.error(`Error creating user with error: ${err}`);
+      return;
+    }
+    console.log(`Successfully created ${username}`);
   });
 };
 
 MOCK_USERS.forEach(user => {
   userCreate(...Object.values(user));
 });
+
+// doesn't work right if db.close() is uncommented
+// db.close();
+console.log('Database successfully seeded.');
