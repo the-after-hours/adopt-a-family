@@ -19,6 +19,11 @@ const familySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Donor',
     default: 'unmatched'
+  },
+  organizer: {
+    type: Schema.Types.ObjectId,
+    ref: 'Organizer',
+    default: 'unmatched'
   }
 });
 
