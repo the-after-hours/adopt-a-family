@@ -13,6 +13,7 @@ const donorSchema = new Schema({
   matchedFamily: {
     type: Schema.Types.ObjectId,
     ref: 'Family',
+    default: 'unmatched'
   },
 });
 

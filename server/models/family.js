@@ -15,6 +15,11 @@ const familySchema = new Schema({
     required: true,
   },
   size: Number,
+  sponsor: {
+    type: Schema.Types.ObjectId,
+    ref: 'Donor',
+    default: 'unmatched'
+  }
 });
 
 familySchema.methods.createWishlist = function () {
