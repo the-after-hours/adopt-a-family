@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
-// wishlish = Family.readWishlist();
+// wishlist = Family.readWishlist();
 mongoose.connect('mongodb://localhost/aaf_local');
 
 app.use(bodyParser.json());
@@ -64,7 +64,7 @@ routes.get('/pairing/balance', (req, res) => {
   // this is pseudo code that assumes (1) we can sum the response and (2) organizer name is passed as the request
   let money = {
     total: Math.sum(Donor.budget.where('organizer', req.params.organizer)),
-    spent: Math.sum(Family.wishlist.totalListCost.where('organizer', req.params.organizer)),
+    spent: Math.sum(Family.wishlist.totalListCost.where('organizer', req.params.organizer)), // this needs to use Family.readWishlist() probably
     balance: total-spent
   };
 
@@ -79,6 +79,7 @@ routes.get('/pairing/balance', (req, res) => {
 
 routes.get('/pairing/paired', (req, res) => {
   // Return list of donors and families associated with the current organizer
+
   res.status(200).json({
     org1: {
       families: ['a','b','c'],
