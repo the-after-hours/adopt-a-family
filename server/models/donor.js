@@ -15,6 +15,11 @@ const donorSchema = new Schema({
     ref: 'Family',
     default: 'unmatched'
   },
+  organizer: {
+    type: Schema.Types.ObjectId,
+    ref: 'Organizer',
+    default: 'unmatched'
+  }
 });
 
 const Donor = mongoose.model('Donor', donorSchema);
