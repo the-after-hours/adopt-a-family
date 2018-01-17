@@ -39,27 +39,46 @@ routes.get('/pairing', (req, res) => {
     .where('matchedFamily', 'unmatched')
     .sort({ field: 'budget': -1 }) // take the donors found and sort budgets from highlest to lowest (ignores special rule)
     .exec((err, donors) => {
-      // take the donors response and splice it at the value where it goes over/under budget
-      res.status(200).json({
-        message: 'Donors were found',
-        donors: donors
-      });
+      if(err) {
+        console.err(err);
+        // handle this better later
+        res.status(500).json({ message: err });
+      }
+      else {
+        // take the donors response and splice it at the value where it goes over/under budget
+        res.status(200).json({
+          message: 'Donors were found',
+          donors: donors
+        });
+      }
     });
   });
 
 routes.get('/pairing/balance', (req, res) => {
   // This route is for finding the left over amount total (sum of all families money used)
-  // total in account (this can go up or down), tot
-  // total used, spent
-  // balance, tot-spent
-  res.status(200).json({ // comes from call to mongo
-    total: '50',
-    spent: '29',
-    balance: '21'
-  });
+  // total = Money in org account (this can go up or down)
+  // spent = Cost of all wishlists associated with an org
+  // balance = total-spent
+
+  // The entire code snippet below probably needs to be reworked. right now it's just mapping out the logic
+  // this is pseudo code that assumes (1) we can sum the response and (2) organizer name is passed as the request
+  let money = {
+    total: Math.sum(Donor.budget.where('organizer', req.params.organizer)),
+    spent: Math.sum(Family.wishlist.totalListCost.where('organizer', req.params.organizer)),
+    balance: total-spent
+  };
+
+  if(err){
+    console.err(err);
+    res.status(500).json({ message: err });
+  }
+  else {
+   pres.status(200).json({ money });
+  }
 });
 
 routes.get('/pairing/paired', (req, res) => {
+  // Return list of donors and families associated with the current organizer
   res.status(200).json({
     org1: {
       families: ['a','b','c'],
