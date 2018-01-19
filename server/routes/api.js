@@ -35,7 +35,7 @@ routes.get('/pairing', (req, res) => {
   let minBudget = req.params.budget*0.9;
 
   Donor
-    .where('budget').gte(maxBudget).lte(minBudget)
+    .where('budget').gte(minBudget).lte(maxBudget)
     .where('matchedFamily', 'unmatched')
     .sort({ field: 'budget': -1 }) // take the donors found and sort budgets from highlest to lowest (ignores special rule)
     .exec((err, donors) => {
@@ -73,7 +73,7 @@ routes.get('/pairing/balance', (req, res) => {
     res.status(500).json({ message: err });
   }
   else {
-   pres.status(200).json({ money });
+   res.status(200).json({ money });
   }
 });
 
