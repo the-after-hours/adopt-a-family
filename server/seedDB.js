@@ -1,11 +1,7 @@
-/* eslint-disable */
-// Had to disable es-lint for switch statements
 const mongoose = require('mongoose');
-// Test const remoteDatabaseURL =
-//   'mongodb://phvc:phvc@ds040877.mlab.com:40877/phvc-test';
 const Donor = require('./models/donor');
 const Family = require('./models/family');
-const localDB = 'mongodb://127.0.0.1:27017/aaf';
+const localDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/aaf';
 const Name = require('./models/name');
 const Organizer = require('./models/organizer');
 const User = require('./models/user');
@@ -70,8 +66,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 async function clearDatabase() {
-  // Clear any existing entires in the database
-
+  // Clear any existing entries in the database
   await Donor.remove({}, (err, p) => {
     if (err) {
       console.error(`Error deleting Donors. Error: ${err}`);
@@ -110,9 +105,7 @@ async function clearDatabase() {
   });
 }
 
-clearDatabase();
-
-const familyCreate = (headOfFamilyNameModel, wishlist, size) => {
+const familyCreate = async (headOfFamilyNameModel, wishlist, size) => {
   const newWishlist = wishlist ? new Wishlist({ list: wishlist }) : undefined;
 
   const newFamily = new Family({
@@ -121,18 +114,22 @@ const familyCreate = (headOfFamilyNameModel, wishlist, size) => {
     size,
   });
 
+  await newFamily.save();
+
   return newFamily;
 };
 
-const donorCreate = (nameModel, budget, matchedFamily) => {
+const donorCreate = async (nameModel, budget, matchedFamily) => {
   const newDonor = new Donor({ name: nameModel, budget, matchedFamily });
 
+  await newDonor.save();
   return newDonor;
 };
 
-const organizerCreate = (nameModel, organization) => {
+const organizerCreate = async (nameModel, organization) => {
   const newOrganizer = new Organizer({ name: nameModel, organization });
 
+  await newOrganizer.save();
   return newOrganizer;
 };
 
@@ -168,9 +165,11 @@ const userCreate = async (
     userType,
   };
 
+  /* eslint-disable */
+  // Had to disable es-lint for switch statements
   switch (userType) {
     case FAMILY:
-      const familyModel = familyCreate(
+      const familyModel = await familyCreate(
         nameModel,
         userOptions.wishlist,
         userOptions.familySize
@@ -178,7 +177,7 @@ const userCreate = async (
       userFields._family = familyModel;
       break;
     case DONOR:
-      const donorModel = donorCreate(
+      const donorModel = await donorCreate(
         nameModel,
         userOptions.budget,
         name.matchedFamily
@@ -186,7 +185,7 @@ const userCreate = async (
       userFields._donor = donorModel;
       break;
     case ORGANIZER:
-      const organizerModel = organizerCreate(
+      const organizerModel = await organizerCreate(
         nameModel,
         userOptions.organization
       );
@@ -195,6 +194,7 @@ const userCreate = async (
     default:
       return;
   }
+  // eslint-enable
 
   await new User(userFields).save((err, user) => {
     if (err) {
@@ -205,10 +205,17 @@ const userCreate = async (
   });
 };
 
-MOCK_USERS.forEach(user => {
-  userCreate(...Object.values(user));
-});
+const seedDB = async () => {
+  await clearDatabase();
+  await Promise.all(
+    MOCK_USERS.map(async user => {
+      await userCreate(...Object.values(user));
+    })
+  );
 
-// doesn't work right if db.close() is uncommented
-// db.close();
-console.log('Database successfully seeded.');
+  // doesn't work right if db.close() is uncommented
+  await db.close();
+  console.log('Database successfully seeded.');
+};
+
+seedDB();
