@@ -60,6 +60,7 @@ mongoose.connect(localDB, {
   useMongoClient: true,
 });
 
+// Set mongoose promises to use Node native Promise
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
@@ -114,7 +115,14 @@ const familyCreate = async (headOfFamilyNameModel, wishlist, size) => {
     size,
   });
 
-  await newFamily.save();
+  await newFamily.save((err, family) => {
+    if (err) {
+      console.log(`Error creating family: ${err}`);
+      return;
+    }
+
+    console.log(`Successfully created family: ${family}`);
+  });
 
   return newFamily;
 };
@@ -122,14 +130,28 @@ const familyCreate = async (headOfFamilyNameModel, wishlist, size) => {
 const donorCreate = async (nameModel, budget, matchedFamily) => {
   const newDonor = new Donor({ name: nameModel, budget, matchedFamily });
 
-  await newDonor.save();
+  await newDonor.save((err, donor) => {
+    if (err) {
+      console.log(`Error creating donor: ${err}`);
+      return;
+    }
+
+    console.log(`Successfully created donor: ${donor}`);
+  });
   return newDonor;
 };
 
 const organizerCreate = async (nameModel, organization) => {
   const newOrganizer = new Organizer({ name: nameModel, organization });
 
-  await newOrganizer.save();
+  await newOrganizer.save((err, organizer) => {
+    if (err) {
+      console.log(`Error creating organizer: ${err}`);
+      return;
+    }
+
+    console.log(`Successfully created organizer: ${organizer}`);
+  });
   return newOrganizer;
 };
 
@@ -150,10 +172,10 @@ const userCreate = async (
 
   await nameModel.save((err, name) => {
     if (err) {
-      console.error(`Error creating Name.  Error: ${err}`);
+      console.error(`Error creating Name: ${err}`);
       return;
     }
-    console.log('Successfully created name');
+    console.log(`Successfully created name: ${name}`);
   });
 
   let userFields = {
@@ -201,7 +223,7 @@ const userCreate = async (
       console.error(`Error creating user with error: ${err}`);
       return;
     }
-    console.log(`Successfully created ${username}`);
+    console.log(`Successfully created user: ${user}`);
   });
 };
 
@@ -215,7 +237,9 @@ const seedDB = async () => {
 
   // doesn't work right if db.close() is uncommented
   await db.close();
-  console.log('Database successfully seeded.');
+  console.log('****************************************');
+  console.log('     Database successfully seeded.');
+  console.log('****************************************');
 };
 
 seedDB();
