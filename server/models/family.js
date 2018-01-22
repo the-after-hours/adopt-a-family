@@ -12,7 +12,6 @@ const familySchema = new Schema({
   wishlist: {
     type: Schema.Types.ObjectId,
     ref: 'Wishlist',
-    required: true,
   },
   size: Number,
   sponsor: {
@@ -27,7 +26,7 @@ const familySchema = new Schema({
   }
 });
 
-familySchema.methods.createWishlist = function () {
+familySchema.methods.createWishlist = function() {
   const wishlist = new Wishlist();
 
   wishlist.save(function(err) {
@@ -35,8 +34,8 @@ familySchema.methods.createWishlist = function () {
   });
 };
 
-familySchema.methods.readWishlist = function () {
-  return Wishlist.findOne({ 'Family': this._id }, function (err, wishlist) {
+familySchema.methods.readWishlist = function() {
+  return Wishlist.findOne({ Family: this._id }, function(err, wishlist) {
     if (err) {
       console.log(err);
     } else {

@@ -8,12 +8,12 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    index: { unique: true }
+    index: { unique: true },
   },
   name: {
     type: Schema.Types.ObjectId,
     ref: 'Name',
-    required: true
+    required: true,
   },
   email: { type: String, required: true },
   password: { type: String, required: true },
@@ -21,20 +21,20 @@ const userSchema = new Schema({
   // Check below fields, if present, user is of that type
   _donor: {
     type: Schema.Types.ObjectId,
-    ref: 'Donor'
+    ref: 'Donor',
   },
   _family: {
     type: Schema.Types.ObjectId,
-    ref: 'Family'
+    ref: 'Family',
   },
   _organizer: {
     type: Schema.Types.ObjectId,
-    ref: 'Organizer'
-  }
+    ref: 'Organizer',
+  },
 });
 
 // Hash password before saving
-userSchema.pre('save', next => {
+userSchema.pre('save', function(next) {
   bcrypt.hash(this.password, saltRounds, (err, hash) => {
     if (err) return next(err);
     this.password = hash;
