@@ -37,7 +37,7 @@ routes.get('/pairing', (req, res) => {
   Donor
     .where('budget').gte(minBudget).lte(maxBudget)
     .where('matchedFamily', 'unmatched')
-    .sort({ field: 'budget': -1 }) // take the donors found and sort budgets from highlest to lowest (ignores special rule)
+    .sort({ 'budget': -1 }) // take the donors found and sort budgets from highlest to lowest (ignores special rule)
     .exec((err, donors) => {
       if(err) {
         console.err(err);
