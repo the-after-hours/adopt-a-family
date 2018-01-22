@@ -235,8 +235,8 @@ const seedDB = async () => {
     })
   );
 
-  // doesn't work right if db.close() is uncommented
   await db.close();
+
   console.log('****************************************');
   console.log('     Database successfully seeded.');
   console.log('****************************************');
