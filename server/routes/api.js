@@ -28,10 +28,9 @@ routes.get('/pairing', (req, res) => {
   let budget = parseInt(req.param('budget'));
   // An Orginization/Organizer calls this by passing FAMILY (wildcard invalid) and Budget
   // it returns a list of donors with matching Family.wishlist.cost === Donor.budget +/- 10% [max $20, future implement] (from here on called 'budget')
-  // list is ordered with closest match (below target budget) then highest ones
-  // SPECIAL SORT RULE: First we will sort budget <= Family.wishlist.cost in DESCENDING then we will sort budget >= Family.wishlist.cost in ASCENDING order
+  // list is ordered in ascending order
   // e.g. Family.wishlist.cost = 100 +/- 10%
-  // sorted list: 99, 98, 95, 90, 101, 102, 110
+  // sorted list: 90, 95, 98, 99, 101, 102, 110
   let maxBudget = budget * 1.1;
   let minBudget = budget * 0.9;
 
@@ -40,7 +39,7 @@ routes.get('/pairing', (req, res) => {
     .lte(maxBudget)
     .where('matchedFamily', null)
     // .populate('name') // Populate function is not working right now.. need to figure it out
-    .sort({ budget: -1 }) // Take the donors found and sort budgets from highlest to lowest (ignores special rule)
+    .sort({ budget: 1 }) // Take the donors found and sort budgets from lowest to highest
     .exec((err, donors) => {
       if (err) {
         console.error(err);
