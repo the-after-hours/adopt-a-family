@@ -40,7 +40,7 @@ routes.get('/pairing', (req, res) => {
     .sort({ 'budget': -1 }) // take the donors found and sort budgets from highlest to lowest (ignores special rule)
     .exec((err, donors) => {
       if(err) {
-        console.err(err);
+        console.error(err);
         // handle this better later
         res.status(500).json({ message: err });
       }
@@ -69,7 +69,7 @@ routes.get('/pairing/balance', (req, res) => {
   };
 
   if(err){
-    console.err(err);
+    console.error(err);
     res.status(500).json({ message: err });
   }
   else {
