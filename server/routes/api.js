@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
 // Wishlist = Family.readWishlist();
-mongoose.connect('mongodb://localhost/aaf_local');
+mongoose.connect('mongodb://localhost/aaf');
 
 app.use(bodyParser.json());
 
@@ -25,8 +25,7 @@ routes.get('/', (req, res) => {
 
 // We are building Donors (those with goods) looking for families
 routes.get('/pairing', (req, res) => {
-  let budget = req.param('budget');
-  console.log(budget);
+  let budget = parseInt(req.param('budget'));
   // An Orginization/Organizer calls this by passing FAMILY (wildcard invalid) and Budget
   // it returns a list of donors with matching Family.wishlist.cost === Donor.budget +/- 10% [max $20, future implement] (from here on called 'budget')
   // list is ordered with closest match (below target budget) then highest ones
@@ -39,7 +38,8 @@ routes.get('/pairing', (req, res) => {
   Donor.where('budget')
     .gte(minBudget)
     .lte(maxBudget)
-    // .where('matchedFamily', 'unmatched')
+    .where('matchedFamily', null)
+    // .populate('name') // Populate function is not working right now.. need to figure it out
     .sort({ budget: -1 }) // Take the donors found and sort budgets from highlest to lowest (ignores special rule)
     .exec((err, donors) => {
       if (err) {
@@ -50,7 +50,7 @@ routes.get('/pairing', (req, res) => {
         // Take the donors response and splice it at the value where it goes over/under budget
         res.status(200).json({
           message: 'Donors were found',
-          donors: donors
+          donors: donors,
         });
       }
     });
@@ -69,7 +69,7 @@ routes.get('/pairing/balance', (req, res) => {
     spent: Math.sum(
       Family.wishlist.totalListCost.where('organizer', req.params.organizer)
     ), // This needs to use Family.readWishlist() probably
-    balance: total - spent
+    balance: total - spent,
   };
 
   if (err) {
@@ -90,8 +90,8 @@ routes.get('/pairing/paired', (req, res) => {
         // Comes from mongoDB, same as /paring/balance
         total: '50',
         spent: '29',
-        balance: '21'
-      }
+        balance: '21',
+      },
     },
     org2: {
       families: ['x', 'y', 'z'],
@@ -99,9 +99,9 @@ routes.get('/pairing/paired', (req, res) => {
         // Comes from mongoDB, same as /paring/balance
         total: '50',
         spent: '29',
-        balance: '21'
-      }
-    }
+        balance: '21',
+      },
+    },
   });
 });
 

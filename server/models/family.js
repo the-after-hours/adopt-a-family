@@ -17,13 +17,13 @@ const familySchema = new Schema({
   sponsor: {
     type: Schema.Types.ObjectId,
     ref: 'Donor',
-    default: 'unmatched'
+    default: null,
   },
   organizer: {
     type: Schema.Types.ObjectId,
     ref: 'Organizer',
-    default: 'unmatched'
-  }
+    default: null,
+  },
 });
 
 familySchema.methods.createWishlist = function() {
