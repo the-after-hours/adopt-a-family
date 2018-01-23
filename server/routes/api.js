@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
-// wishlist = Family.readWishlist();
+// Wishlist = Family.readWishlist();
 mongoose.connect('mongodb://localhost/aaf_local');
 
 app.use(bodyParser.json());
@@ -23,36 +23,38 @@ routes.get('/', (req, res) => {
   res.status(200).json({ message: 'You have hit the API.' });
 });
 
-// we are building Donors (those with goods) looking for families
+// We are building Donors (those with goods) looking for families
 routes.get('/pairing', (req, res) => {
-  // an Orginization/Organizer calls this by passing FAMILY (wildcard invalid) and Budget
+  let budget = req.param('budget');
+  console.log(budget);
+  // An Orginization/Organizer calls this by passing FAMILY (wildcard invalid) and Budget
   // it returns a list of donors with matching Family.wishlist.cost === Donor.budget +/- 10% [max $20, future implement] (from here on called 'budget')
   // list is ordered with closest match (below target budget) then highest ones
   // SPECIAL SORT RULE: First we will sort budget <= Family.wishlist.cost in DESCENDING then we will sort budget >= Family.wishlist.cost in ASCENDING order
   // e.g. Family.wishlist.cost = 100 +/- 10%
   // sorted list: 99, 98, 95, 90, 101, 102, 110
-  let maxBudget = req.params.budget*1.1;
-  let minBudget = req.params.budget*0.9;
+  let maxBudget = budget * 1.1;
+  let minBudget = budget * 0.9;
 
-  Donor
-    .where('budget').gte(minBudget).lte(maxBudget)
-    .where('matchedFamily', 'unmatched')
-    .sort({ 'budget': -1 }) // take the donors found and sort budgets from highlest to lowest (ignores special rule)
+  Donor.where('budget')
+    .gte(minBudget)
+    .lte(maxBudget)
+    // .where('matchedFamily', 'unmatched')
+    .sort({ budget: -1 }) // Take the donors found and sort budgets from highlest to lowest (ignores special rule)
     .exec((err, donors) => {
-      if(err) {
+      if (err) {
         console.error(err);
-        // handle this better later
+        // Handle this better later
         res.status(500).json({ message: err });
-      }
-      else {
-        // take the donors response and splice it at the value where it goes over/under budget
+      } else {
+        // Take the donors response and splice it at the value where it goes over/under budget
         res.status(200).json({
           message: 'Donors were found',
           donors: donors
         });
       }
     });
-  });
+});
 
 routes.get('/pairing/balance', (req, res) => {
   // This route is for finding the left over amount total (sum of all families money used)
@@ -64,16 +66,17 @@ routes.get('/pairing/balance', (req, res) => {
   // this is pseudo code that assumes (1) we can sum the response and (2) organizer name is passed as the request
   let money = {
     total: Math.sum(Donor.budget.where('organizer', req.params.organizer)),
-    spent: Math.sum(Family.wishlist.totalListCost.where('organizer', req.params.organizer)), // this needs to use Family.readWishlist() probably
-    balance: total-spent
+    spent: Math.sum(
+      Family.wishlist.totalListCost.where('organizer', req.params.organizer)
+    ), // This needs to use Family.readWishlist() probably
+    balance: total - spent
   };
 
-  if(err){
+  if (err) {
     console.error(err);
     res.status(500).json({ message: err });
-  }
-  else {
-   res.status(200).json({ money });
+  } else {
+    res.status(200).json({ money });
   }
 });
 
@@ -82,16 +85,18 @@ routes.get('/pairing/paired', (req, res) => {
 
   res.status(200).json({
     org1: {
-      families: ['a','b','c'],
-      budget: { // comes from mongoDB, same as /paring/balance
+      families: ['a', 'b', 'c'],
+      budget: {
+        // Comes from mongoDB, same as /paring/balance
         total: '50',
         spent: '29',
         balance: '21'
       }
     },
     org2: {
-      families: ['x','y','z'],
-      budget: { // comes from mongoDB, same as /paring/balance
+      families: ['x', 'y', 'z'],
+      budget: {
+        // Comes from mongoDB, same as /paring/balance
         total: '50',
         spent: '29',
         balance: '21'
