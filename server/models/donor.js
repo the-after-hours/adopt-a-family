@@ -13,13 +13,13 @@ const donorSchema = new Schema({
   matchedFamily: {
     type: Schema.Types.ObjectId,
     ref: 'Family',
-    default: 'unmatched'
+    default: null,
   },
   organizer: {
     type: Schema.Types.ObjectId,
     ref: 'Organizer',
-    default: 'unmatched'
-  }
+    default: null,
+  },
 });
 
 const Donor = mongoose.model('Donor', donorSchema);

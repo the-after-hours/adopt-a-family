@@ -180,7 +180,7 @@ const userCreate = async (
 
   let userFields = {
     username,
-    name: nameModel,
+    name: nameModel._id,
     email,
     password,
     phone,
