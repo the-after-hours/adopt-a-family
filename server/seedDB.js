@@ -132,7 +132,7 @@ const familyCreate = async (headOfFamilyNameModel, wishlist, size) => {
 
   const newFamily = new Family({
     name: headOfFamilyNameModel,
-    wishlist: newWishlist,
+    wishlist: newWishlist._id,
     size,
   });
 
