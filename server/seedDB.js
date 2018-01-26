@@ -52,6 +52,23 @@ const MOCK_USERS = [
     userType: FAMILY,
     userOptions: {
       size: 4,
+      wishlist: [
+        {
+          itemName: 'Backpack',
+          itemQuantity: 1,
+          itemCost: 40,
+        },
+        {
+          itemName: 'Notebook',
+          itemQuantity: 5,
+          itemCost: 3,
+        },
+        {
+          itemName: 'Mechanical Pencil Pack',
+          itemQuantity: 5,
+          itemCost: 8,
+        },
+      ],
     },
   },
 ];
@@ -107,22 +124,30 @@ async function clearDatabase() {
 }
 
 const familyCreate = async (headOfFamilyNameModel, wishlist, size) => {
-  const newWishlist = wishlist ? new Wishlist({ list: wishlist }) : undefined;
+  let newWishlist;
+
+  if (wishlist) {
+    newWishlist = new Wishlist({ list: wishlist });
+  }
 
   const newFamily = new Family({
     name: headOfFamilyNameModel,
-    wishlist: newWishlist,
+    wishlist: newWishlist._id,
     size,
   });
 
-  await newFamily.save((err, family) => {
-    if (err) {
-      console.log(`Error creating family: ${err}`);
-      return;
-    }
+  // Tried to set this to just newFamily
+  // But it will cause a stack overflow
+  newWishlist.family = newFamily._id;
 
-    console.log(`Successfully created family: ${family}`);
-  });
+  await Promise.all([newFamily.save(), newWishlist.save()])
+    .then(arr => {
+      console.log(`Successfully created family: ${newFamily}`);
+      console.log(`Successfully created wishlist: ${newWishlist}`);
+    })
+    .catch(err => {
+      console.error(`Error creating family or wishlist: ${err}`);
+    });
 
   return newFamily;
 };
