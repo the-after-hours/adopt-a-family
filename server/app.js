@@ -13,11 +13,14 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 
 app.use('/', indexRoutes);
 app.use('/api', apiRoutes);
 
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+// I don't like setting this to module exports just to make the tests work.. possible work around anyone?
+module.exports = app.listen(port, () =>
+  console.log(`Listening on port ${port}!`)
+);
