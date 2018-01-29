@@ -1,8 +1,12 @@
 const request = require('supertest');
-const app = require('../../../server/app');
+const express = require('express');
+const app = express();
+const apiRoutes = require('../../routes/api');
 
 const WISHLIST_ENDPOINT = '/api/wishlist';
 const WISHLIST_CREATE_ENDPOINT = '/api/wishlist/addItem';
+
+app.use('/api', apiRoutes);
 
 describe('Test wishlist GET route, /api/wishlist/id', () => {
   describe('Test 200 responses', () => {
