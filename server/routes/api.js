@@ -10,8 +10,6 @@ const Family = require('../models/family');
 // Wishlist = Family.readWishlist();
 mongoose.connect('mongodb://localhost/aaf');
 
-app.use(bodyParser.json());
-
 // Configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
