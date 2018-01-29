@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 
 // Configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+routes.use(bodyParser.urlencoded({ extended: true }));
+routes.use(bodyParser.json());
 
 // All of these route are relative to /api/
 
