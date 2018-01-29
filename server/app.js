@@ -20,5 +20,4 @@ app.use(
 app.use('/', indexRoutes);
 app.use('/api', apiRoutes);
 
-// I don't like setting this to module exports just to make the tests work.. possible work around anyone?
 app.listen(port, () => console.log(`Listening on port ${port}!`));
