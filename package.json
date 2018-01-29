@@ -34,8 +34,6 @@
     "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "concurrently": "^3.5.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
