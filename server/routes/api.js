@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
+const Wishlist = require('../models/wishlist');
 // Wishlist = Family.readWishlist();
 mongoose.connect('mongodb://localhost/aaf');
 
@@ -103,5 +104,24 @@ routes.get('/pairing/paired', (req, res) => {
     },
   });
 });
+
+routes.get('/wishlist/:familyId/read', (req, res) => {
+
+  const familyId = req.params.familyId;
+
+  Wishlist.where({family: familyId})
+    .exec((err, wishlist) => {
+      if(err) {
+        res.status(500).json(err);
+      } else {
+        if(wishlist.length === 0){
+          res.status(200).json({message: 'No wishlist found.'});
+        } else {
+          res.status(200).json(wishlist[0].list);
+        }
+      }
+    });
+});
+
 
 module.exports = routes;
