@@ -59,9 +59,9 @@ describe('Test POST routes, /api/wishlist/addItem', () => {
     });
   });
   describe('Test 400 responses', () => {
-    // write some 400 tests
+    // Write some 400 tests
   });
   describe('Test 500 responses', () => {
-    // write some 500 tests
+    // Write some 500 tests
   });
 });
