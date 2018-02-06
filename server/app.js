@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 
