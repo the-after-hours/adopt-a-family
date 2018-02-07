@@ -1,6 +1,4 @@
 const routes = require('express').Router();
-const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 
 // Possibly move these imports into sub files when each api route has it's own js file
