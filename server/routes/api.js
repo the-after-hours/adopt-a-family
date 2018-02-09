@@ -20,7 +20,7 @@ routes.get('/', (req, res) => {
 });
 
 // We are building Donors (those with goods) looking for families
-routes.get('/pairing', (req, res) => {
+routes.get('/pairing/budget', (req, res) => {
   if (
     typeof req.query.budget === 'undefined' ||
     req.query.budget === 'null' ||
@@ -112,6 +112,12 @@ routes.get('/pairing/paired', (req, res) => {
         balance: '21',
       },
     },
+  });
+});
+
+routes.get('/pairing/:familyId', (req, res) => {
+  res.status(200).json({
+    message: 'Oh look it works like a boss',
   });
 });
 
