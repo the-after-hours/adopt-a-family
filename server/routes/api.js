@@ -108,14 +108,19 @@ routes.get('/pairing/paired', (req, res) => {
 routes.get('/wishlist/:familyId/read', (req, res) => {
 
   const familyId = req.params.familyId;
+  if ( !familyId.match(/[0-F]{24}/gi) ) {
+    res.status(200).json({ message: 'No family found'});
+  }
 
   Wishlist.where({family: familyId})
     .exec((err, wishlist) => {
       if(err) {
         res.status(500).json(err);
       } else {
-        if(wishlist.length === 0){
-          res.status(200).json({message: 'No wishlist found.'});
+        if (wishlist.length === 0) {
+          res.status(200).json({ message: 'No family found.' });
+        } else if (wishlist[0].list.length === 0) {
+          res.status(200).json({ message: 'No wishlist found.' });
         } else {
           res.status(200).json(wishlist[0].list);
         }
@@ -125,3 +130,4 @@ routes.get('/wishlist/:familyId/read', (req, res) => {
 
 
 module.exports = routes;
+
