@@ -41,6 +41,7 @@
     "eslint": "^4.17.0",
     "eslint-plugin-react": "^7.6.1",
     "jest": "^22.2.2",
+    "jest-cli": "^22.2.2",
     "node-sass-chokidar": "0.0.3",
     "nodemon": "^1.14.12",
     "react-scripts": "^1.1.1",
