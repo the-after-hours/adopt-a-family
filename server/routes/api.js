@@ -124,11 +124,11 @@ routes.get('/pairing/paired', (req, res) => {
 // Update item details
 // Remove item from wishlist
 
-routes.put('/wishlist/:familyId/addItem', wishlistController.addItem);
+routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
 
 routes.post('/wishlist/:familyId/create', wishlistController.create);
 
-routes.put('/wishlist/:familyId/removeItem', wishlistController.removeItem);
+routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
 routes.put('/wishlist/:familyId/updateItem', wishlistController.updateItem);
 
