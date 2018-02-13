@@ -129,9 +129,9 @@ routes.get('/wishlist/:familyId/read', (req, res) => {
           res.status(500).json(err);
         } else {
           if (wishlist.length === 0) {
-            res.status(400).json({ message: 'There\'s no family with that ID' });
+            res.status(404).json({ message: 'There\'s no family with that ID' });
           } else if (wishlist[0].list.length === 0) {
-            res.status(400).json({ message: 'Family exists but has no wishlist' });
+            res.status(200).json({ message: 'Family exists but has no wishlist' });
           } else {
             res.status(200).json({ message: 'Wishlist found!',
               wishlist: wishlist[0].list});
