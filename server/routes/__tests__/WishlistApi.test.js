@@ -43,7 +43,7 @@ describe.skip('Test wishlist GET route, /api/wishlist/id', () => {
   });
 });
 
-describe('Test POST routes, /api/wishlist/addItem', () => {
+describe.skip('Test POST routes, /api/wishlist/addItem', () => {
   describe('Test 201 responses', () => {
     it('Should return 201 when a successful wishlist is created', () => {
       return request(app)
