@@ -8,3 +8,7 @@ node_js:
 cache:
   directories:
     - node_modules
+services:
+  - mongodb
+before_script:
+  - node server/seedDB.js
