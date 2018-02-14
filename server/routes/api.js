@@ -132,6 +132,4 @@ routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
 routes.put('/wishlist/:familyId/updateItem', wishlistController.updateItem);
 
-routes.put('/wishlist/:familyId/delete', wishlistController.delete);
-
 module.exports = routes;
