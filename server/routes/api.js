@@ -141,11 +141,5 @@ routes.get('/wishlist/:familyId', (req, res) => {
   }
 });
 
-routes.delete('/wishlist/:objectId', (req, res) => {
-  const objectId = req.params.objectId;
-  Wishlist.findByIdAndRemove({ object: objectId})
-    .exec();
-});
-
 module.exports = routes;
 
