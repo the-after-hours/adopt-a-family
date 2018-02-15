@@ -115,15 +115,15 @@ routes.get('/pairing/paired', (req, res) => {
   });
 });
 
-routes.get('/wishlist/:familyId/read', (req, res) => {
+routes.get('/wishlist/:familyId', (req, res) => {
 
-  const FAMILY_ID = req.params.familyId;
+  const { familyId } = req.params;
   // This regex checks if the family ID matches the parameters for an object ID
   // 0-9 a-f and a length of 24
-  if ( !FAMILY_ID.match(/[0-F]{24}/gi) ) {
+  if ( !familyId.match(/[0-F]{24}/gi) ) {
     res.status(400).json({ message: 'Invalid family id'});
   } else {
-    Wishlist.find({family: FAMILY_ID})
+    Wishlist.find({family: familyId})
       .exec((err, wishlist) => {
         if(err) {
           res.status(500).json(err);
