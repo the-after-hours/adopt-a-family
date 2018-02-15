@@ -139,7 +139,29 @@ routes.get('/wishlist/:familyId', (req, res) => {
         }
       });
   }
+
+routes.get('/families', (req, res) => {
+  const { filter, value } = req.query;
+  let query;
+
+  if (!filter || !value) {
+    query = Family.find();
+  } else {
+    query = Family.find()
+      .where(filter)
+      .equals(value);
+  }
+
+  query
+    .exec()
+    .then(families => {
+      res.status(200).json({ families });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err,
+      });
+    });
 });
 
 module.exports = routes;
-
