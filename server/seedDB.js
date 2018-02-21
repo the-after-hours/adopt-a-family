@@ -71,6 +71,22 @@ const MOCK_USERS = [
       ],
     },
   },
+  {
+    username: 'subparmoms',
+    name: {
+      first: 'Ella',
+      middle: 'Gots',
+      last: 'Grooved',
+    },
+    email: 'test1@test.com',
+    password: 'pasword',
+    phone: '666-666-6666',
+    userType: FAMILY,
+    userOptions: {
+      size: 4,
+      wishlist: [],
+    },
+  },
 ];
 
 mongoose.connect(localDB, {
