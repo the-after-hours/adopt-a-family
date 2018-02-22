@@ -115,7 +115,7 @@ routes.get('/pairing/paired', (req, res) => {
   });
 });
 
-routes.get('/wishlist/:familyId/read', (req, res) => {
+routes.get('/wishlist/:familyId', (req, res) => {
 
   const familyId = req.params.familyId;
   // This regex checks if the family ID matches the parameters for an object ID
@@ -141,6 +141,22 @@ routes.get('/wishlist/:familyId/read', (req, res) => {
   }
 });
 
+routes.delete('/wishlist/:objectId', (req, res) => {
+  const objectId = req.params.objectId;
+  console.log('working');
+  Wishlist.findByIdAndRemove({ object: objectId})
+    .exec((err, temp) => {
+      console.log('working1');
+      if (err) {
+        res.status(500).json(err);
+        console.log('working2');
+      } else
+      {
+        console.log(objectId);
+        console.log('working3');
+      }
+    });
+});
 
 module.exports = routes;
 
