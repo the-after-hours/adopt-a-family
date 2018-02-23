@@ -27,6 +27,10 @@ Check that you can view the app at localhost:3000.
 
 Fork the repository and create a feature branch to work on any changes.   When done, submit a pull request!
 
+#### System Requirements
+* Node >= v7.0.0
+* MongoDB 3.6
+
 ### Authors
 
 * **5-Gwoap**
