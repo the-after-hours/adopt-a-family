@@ -1,5 +1,18 @@
 const Wishlist = require('../models/wishlist');
 
+const _getWishlistCost = (list) => {
+// Accept list as Array of objects
+// Should return a single cost for the entire wishlist
+  let totalCost = 0;
+
+  list.forEach(item => {
+    totalCost += (item.itemCost * item.itemQuantity);
+  });
+
+  return totalCost;
+};
+
+
 exports.addItem = (req, res) => {
   const familyId = req.params.familyId;
   const item = req.body.item;
@@ -31,7 +44,12 @@ exports.addItem = (req, res) => {
         wishlist: wishlist,
       });
     });
+
+    // Need to write to wishlist total cost.
+    console.log(_getWishlistCost(wishlist[0].list));
+
   });
+
 };
 
 exports.create = (req, res) => {
@@ -44,7 +62,7 @@ exports.delete = (req, res) => {
 
 exports.removeItem = (req, res) => {
   const familyId = req.params.familyId;
-  const { itemName, itemQuantity } = req.body.item;
+  const { itemName } = req.body.item;
   const itemId = req.body.itemId;
 
   // Bad request if no body is sent
@@ -80,6 +98,10 @@ exports.removeItem = (req, res) => {
             wishlist: wishlist,
           });
         });
+
+        // Need to write to wishlist total cost
+        console.log(_getWishlistCost(wishlist.list));
+
       });
   } catch (err) {
     res.status(500).json({ 'Message': 'TEMP ERROR TEST' });
