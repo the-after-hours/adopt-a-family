@@ -131,7 +131,7 @@ routes.post('/wishlist/:familyId/create', wishlistController.create);
 
 routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
-routes.put('/wishlist/:familyId/updateItem', wishlistController.updateItem);
+routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
 
 routes.get('/wishlist/:familyId', (req, res) => {
 
