@@ -143,20 +143,21 @@ routes.get('/wishlist/:familyId', (req, res) => {
 
 routes.delete('/wishlist/:objectId', (req, res) => {
   const objectId = req.params.objectId;
-  console.log('working');
-  Wishlist.findByIdAndRemove({ object: objectId})
-    .exec((err, temp) => {
-      console.log('working1');
-      if (err) {
-        res.status(500).json(err);
-        console.log('working2');
-      } else
-      {
-        console.log(objectId);
-        console.log('working3');
-      }
-    });
+  // Same regex as the one in the find function
+  if( !objectId.match( /[0-F]{24}/gi) ) {
+    res.status(400).json({ message: 'Invalid wishlist id'});
+  } else {
+    // Wishlist.findByIdAndRemove( objectId, (err, wishlist) => {
+    //   console.log(body);
+    //   if(err) {
+    //     res.send(err);
+    //   } else {
+    //     res.status(200).json({ message: objectId + ' deleted'});
+    //   }
+    // });
+    Wishlist.findByIdAndRemove(objectId);
+  }
 });
 
-module.exports = routes;
 
+module.exports = routes;
