@@ -115,6 +115,19 @@ routes.get('/pairing/paired', (req, res) => {
   });
 });
 
+// Create new wishlist.
+// Add item to wishlist
+// Update item details
+// Remove item from wishlist
+
+routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
+
+routes.patch('/wishlist/:familyId/create', wishlistController.create);
+
+routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
+
+routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
+
 routes.get('/wishlist/:familyId', (req, res) => {
 
   const { familyId } = req.params;
