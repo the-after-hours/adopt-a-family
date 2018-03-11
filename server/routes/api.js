@@ -120,11 +120,6 @@ routes.get('/pairing/paired', (req, res) => {
   });
 });
 
-// Create new wishlist.
-// Add item to wishlist
-// Update item details
-// Remove item from wishlist
-
 routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
 
 routes.patch('/wishlist/:familyId/create', wishlistController.create);
@@ -160,4 +155,3 @@ routes.get('/wishlist/:familyId', (req, res) => {
 });
 
 module.exports = routes;
-
