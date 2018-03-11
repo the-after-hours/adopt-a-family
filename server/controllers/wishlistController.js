@@ -46,9 +46,6 @@ exports.addItem = (req, res) => {
           wishlist: wishlist,
         });
       });
-
-      // Need to write to wishlist total cost.
-      console.log(_getWishlistCost(wishlist[0].list));
     });
   } catch (err) {
     res.status(500).json({ Message: 'TEMP ERROR TEST' });
@@ -126,11 +123,9 @@ exports.updateItem = (req, res) => {
   const { itemName, itemCost, itemQuantity } = req.body.item;
   const itemId = req.body.itemId;
 
-
   try {
     Wishlist.where({ family: familyId })
       .findOne({
-        'list.itemName': itemName,
         'list._id': itemId,
       })
       .exec((err, wishlist) => {
@@ -140,18 +135,26 @@ exports.updateItem = (req, res) => {
 
         wishlist.list.map(item => {
           if (item._id.toString() === itemId) {
-            console.log('found match');
-
-            item.itemName = itemName;
-            item.itemPrice = itemPrice;
-            item.itemQuantity = itemQuantity;
+            item.itemName = itemName ? itemName : item.itemName;
+            item.itemCost = itemCost ? itemCost : item.itemCost;
+            item.itemQuantity = itemQuantity ? itemQuantity : item.itemQuantity;
           }
         });
 
-        console.log(wishlist);
+        wishlist.totalListCost = _getWishlistCost(wishlist.list);
+
+        wishlist.save((err, wishlist) => {
+          if (err) {
+            res.status(500).json({ Error: err });
+          }
+
+          res.status(200).json({
+            message: 'Successfully updated item in wishlist',
+            wishlist: wishlist,
+          });
+        });
       });
   } catch (err) {
-    res.status(500).json({ Message: 'TEMP ERROR TEST' });
+    res.status(500).json({ Message: 'TEMP ERROR TEST: ' });
   }
-  res.send('NOT YET IMPLEMENTED');
 };
