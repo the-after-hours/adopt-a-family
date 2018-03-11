@@ -6,6 +6,10 @@ const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
 const Wishlist = require('../models/wishlist');
+
+// Controllers
+const wishlistController = require('../controllers/wishlistController');
+
 mongoose.connect('mongodb://localhost/aaf');
 
 // Configure app to use bodyParser()
