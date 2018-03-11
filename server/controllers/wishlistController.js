@@ -13,15 +13,15 @@ const _getWishlistCost = list => {
 };
 
 exports.addItem = (req, res) => {
-  const familyId = req.params.familyId;
-  const item = req.body.item;
-
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({
       Error: 'Body missing data',
     });
   }
+
+  const familyId = req.params.familyId;
+  const item = req.body.item;
 
   // TODO: Check structure of item
   // Prevent duplicate items
@@ -64,16 +64,16 @@ exports.delete = (req, res) => {
 };
 
 exports.removeItem = (req, res) => {
-  const familyId = req.params.familyId;
-  const { itemName } = req.body.item;
-  const itemId = req.body.itemId;
-
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({
       Error: 'Body missing data',
     });
   }
+
+  const familyId = req.params.familyId;
+  const { itemName } = req.body.item;
+  const itemId = req.body.itemId;
 
   try {
     Wishlist.where({ family: familyId })
@@ -115,16 +115,17 @@ exports.removeItem = (req, res) => {
 };
 
 exports.updateItem = (req, res) => {
-  const familyId = req.params.familyId;
-  const { itemName, itemPrice, itemQuantity } = req.body.item;
-  const itemId = req.body.itemId;
-
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({
       Error: 'Body missing data',
     });
   }
+
+  const familyId = req.params.familyId;
+  const { itemName, itemCost, itemQuantity } = req.body.item;
+  const itemId = req.body.itemId;
+
 
   try {
     Wishlist.where({ family: familyId })
