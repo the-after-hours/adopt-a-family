@@ -21,7 +21,7 @@ const wishlistSchema = new Schema(
     ],
     totalListCost: Number,
   },
-  { usePushEach: true }
+  { usePushEach: true },
 );
 
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);
