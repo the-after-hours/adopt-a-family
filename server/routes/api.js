@@ -127,7 +127,7 @@ routes.get('/pairing/paired', (req, res) => {
 
 routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
 
-routes.post('/wishlist/:familyId/create', wishlistController.create);
+routes.patch('/wishlist/:familyId/create', wishlistController.create);
 
 routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
