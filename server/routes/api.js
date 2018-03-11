@@ -1,4 +1,5 @@
 const routes = require('express').Router();
+
 const bodyParser = require('body-parser');
 
 // Possibly move these imports into sub files when each api route has it's own js file
@@ -6,6 +7,10 @@ const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
 const Wishlist = require('../models/wishlist');
+
+// Controllers
+const wishlistController = require('../controllers/wishlistController');
+
 mongoose.connect('mongodb://localhost/aaf');
 
 // Configure app to use bodyParser()
@@ -115,6 +120,14 @@ routes.get('/pairing/paired', (req, res) => {
   });
 });
 
+routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
+
+routes.patch('/wishlist/:familyId/create', wishlistController.create);
+
+routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
+
+routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
+
 routes.get('/wishlist/:familyId', (req, res) => {
 
   const { familyId } = req.params;
@@ -142,4 +155,3 @@ routes.get('/wishlist/:familyId', (req, res) => {
 });
 
 module.exports = routes;
-
