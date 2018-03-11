@@ -74,10 +74,10 @@ exports.create = (req, res) => {
         }
 
         if (wishlist[0].list !== []) {
-          return res.status(200).json({ Message: 'Unable to create wishlist. Wishlist already exists.'})
+          return res.status(200).json({ Message: 'Unable to create wishlist. Wishlist already exists.'});
         }
 
-        wishlist[0].list = newWishlist
+        wishlist[0].list = newWishlist;
 
         wishlist[0].totalListCost = _getWishlistCost(wishlist[0].list);
 
