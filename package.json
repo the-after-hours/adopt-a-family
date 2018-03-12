@@ -11,7 +11,7 @@
     "server": "nodemon server/app.js",
     "start":
       "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
-	"test:lint": "eslint ./",
+    "test:lint": "eslint ./",
     "test:react": "react-scripts test --env=jsdom",
     "test:api": "jest Api --notify --env=node --forceExit",
     "test":
