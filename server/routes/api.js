@@ -81,7 +81,7 @@ routes.get('/pairing/balance', (req, res) => {
   let money = {
     total: Math.sum(Donor.budget.where('organizer', req.params.organizer)),
     spent: Math.sum(
-      Family.wishlist.totalListCost.where('organizer', req.params.organizer),
+      Family.wishlist.totalListCost.where('organizer', req.params.organizer)
     ), // This needs to use Family.readWishlist() probably
     balance: total - spent,
   };

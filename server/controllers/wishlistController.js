@@ -132,7 +132,7 @@ exports.removeItem = (req, res) => {
         }
 
         wishlist.list = wishlist.list.filter(
-          item => item._id.toString() !== itemId,
+          item => item._id.toString() !== itemId
         );
 
         wishlist.totalListCost = _getWishlistCost(wishlist.list);
