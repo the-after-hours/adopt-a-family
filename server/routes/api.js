@@ -115,10 +115,6 @@ routes.get('/pairing/paired', (req, res) => {
   });
 });
 
-/**
-* @todo Complete /api/pairing/:familyId
-* @body Get the Pairing Route up and Running which should match donors to families
-*/
 routes.get('/pairing/:familyId', (req, res) => {
   res.status(200).json({
     message: 'Oh look it works like a boss',
