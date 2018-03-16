@@ -116,46 +116,67 @@ routes.get('/pairing/paired', (req, res) => {
 });
 
 routes.get('/wishlist/:familyId', (req, res) => {
-
   const { familyId } = req.params;
   // This regex checks if the family ID matches the parameters for an object ID
   // 0-9 a-f and a length of 24
-  if ( !familyId.match(/[0-F]{24}/gi) ) {
-    res.status(400).json({ message: 'Invalid family id'});
+  if (!familyId.match(/[0-F]{24}/gi)) {
+    res.status(400).json({ message: 'Invalid family id' });
   } else {
-    Wishlist.find({family: familyId})
-      .exec((err, wishlist) => {
-        if(err) {
-          res.status(500).json(err);
+    Wishlist.find({ family: familyId }).exec((err, wishlist) => {
+      if (err) {
+        res.status(500).json(err);
+      } else {
+        if (wishlist.length === 0) {
+          // Double quotes don't play well with editorconfig
+          // eslint-disable-next-line
+          res.status(404).json({ message: "There's no family with that ID" });
+        } else if (wishlist[0].list.length === 0) {
+          res
+            .status(200)
+            .json({ message: 'Family exists but has no wishlist' });
         } else {
-          if (wishlist.length === 0) {
-            res.status(404).json({ message: 'There\'s no family with that ID' });
-          } else if (wishlist[0].list.length === 0) {
-            res.status(200).json({ message: 'Family exists but has no wishlist' });
-          } else {
-            res.status(200).json({ message: 'Wishlist found!',
-              wishlist: wishlist[0].list});
-          }
+          res.status(200).json({
+            message: 'Wishlist found!',
+            wishlist: wishlist[0].list,
+          });
         }
-      });
+      }
+    });
   }
+});
 
 routes.get('/families', (req, res) => {
   const { filter, value } = req.query;
-  let query;
+  const queryKeys = Object.keys(req.query);
 
-  if (!filter || !value) {
-    query = Family.find();
-  } else {
-    query = Family.find()
-      .where(filter)
-      .equals(value);
+  if (queryKeys.length === 0) {
+    const families = Family.find();
+
+    res.status(200).json({ families });
   }
+
+  // Throw 400 if incorrect number of parameters received
+  if (queryKeys.length !== 2) {
+    res.status(400).json({
+      message: `Received ${queryKeys.length} parameters but expected 2.`,
+    });
+  }
+
+  // Throw 400 if there are queries that are not filter/value
+  if (!filter || !value) {
+    res.status(400).json({
+      message: 'Invalid parameters supplied',
+    });
+  }
+
+  const query = Family.find({ filter: value });
 
   query
     .exec()
     .then(families => {
-      res.status(200).json({ families });
+      res.status(200).json({
+        families,
+      });
     })
     .catch(err => {
       res.status(500).json({
