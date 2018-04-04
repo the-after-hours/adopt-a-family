@@ -10,8 +10,7 @@ app.use('/api', apiRoutes);
 
 describe('Test /api/families,', () => {
   describe('Test 200 responses', () => {
-    // TODO: this fails still
-    it.skip('Should return 200 if no filter is passed', () => {
+    it('Should return 200 if no filter is passed', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query()
@@ -38,17 +37,24 @@ describe('Test /api/families,', () => {
           expect(response.statusCode).toBe(200);
         });
     });
+  });
 
-    // TODO: this fails still
-    it.skip('Should return 200 if valid filter is passed', () => {
+  describe('Test 400 responses', () => {
+    it('Should return 400 if missing value query', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
-        .query()
+        .query({ query: '_id' })
         .then(response => {
-          expect(response.statusCode).toBe(200);
+          expect(response.statusCode).toBe(400);
+        });
+    });
+    it('Should return 400 if missing filter query', () => {
+      return request(app)
+        .get(FAMILY_ENDPOINT)
+        .query({ value: 'test' })
+        .then(response => {
+          expect(response.statusCode).toBe(400);
         });
     });
   });
-
-  describe('Test 400 responses', () => {});
 });

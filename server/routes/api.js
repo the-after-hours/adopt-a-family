@@ -145,44 +145,52 @@ routes.get('/wishlist/:familyId', (req, res) => {
   }
 });
 
+// This route will only accept 0 query params or exactly 2: filter and value
 routes.get('/families', (req, res) => {
   const { filter, value } = req.query;
   const queryKeys = Object.keys(req.query);
+  console.log(`query: ${req.query}`);
+  console.log(`querykeys: ${queryKeys}`);
 
   if (queryKeys.length === 0) {
-    const families = Family.find();
+    const query = Family.find();
 
-    res.status(200).json({ families });
-  }
-
-  // Throw 400 if incorrect number of parameters received
-  if (queryKeys.length !== 2) {
+    query
+      .exec()
+      .then(families => {
+        res.status(200).json({ families });
+      })
+      .catch(err => {
+        res.status(500).json({
+          message: err,
+        });
+      });
+  } else if (queryKeys.length !== 2) {
+    // Throw 400 if incorrect number of parameters received
     res.status(400).json({
       message: `Received ${queryKeys.length} parameters but expected 2.`,
     });
-  }
-
-  // Throw 400 if there are queries that are not filter/value
-  if (!filter || !value) {
+  } else if (!filter || !value) {
+    // Throw 400 if there are queries that are not filter/value
     res.status(400).json({
       message: 'Invalid parameters supplied',
     });
+  } else {
+    const query = Family.find({ filter: value });
+
+    query
+      .exec()
+      .then(families => {
+        res.status(200).json({
+          families,
+        });
+      })
+      .catch(err => {
+        res.status(500).json({
+          message: err,
+        });
+      });
   }
-
-  const query = Family.find({ filter: value });
-
-  query
-    .exec()
-    .then(families => {
-      res.status(200).json({
-        families,
-      });
-    })
-    .catch(err => {
-      res.status(500).json({
-        message: err,
-      });
-    });
 });
 
 module.exports = routes;
