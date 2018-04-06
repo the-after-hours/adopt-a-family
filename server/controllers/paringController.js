@@ -1,6 +1,6 @@
 /**
- * TODO Calculate the Budget
- * BODY Move the budget logic to a controller
+ * @todo Calculate the Budget
+ * @body Move the budget logic to a controller
  */
 exports.calculateBudget = (req, res) => {
   return res.status(501);
