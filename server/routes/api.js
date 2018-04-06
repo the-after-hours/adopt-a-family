@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
-// Wishlist = Family.readWishlist();
+const Wishlist = require('../models/wishlist');
 mongoose.connect('mongodb://localhost/aaf');
 
 // Configure app to use bodyParser()
@@ -119,6 +119,32 @@ routes.get('/pairing/:familyId', (req, res) => {
   res.status(200).json({
     message: 'Oh look it works like a boss',
   });
+
+routes.get('/wishlist/:familyId', (req, res) => {
+
+  const { familyId } = req.params;
+  // This regex checks if the family ID matches the parameters for an object ID
+  // 0-9 a-f and a length of 24
+  if ( !familyId.match(/[0-F]{24}/gi) ) {
+    res.status(400).json({ message: 'Invalid family id'});
+  } else {
+    Wishlist.find({family: familyId})
+      .exec((err, wishlist) => {
+        if(err) {
+          res.status(500).json(err);
+        } else {
+          if (wishlist.length === 0) {
+            res.status(404).json({ message: 'There\'s no family with that ID' });
+          } else if (wishlist[0].list.length === 0) {
+            res.status(200).json({ message: 'Family exists but has no wishlist' });
+          } else {
+            res.status(200).json({ message: 'Wishlist found!',
+              wishlist: wishlist[0].list});
+          }
+        }
+      });
+  }
 });
 
 module.exports = routes;
+
