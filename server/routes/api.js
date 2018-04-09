@@ -149,8 +149,6 @@ routes.get('/wishlist/:familyId', (req, res) => {
 routes.get('/families', (req, res) => {
   const { filter, value } = req.query;
   const queryKeys = Object.keys(req.query);
-  console.log(`query: ${req.query}`);
-  console.log(`querykeys: ${queryKeys}`);
 
   if (queryKeys.length === 0) {
     const query = Family.find();
@@ -168,12 +166,12 @@ routes.get('/families', (req, res) => {
   } else if (queryKeys.length !== 2) {
     // Throw 400 if incorrect number of parameters received
     res.status(400).json({
-      message: `Received ${queryKeys.length} parameters but expected 2.`,
+      message: `Received ${queryKeys.length} parameter(s) but expected 2.`,
     });
   } else if (!filter || !value) {
     // Throw 400 if there are queries that are not filter/value
     res.status(400).json({
-      message: 'Invalid parameters supplied',
+      message: 'Invalid parameters supplied.',
     });
   } else {
     const query = Family.find({ filter: value });
