@@ -58,8 +58,14 @@ exports.filterBySingleValue = (req, res) => {
     query
       .exec()
       .then(donors => {
-        res.status(200).json({
-          donors,
+        if (!donors) {
+          return res.status(400).json({
+            message: 'No donors found.',
+          });
+        }
+
+        return res.status(200).json({
+          donors: [...donors],
         });
       })
       .catch(err => {

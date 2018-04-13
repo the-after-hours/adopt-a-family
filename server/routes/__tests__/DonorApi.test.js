@@ -8,8 +8,7 @@ const DONOR_ENDPOINT = '/api/donors';
 
 app.use('/api', apiRoutes);
 
-// Broken aka i haven't written the tests yet
-describe.skip('Test /api/donors,', () => {
+describe('Test /api/donors,', () => {
   describe('Test 200 responses', () => {
     it('Should return 200 if no filter is passed', () => {
       return request(app)
@@ -20,20 +19,60 @@ describe.skip('Test /api/donors,', () => {
         });
     });
 
+    it('Should return an object with property "donors" as an array', async () => {
+      // Find a family and use the ID
+      const donorsList = await Donor.find()
+        .then(res => res)
+        .catch(err => console.error(err));
+
+      const donorId = donorsList[0]._id;
+
+      return request(app)
+        .get(DONOR_ENDPOINT)
+        .query({ filter: '_id', value: donorId })
+        .then(response => {
+          expect.objectContaining({ donors: expect.any(Array) });
+        });
+    });
+  });
+
+  describe('Test 400 responses', () => {
+    it('Should return 400 if many queries are passed', () => {
+      return request(app)
+        .get(DONOR_ENDPOINT)
+        .query({ filter: '_id', value: '123abc', thirdValue: 'xyz' })
+        .then(response => {
+          expect(response.statusCode).toBe(400);
+        });
+    });
+
+    it('Should return the correct error message if any queries passed', () => {
+      return request(app)
+        .get(DONOR_ENDPOINT)
+        .query({ filter: '_id', value: '123abc' })
+        .then(response => {
+          expect(response.body.message).toBe(
+            'Received 2 parameter(s) but expected 0.'
+          );
+        });
+    });
+  });
+});
+
+describe('Test /api/donors/:filter', () => {
+  describe('Test 200 responses', () => {
     it('Should return 200 if filter and value parameters are present', async () => {
       // Find a family and use the ID
       const donorsList = await Donor.find()
         .then(res => res)
         .catch(err => console.error(err));
 
-      const familyId = donorsList[0]._id;
+      const donorId = donorsList[0]._id;
+      const param = '_id';
 
       return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({
-          filter: '_id',
-          value: familyId,
-        })
+        .get(DONOR_ENDPOINT + '/' + param)
+        .query({ value: donorId })
         .then(response => {
           expect(response.statusCode).toBe(200);
         });
@@ -45,84 +84,45 @@ describe.skip('Test /api/donors,', () => {
         .then(res => res)
         .catch(err => console.error(err));
 
-      const familyId = donorsList[0]._id;
+      const donorId = donorsList[0]._id;
+      const param = '_id';
 
       return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({
-          filter: '_id',
-          value: familyId,
-        })
+        .get(DONOR_ENDPOINT + '/' + param)
+        .query({ value: donorId })
         .then(response => {
-          expect.objectContaining({
-            donors: expect.any(Array),
-          });
+          expect.objectContaining({ donors: expect.any(Array) });
+        });
+    });
+
+    it.skip('Should return an object with property "donors" as an EMPTY array if value is not valid but filter is valid and nothign is found', async () => {
+      const donorId = 111;
+      const param = '_id';
+
+      return request(app)
+        .get(DONOR_ENDPOINT + '/' + param)
+        .query({ value: donorId })
+        .then(response => {
+          expect(response.donors).toHaveLength(0);
+        });
+    });
+
+    it.skip('Should return an object with property "donors" as an EMPTY array if the filter is not valid but query is valid and nothing is not found', async () => {
+      const donorsList = await Donor.find()
+        .then(res => res)
+        .catch(err => console.error(err));
+
+      const donorId = donorsList[0]._id;
+      const param = '_id';
+
+      return request(app)
+        .get(DONOR_ENDPOINT + '/' + param)
+        .query({ value: donorId })
+        .then(response => {
+          expect(response.donors).toHaveLength(0);
         });
     });
   });
 
-  describe('Test 400 responses', () => {
-    it('Should return 400 if missing value query', () => {
-      return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({ filter: '_id' })
-        .then(response => {
-          expect(response.statusCode).toBe(400);
-        });
-    });
-
-    it('Should return 400 if missing filter query', () => {
-      return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({ value: 'test' })
-        .then(response => {
-          expect(response.statusCode).toBe(400);
-        });
-    });
-
-    it('Should return 400 if queries besides "filter" or "value" are passed', () => {
-      return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({ test: 'not valid', bar: 'foo' })
-        .then(response => {
-          expect(response.statusCode).toBe(400);
-        });
-    });
-
-    it('Should return an error message if missing value query', () => {
-      return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({ filter: '_id' })
-        .then(response => {
-          expect(response.body.message).toBe(
-            'Received 1 parameter(s) but expected 2.'
-          );
-        });
-    });
-
-    it('Should return an error message if missing filter query', () => {
-      return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({ value: 'test' })
-        .then(response => {
-          expect(response.body.message).toBe(
-            'Received 1 parameter(s) but expected 2.'
-          );
-        });
-    });
-
-    it('Should return an error message if query besides "filter"/"value" are passed', () => {
-      return request(app)
-        .get(DONOR_ENDPOINT)
-        .query({ test: 'not valid', bar: 'foo' })
-        .then(response => {
-          expect(response.body.message).toBe('Invalid parameters supplied.');
-        });
-    });
-  });
-});
-
-describe('Test /api/donors/:filter', () => {
-  describe('Test 200 responses', () => {});
   describe('Test 400 responses', () => {});
 });

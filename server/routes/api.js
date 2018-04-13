@@ -197,7 +197,8 @@ routes.get('/families', (req, res) => {
 // This route will only accept 0 query params
 routes.get('/donors', donorController.showAll);
 
-// Accepts one param and one filter only
+// Accepts one param and one query only
+// eg /donors/_id?value=123
 // Returns array of donors matching
 routes.get('/donors/:filter', donorController.filterBySingleValue);
 
