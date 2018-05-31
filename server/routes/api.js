@@ -119,6 +119,7 @@ routes.get('/pairing/:familyId', (req, res) => {
   res.status(200).json({
     message: 'Oh look it works like a boss',
   });
+});
 
 routes.get('/wishlist/:familyId', (req, res) => {
 
