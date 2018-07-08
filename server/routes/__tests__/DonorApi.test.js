@@ -20,16 +20,9 @@ describe('Test /api/donors,', () => {
     });
 
     it('Should return an object with property "donors" as an array', async () => {
-      // Find a family and use the ID
-      const donorsList = await Donor.find()
-        .then(res => res)
-        .catch(err => console.error(err));
-
-      const donorId = donorsList[0]._id;
-
       return request(app)
         .get(DONOR_ENDPOINT)
-        .query({ filter: '_id', value: donorId })
+        .query()
         .then(response => {
           expect.objectContaining({ donors: expect.any(Array) });
         });
@@ -52,7 +45,7 @@ describe('Test /api/donors,', () => {
         .query({ filter: '_id', value: '123abc' })
         .then(response => {
           expect(response.body.message).toBe(
-            'Received 2 parameter(s) but expected 0.'
+            'Received 2 parameter(s) but expected 0.',
           );
         });
     });
@@ -72,7 +65,7 @@ describe('Test /api/donors/:filter', () => {
 
       return request(app)
         .get(DONOR_ENDPOINT + '/' + param)
-        .query({ value: donorId })
+        .query({ donorId })
         .then(response => {
           expect(response.statusCode).toBe(200);
         });
@@ -89,25 +82,37 @@ describe('Test /api/donors/:filter', () => {
 
       return request(app)
         .get(DONOR_ENDPOINT + '/' + param)
-        .query({ value: donorId })
+        .query({ donorId })
         .then(response => {
           expect.objectContaining({ donors: expect.any(Array) });
         });
     });
 
-    it.skip('Should return an object with property "donors" as an EMPTY array if value is not valid but filter is valid and nothign is found', async () => {
+    it('Should return 200 if filter is valid but value is invalid', async () => {
       const donorId = 111;
       const param = '_id';
 
       return request(app)
         .get(DONOR_ENDPOINT + '/' + param)
-        .query({ value: donorId })
+        .query({ donorId })
         .then(response => {
-          expect(response.donors).toHaveLength(0);
+          expect(response.statusCode).toBe(200);
         });
     });
 
-    it.skip('Should return an object with property "donors" as an EMPTY array if the filter is not valid but query is valid and nothing is not found', async () => {
+    it('Should return an object with property "donors" as an EMPTY array if query is not valid but filter is valid and nothing is found', async () => {
+      const donorId = 111;
+      const param = '_id';
+
+      return request(app)
+        .get(DONOR_ENDPOINT + '/' + param)
+        .query({ donorId })
+        .then(response => {
+          expect(response.body.donors).toHaveLength(0);
+        });
+    });
+
+    it('Should return an object with property "donors" as an EMPTY array if the filter is not valid but query is valid and nothing is not found', async () => {
       const donorsList = await Donor.find()
         .then(res => res)
         .catch(err => console.error(err));
@@ -117,9 +122,9 @@ describe('Test /api/donors/:filter', () => {
 
       return request(app)
         .get(DONOR_ENDPOINT + '/' + param)
-        .query({ value: donorId })
+        .query({ donorId })
         .then(response => {
-          expect(response.donors).toHaveLength(0);
+          expect(response.body.donors).toHaveLength(0);
         });
     });
   });

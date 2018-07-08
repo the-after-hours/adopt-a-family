@@ -1,4 +1,5 @@
 const Donor = require('../models/donor');
+const mongoose = require('mongoose');
 
 exports.readWishList = (req, res) => {
   Donor.findOne({ id: req.params.id })
@@ -47,13 +48,16 @@ exports.filterBySingleValue = (req, res) => {
     res.status(400).json({
       message: `Received ${queryKeys.length} parameter(s) but expected 1.`,
     });
-  } else if (!filter || !value) {
-    // Throw 400 if there are queries that are not filter/value
-    res.status(400).json({
-      message: 'Invalid parameters supplied.',
-    });
-  } else {
-    const query = Donor.find({ filter: value });
+  } else if (filter === '_id') {
+    const convertedId = mongoose.Types.ObjectId(value);
+    const isValidId = mongoose.Types.ObjectId.isValid(convertedId);
+    if (!isValidId) {
+      res.status(422).json({
+        message: 'Invalid objectId.',
+      });
+    }
+
+    const query = Donor.find(convertedId);
 
     query
       .exec()
