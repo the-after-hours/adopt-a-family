@@ -13,13 +13,13 @@ const wishlistSchema = new Schema(
         itemName: { type: String, required: true },
         itemQuantity: { type: Number, required: true },
         itemCost: Number,
-        totalListCost: Number,
         dateLastUpdated: {
           type: Date,
           default: Date.now,
         },
       },
     ],
+    totalListCost: Number,
   },
   { usePushEach: true }
 );
