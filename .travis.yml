@@ -3,5 +3,10 @@ node_js:
   - "node"
   - "lts/*"
   - "7"
-  - "6"
-  - "4"
+cache:
+  directories:
+    - node_modules
+services:
+  - mongodb
+before_script:
+  - node server/seedDB.js

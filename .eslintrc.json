@@ -1,14 +1,12 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2017,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "extends": "plugin:react/recommended",
   "rules": {
     "camelcase": "error",
@@ -29,13 +27,17 @@
     "comma-spacing": ["error", { "before": false, "after": true }],
     "comma-style": ["error", "last"],
     "eqeqeq": ["error", "smart"],
-    "indent": ["error", 2, {
-      "VariableDeclarator": {
-        "var": 2,
-        "let": 2,
-        "const": 3
+    "indent": [
+      "error",
+      2,
+      {
+        "VariableDeclarator": {
+          "var": 2,
+          "let": 2,
+          "const": 3
+        }
       }
-    }],
+    ],
     "dot-notation": "error",
     "global-require": "error",
     "no-cond-assign": "error",
@@ -60,19 +62,22 @@
     "one-var-declaration-per-line": ["error", "initializations"],
     "quotes": ["warn", "single"],
     "semi": ["error", "always"],
-    "spaced-comment": ["error", "always", {
-      "line": {
-        "markers": ["/"],
-        "exceptions": ["-", "+", "*"]
-      },
-      "block": {
-        "markers": ["!"],
-        "exceptions": ["*"],
-        "balanced": false
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "markers": ["/"],
+          "exceptions": ["-", "+", "*"]
+        },
+        "block": {
+          "markers": ["!"],
+          "exceptions": ["*"],
+          "balanced": false
+        }
       }
-    }],
+    ],
     "use-isnan": "error",
     "valid-typeof": "error"
-
   }
 }
