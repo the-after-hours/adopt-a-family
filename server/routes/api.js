@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const Donor = require('../models/donor');
 const Family = require('../models/family');
 const Wishlist = require('../models/wishlist');
+
+const donorController = require('../controllers/donorController');
+
 mongoose.connect('mongodb://localhost/aaf');
 
 // Configure app to use bodyParser()
@@ -190,5 +193,13 @@ routes.get('/families', (req, res) => {
       });
   }
 });
+
+// This route will only accept 0 query params
+routes.get('/donors', donorController.showAll);
+
+// Accepts one param and one query only
+// eg /donors/_id?value=123
+// Returns array of donors matching
+routes.get('/donors/:filter', donorController.filterBySingleValue);
 
 module.exports = routes;
