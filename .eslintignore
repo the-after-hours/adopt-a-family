@@ -1,2 +1,3 @@
 test/lintConfigTest.js
 build/
+coverage/
