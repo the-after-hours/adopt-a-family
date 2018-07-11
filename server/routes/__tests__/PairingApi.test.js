@@ -107,7 +107,10 @@ describe('Test GET /api/pairing/budget', () => {
 /******************************
 // I NEED TO FIX THESE TESTS //
 ******************************/
-
+/**
+ * @todo Fix /api/pairing/:familyId tests
+ * @body Tests for the route are currently all set to skip
+ */
 describe.skip('Test /api/pairing/:familyId', () => {
   describe('Test 200 responses', () => {
     it('Should return 200 if valid budget param is passed', () => {
@@ -203,6 +206,10 @@ describe.skip('Test /api/pairing/:familyId', () => {
     });
   });
 
+  /**
+   * @todo Write Pairing tests for 500 repsonses
+   * @body Need to figure out what test would fall in non 200,400 responses. If there are some, I need to write them.
+   */
   describe('Other error messages', () => {
     it.skip('Should return 500 if there are errors grabbing data from db', () => {
       // Make this work somehow...
