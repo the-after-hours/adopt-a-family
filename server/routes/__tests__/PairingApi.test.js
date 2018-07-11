@@ -173,7 +173,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
         .then(response => {
           expect(response.statusCode).toBe(400);
         });
-      });
+    });
     it.skip('Queries without wishlist param return 400 -- IS THIS VALID', () => {
       return request(app)
         .get(PAIRING_ENDPOINT)
