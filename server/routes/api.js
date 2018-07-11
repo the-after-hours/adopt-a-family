@@ -204,4 +204,12 @@ routes.get('/donors', donorController.showAll);
 // Returns array of donors matching
 routes.get('/donors/:filter', donorController.filterBySingleValue);
 
+routes.put('/wishlist/:familyId/create', wishlistController.create);
+
+routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
+
+routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
+
+routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
+
 module.exports = routes;
