@@ -5,7 +5,6 @@ const apiRoutes = require('../../routes/api');
 
 const BUDGET_PAIRING_ENDPOINT = '/api/pairing/budget';
 const WISHLIST_PAIRING_ENDPOINT = '/api/pairing/:familyId';
-const PAIRING_ENDPOINT = '/api/pairing';
 
 app.use('/api', apiRoutes);
 
