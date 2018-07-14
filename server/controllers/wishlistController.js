@@ -25,32 +25,26 @@ exports.addItem = (req, res) => {
 
   // TODO: Check structure of item
   // Prevent duplicate items
+  Wishlist.find({ family: familyId }).exec((err, wishlist) => {
+    if (err) {
+      res.status(500).json({ Error: err });
+    }
 
-  try {
-    Wishlist.find({ family: familyId }).exec((err, wishlist) => {
+    wishlist[0].list.push(item);
+
+    wishlist[0].totalListCost = _getWishlistCost(wishlist[0].list);
+
+    wishlist[0].save((err, wishlist) => {
       if (err) {
         res.status(500).json({ Error: err });
       }
 
-      wishlist[0].list.push(item);
-
-      wishlist[0].totalListCost = _getWishlistCost(wishlist[0].list);
-
-      wishlist[0].save((err, wishlist) => {
-        if (err) {
-          res.status(500).json({ Error: err });
-        }
-
-        res.status(201).json({
-          message: 'Successfully added item to wishlist',
-          wishlist: wishlist,
-        });
+      res.status(201).json({
+        message: 'Successfully added item to wishlist',
+        wishlist: wishlist,
       });
     });
-  } catch (err) {
-    // TODO: Handle exceptions with correct messages
-    res.status(500).json({ Message: 'TEMP ERROR TEST' });
-  }
+  });
 };
 
 exports.create = (req, res) => {
@@ -112,44 +106,39 @@ exports.removeItem = (req, res) => {
   const { itemName } = req.body.item;
   const itemId = req.body.itemId;
 
-  try {
-    Wishlist.where({ family: familyId })
-      .findOne({
-        'list.itemName': itemName,
-        'list._id': itemId,
-      })
-      .exec((err, wishlist) => {
+  Wishlist.where({ family: familyId })
+    .findOne({
+      'list.itemName': itemName,
+      'list._id': itemId,
+    })
+    .exec((err, wishlist) => {
+      if (err) {
+        res.status(500).json({ Error: err });
+      }
+
+      if (!wishlist) {
+        return res
+          .status(400)
+          .send('No wishlist found containing that itemId');
+      }
+
+      wishlist.list = wishlist.list.filter(
+        item => item._id.toString() !== itemId
+      );
+
+      wishlist.totalListCost = _getWishlistCost(wishlist.list);
+
+      wishlist.save((err, wishlist) => {
         if (err) {
           res.status(500).json({ Error: err });
         }
 
-        if (!wishlist) {
-          return res
-            .status(400)
-            .send('No wishlist found containing that itemId');
-        }
-
-        wishlist.list = wishlist.list.filter(
-          item => item._id.toString() !== itemId
-        );
-
-        wishlist.totalListCost = _getWishlistCost(wishlist.list);
-
-        wishlist.save((err, wishlist) => {
-          if (err) {
-            res.status(500).json({ Error: err });
-          }
-
-          res.status(200).json({
-            message: 'Successfully removed item from wishlist',
-            wishlist: wishlist,
-          });
+        res.status(200).json({
+          message: 'Successfully removed item from wishlist',
+          wishlist: wishlist,
         });
       });
-  } catch (err) {
-    // TODO: Handle exceptions with correct messages
-    res.status(500).json({ Message: 'TEMP ERROR TEST' });
-  }
+    });
 };
 
 exports.updateItem = (req, res) => {
