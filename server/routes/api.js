@@ -7,7 +7,9 @@ const Donor = require('../models/donor');
 const Family = require('../models/family');
 const Wishlist = require('../models/wishlist');
 
+// Controllers
 const donorController = require('../controllers/donorController');
+const wishlistController = require('../controllers/wishlistController');
 
 mongoose.connect('mongodb://localhost/aaf');
 
@@ -207,5 +209,13 @@ routes.get('/donors', donorController.showAll);
 // eg /donors/_id?value=123
 // Returns array of donors matching
 routes.get('/donors/:filter', donorController.filterBySingleValue);
+
+routes.put('/wishlist/:familyId/create', wishlistController.create);
+
+routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
+
+routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
+
+routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
 module.exports = routes;
