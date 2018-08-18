@@ -14,7 +14,7 @@ describe.skip('Test wishlist GET route, /api/wishlist/id', () => {
     it.skip('Should return 200 if a valid wishlist_ID is passed', () => {
       return request(app)
         .get(WISHLIST_ENDPOINT + 'REAL_WISHLIST_ID')
-        .query.then(response => {
+        .query.then((response) => {
           expect(response.statusCode).toBe(200);
         });
     });
@@ -22,7 +22,7 @@ describe.skip('Test wishlist GET route, /api/wishlist/id', () => {
     it.skip('Should return 200 if a valid family_ID is passed', () => {
       return request(app)
         .get(WISHLIST_ENDPOINT + 'REAL_FAMILY_ID')
-        .query.then(response => {
+        .query.then((response) => {
           expect(response.statusCode).toBe(200);
         });
     });
@@ -32,7 +32,7 @@ describe.skip('Test wishlist GET route, /api/wishlist/id', () => {
     it('Should return 400 if no wishlist or family id passed', () => {
       return request(app)
         .get(WISHLIST_ENDPOINT)
-        .query.then(response => {
+        .query.then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -53,7 +53,7 @@ describe.skip('Test POST routes, /api/wishlist/addItem', () => {
           familyId: '5a6ea08a3385f71d87699b5c',
           item: { itemName: 'Eraser', itemQuantity: 5, itemCost: 3 },
         })
-        .query.then(response => {
+        .query.then((response) => {
           expect(response.statusCode).toBe(201);
         });
     });

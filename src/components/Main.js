@@ -23,7 +23,8 @@ const Main = (props) => (
       <Route path="/secure/messaging" component={Messaging} /> {/* Secure */}
       <Route path="/secure/org" component={SecureOrg} /> {/* Secure */}
       <Route path="/secure/pairing" component={Pairing} /> {/* Secure */}
-      <Route path="/secure/wishlist" component={WishlistPrivate} /> {/* Secure */}
+      <Route path="/secure/wishlist" component={WishlistPrivate} />{' '}
+      {/* Secure */}
       <Route path="/registration" component={Registration} />
       <Route path="/wishlist" component={WishlistPublic} />
     </Switch>

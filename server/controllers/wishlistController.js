@@ -1,11 +1,11 @@
 const Wishlist = require('../models/wishlist');
 
-const _getWishlistCost = list => {
+const _getWishlistCost = (list) => {
   // Accept list as Array of objects
   // Should return a single cost for the entire wishlist
   let totalCost = 0;
 
-  list.forEach(item => {
+  list.forEach((item) => {
     totalCost += item.itemCost * item.itemQuantity;
   });
 
@@ -68,7 +68,7 @@ exports.create = (req, res) => {
 
     if (wishlist[0].list !== []) {
       return res.status(200).json({
-        Message: 'Unable to create wishlist. Wishlist already exists.'
+        Message: 'Unable to create wishlist. Wishlist already exists.',
       });
     }
 
@@ -83,7 +83,7 @@ exports.create = (req, res) => {
 
       res.status(200).json({
         message: 'Successfully added new wishlist to family.',
-        wishlist: wishlist
+        wishlist: wishlist,
       });
     });
   });
@@ -117,13 +117,11 @@ exports.removeItem = (req, res) => {
       }
 
       if (!wishlist) {
-        return res
-          .status(400)
-          .send('No wishlist found containing that itemId');
+        return res.status(400).send('No wishlist found containing that itemId');
       }
 
       wishlist.list = wishlist.list.filter(
-        item => item._id.toString() !== itemId
+        (item) => item._id.toString() !== itemId
       );
 
       wishlist.totalListCost = _getWishlistCost(wishlist.list);
@@ -155,14 +153,14 @@ exports.updateItem = (req, res) => {
 
   Wishlist.where({ family: familyId })
     .findOne({
-      'list._id': itemId
+      'list._id': itemId,
     })
     .exec((err, wishlist) => {
       if (err) {
         res.status(500).json({ Error: err });
       }
 
-      wishlist.list.map(item => {
+      wishlist.list.map((item) => {
         if (item._id.toString() === itemId) {
           item.itemName = itemName ? itemName : item.itemName;
           item.itemCost = itemCost ? itemCost : item.itemCost;
@@ -179,7 +177,7 @@ exports.updateItem = (req, res) => {
 
         res.status(200).json({
           message: 'Successfully updated item in wishlist',
-          wishlist: wishlist
+          wishlist: wishlist,
         });
       });
     });

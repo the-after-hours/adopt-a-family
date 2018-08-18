@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Nav extends Component {
-
-  render () {
+  render() {
     return (
       <div className="header-container">
-
         <div className="col-3 header-group header-text">
-          <Link to="/">
-            Adopt A Family
-          </Link>
+          <Link to="/">Adopt A Family</Link>
         </div>
 
         <div className="col-8 header-group header-links-group">
@@ -27,9 +23,7 @@ class Nav extends Component {
             Donate
           </Link>
           <Link className="header-links" to="/registration">
-            <button className="btn-registration">
-              Adopt A Family
-            </button>
+            <button className="btn-registration">Adopt A Family</button>
           </Link>
         </div>
       </div>

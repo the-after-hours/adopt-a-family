@@ -166,10 +166,10 @@ routes.get('/families', (req, res) => {
 
     query
       .exec()
-      .then(families => {
+      .then((families) => {
         res.status(200).json({ families });
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({
           message: err,
         });
@@ -189,12 +189,12 @@ routes.get('/families', (req, res) => {
 
     query
       .exec()
-      .then(families => {
+      .then((families) => {
         res.status(200).json({
           families,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({
           message: err,
         });
