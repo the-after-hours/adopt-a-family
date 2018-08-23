@@ -14,5 +14,8 @@
   "plugins": ["react", "prettier"],
   "extends": [
     "plugin:prettier/recommended"
-  ]
+  ],
+  "rules": {
+    "linebreak-style": ["error", "unix"]
+  }
 }
