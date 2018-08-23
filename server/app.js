@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3005;
 const indexRoutes = require('./routes');
 const apiRoutes = require('./routes/api');
+const mongoose = require('mongoose');
+
+// Configure mongoose's promise to global promise
+mongoose.promise = global.Promise;
 
 // Eventually we will need to refer to the build folder for production
 // It would look like:
