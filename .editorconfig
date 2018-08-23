@@ -1,6 +1,13 @@
 # This file is for unifying the coding style for different editors and IDEs	
 # See editorconfig.org
 
+# top-most EditorConfig file
+root = true
+
+# Set all files to utf-8
+[*]
+charset = utf-8
+
 # Enforce line feed at end of line (instead of carriage return + line feed)
 # Prettier doesn't stricly enforce it so we do it here
 end_of_line = lf
