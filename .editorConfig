@@ -1,0 +1,6 @@
+# This file is for unifying the coding style for different editors and IDEs	
+# See editorconfig.org
+
+# Enforce line feed at end of line (instead of carriage return + line feed)
+# Prettier doesn't stricly enforce it so we do it here
+end_of_line = lf
