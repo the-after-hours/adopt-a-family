@@ -11,5 +11,5 @@ services:
 before_script:
   - node server/seedDB.js
 script:
-  - npm run test:lint -- --fix
+  - npm run test:lint
   - npm test
