@@ -12,7 +12,7 @@ exports.readWishlist = (req, res) => {
 exports.createWishlist = (req, res) => {
   Wishlist.create({
     family: req.body.family_id,
-    list: req.body.wishlist
+    list: req.body.wishlist,
   }).then((err, wishlist) => {
     if (err) console.log(err);
     res.status(200).json(wishlist);
@@ -22,8 +22,8 @@ exports.createWishlist = (req, res) => {
 exports.addItem = (req, res) => {
   const newItem = req.body.new_item;
   Wishlist.findByIdAndUpdate(req.body.wishlist_id, {
-    $push: { list: newItem }
-  }).then(err => {
+    $push: { list: newItem },
+  }).then((err) => {
     if (err) {
       res.status(500).json({ error: `There was an error: ${err}` });
     }

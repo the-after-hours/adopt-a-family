@@ -14,7 +14,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(200);
         });
     });
@@ -22,7 +22,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: 400 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('No donors were found');
         });
     });
@@ -30,7 +30,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: 400 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.donors).toHaveLength(0);
         });
     });
@@ -38,7 +38,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('Donors were found');
         });
     });
@@ -46,7 +46,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.donors).not.toHaveLength(0);
         });
     });
@@ -55,7 +55,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ buddget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.donors[0].budget).toBeGreaterThan(
             response.body.donors[1].budget
           );
@@ -67,7 +67,7 @@ describe('Test GET /api/pairing/budget', () => {
     it('Should return 400 if budget param is not passed', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -75,7 +75,7 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: 'null' })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -83,14 +83,14 @@ describe('Test GET /api/pairing/budget', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
         .query({ budget: undefined })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
     it('Should display error message if budget param is missing', () => {
       return request(app)
         .get(BUDGET_PAIRING_ENDPOINT)
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('Missing Budget Param');
         });
     });
@@ -116,7 +116,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(200);
         });
     });
@@ -124,7 +124,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: 400 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('No donors were found');
         });
     });
@@ -132,7 +132,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: 400 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.donors).toHaveLength(0);
         });
     });
@@ -140,7 +140,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('Donors were found');
         });
     });
@@ -148,7 +148,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.donors).not.toHaveLength(0);
         });
     });
@@ -157,7 +157,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ buddget: 50000 })
-        .then(response => {
+        .then((response) => {
           expect(response.body.donors[0].budget).toBeGreaterThan(
             response.body.donors[1].budget
           );
@@ -169,14 +169,14 @@ describe.skip('Test /api/pairing/:familyId', () => {
     it('Should return 400 if budget param is not passed', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
     it.skip('Queries without wishlist param return 400 -- IS THIS VALID', () => {
       return request(app)
         .get(PAIRING_ENDPOINT)
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -184,7 +184,7 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: 'null' })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -192,14 +192,14 @@ describe.skip('Test /api/pairing/:familyId', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
         .query({ budget: undefined })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
     it('Should display error message if budget param is missing', () => {
       return request(app)
         .get(WISHLIST_PAIRING_ENDPOINT)
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('Missing Budget Param');
         });
     });

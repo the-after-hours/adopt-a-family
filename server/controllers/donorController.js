@@ -24,10 +24,10 @@ exports.showAll = (req, res) => {
 
     query
       .exec()
-      .then(donors => {
+      .then((donors) => {
         res.status(200).json({ donors });
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({ message: err });
       });
   } else {
@@ -61,7 +61,7 @@ exports.filterBySingleValue = (req, res) => {
 
     query
       .exec()
-      .then(donors => {
+      .then((donors) => {
         if (!donors) {
           return res.status(400).json({
             message: 'No donors found.',
@@ -72,7 +72,7 @@ exports.filterBySingleValue = (req, res) => {
           donors: [...donors],
         });
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({
           message: err,
         });

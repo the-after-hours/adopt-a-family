@@ -10,7 +10,7 @@ const Select = (props) => (
 );
 
 Select.propTypes = {
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 export default Select;

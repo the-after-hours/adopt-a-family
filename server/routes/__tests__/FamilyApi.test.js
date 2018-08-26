@@ -14,7 +14,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query()
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(200);
         });
     });
@@ -22,8 +22,8 @@ describe('Test /api/families,', () => {
     it('Should return 200 if filter and value parameters are present', async () => {
       // Find a family and use the ID
       const familiesList = await Family.find()
-        .then(res => res)
-        .catch(err => console.error(err));
+        .then((res) => res)
+        .catch((err) => console.error(err));
 
       const familyId = familiesList[0]._id;
 
@@ -33,7 +33,7 @@ describe('Test /api/families,', () => {
           filter: '_id',
           value: familyId,
         })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(200);
         });
     });
@@ -41,8 +41,8 @@ describe('Test /api/families,', () => {
     it('Should return an object with property "families" as an array if valid queries present', async () => {
       // Find a family and use the ID
       const familiesList = await Family.find()
-        .then(res => res)
-        .catch(err => console.error(err));
+        .then((res) => res)
+        .catch((err) => console.error(err));
 
       const familyId = familiesList[0]._id;
 
@@ -52,7 +52,7 @@ describe('Test /api/families,', () => {
           filter: '_id',
           value: familyId,
         })
-        .then(response => {
+        .then((response) => {
           expect.objectContaining({
             families: expect.any(Array),
           });
@@ -65,7 +65,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query({ filter: '_id' })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -74,7 +74,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query({ value: 'test' })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -83,7 +83,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query({ test: 'not valid', bar: 'foo' })
-        .then(response => {
+        .then((response) => {
           expect(response.statusCode).toBe(400);
         });
     });
@@ -92,7 +92,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query({ filter: '_id' })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe(
             'Received 1 parameter(s) but expected 2.'
           );
@@ -103,7 +103,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query({ value: 'test' })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe(
             'Received 1 parameter(s) but expected 2.'
           );
@@ -114,7 +114,7 @@ describe('Test /api/families,', () => {
       return request(app)
         .get(FAMILY_ENDPOINT)
         .query({ test: 'not valid', bar: 'foo' })
-        .then(response => {
+        .then((response) => {
           expect(response.body.message).toBe('Invalid parameters supplied.');
         });
     });

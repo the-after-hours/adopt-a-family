@@ -89,9 +89,12 @@ const MOCK_USERS = [
   },
 ];
 
-mongoose.connect(localDB, {
-  useMongoClient: true,
-});
+mongoose.connect(
+  localDB,
+  {
+    useMongoClient: true,
+  }
+);
 
 // Set mongoose promises to use Node native Promise
 mongoose.Promise = global.Promise;
@@ -157,11 +160,11 @@ const familyCreate = async (headOfFamilyNameModel, wishlist, size) => {
   newWishlist.family = newFamily._id;
 
   await Promise.all([newFamily.save(), newWishlist.save()])
-    .then(arr => {
+    .then((arr) => {
       console.log(`Successfully created family: ${newFamily}`);
       console.log(`Successfully created wishlist: ${newWishlist}`);
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(`Error creating family or wishlist: ${err}`);
     });
 
