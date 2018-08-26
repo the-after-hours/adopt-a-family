@@ -10,4 +10,6 @@ charset = utf-8
 
 # Enforce line feed at end of line (instead of carriage return + line feed)
 # Prettier doesn't stricly enforce it so we do it here
+indent_style = space
+indent_size = 2
 end_of_line = lf
