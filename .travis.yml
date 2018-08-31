@@ -12,3 +12,4 @@ before_script:
   - node server/seedDB.js
 script:
   - npm run test:lint
+  - npm run test
