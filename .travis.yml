@@ -10,3 +10,8 @@ services:
   - mongodb
 before_script:
   - node server/seedDB.js
+script:
+  - npm run sass-lint
+  - npm run eslint
+  - npm run test:webapp
+  - npm run test:api
