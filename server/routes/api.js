@@ -11,7 +11,12 @@ const Wishlist = require('../models/wishlist');
 const donorController = require('../controllers/donorController');
 const wishlistController = require('../controllers/wishlistController');
 
-mongoose.connect('mongodb://localhost/aaf');
+const dbUrl = require('../config/database');
+
+mongoose.connect(
+  dbUrl,
+  { useMongoClient: true }
+);
 
 // Configure app to use bodyParser()
 // this will let us get the data from a POST

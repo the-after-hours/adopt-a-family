@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Donor = require('./models/donor');
 const Family = require('./models/family');
-const localDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/aaf';
+const dbUrl = require('./config/database');
 const Name = require('./models/name');
 const Organizer = require('./models/organizer');
 const User = require('./models/user');
@@ -89,8 +89,9 @@ const MOCK_USERS = [
   },
 ];
 
+console.log(dbUrl);
 mongoose.connect(
-  localDB,
+  dbUrl,
   {
     useMongoClient: true,
   }
