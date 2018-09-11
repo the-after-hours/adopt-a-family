@@ -33,6 +33,9 @@ const Landing = (props) => (
           <button>Register</button>
         </Link>
       </li>
+      <li>
+        <Link to="/login">Log In</Link>
+      </li>
     </ul>
     <p>
       Aliquip laborum dolor cupidatat tempor ad laborum laboris minim nisi

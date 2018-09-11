@@ -1,10 +1,10 @@
 import React from 'react';
 import Form from './Form';
 
-const Registration = (props) => (
-  <div>
-    <Form />
-  </div>
-);
+const handleSubmit = (event) => {
+  event.preventDefault();
+};
+
+const Registration = (props) => <Form onSubmit={handleSubmit} />;
 
 export default Registration;

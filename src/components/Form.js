@@ -9,6 +9,7 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.validateMatch = this.validateMatch.bind(this);
     this.validateLength = this.validateLength.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -20,6 +21,47 @@ class Form extends React.Component {
     this.setState(state, () => {
       currentEvent === 'confirmEmail' && this.validateLength(event);
     });
+  }
+
+  handleSubmit(event) {
+    console.log('registration form username: ', this.state.username);
+    this.props.onSubmit(event);
+
+    const {
+      firstName,
+      middleInitial,
+      lastName,
+      address,
+      accountType,
+      email,
+      password,
+    } = this.state;
+
+    fetch('/', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName,
+        middleInitial,
+        lastName,
+        address,
+        accountType,
+        email,
+        password,
+      }),
+    })
+      .then((response) => {
+        if (response.data) {
+          console.log('successful signup');
+          this.setState({
+            redirectTo: './login',
+          });
+        } else {
+          console.error('signup error');
+        }
+      })
+      .catch((error) => {
+        console.error('Sign up server error: ', error);
+      });
   }
 
   validateMatch(event) {
@@ -52,7 +94,7 @@ class Form extends React.Component {
     return (
       <div>
         <div className="contact">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <span className="contact-label">First Name:</span>
             <Input name="firstName" placeholder="First Name" type="text" />
             <br />

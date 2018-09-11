@@ -12,6 +12,7 @@ import Registration from './Registration';
 import SecureOrg from './SecureOrg';
 import WishlistPrivate from './WishlistPrivate';
 import WishlistPublic from './WishlistPublic';
+import LogIn from './LogIn';
 
 const Main = (props) => (
   <div>
@@ -19,12 +20,13 @@ const Main = (props) => (
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route path="/aboutus" component={AboutUs} />
-      <Route path="/dashboard" component={Dashboard} />
       <Route path="/secure/messaging" component={Messaging} /> {/* Secure */}
       <Route path="/secure/org" component={SecureOrg} /> {/* Secure */}
       <Route path="/secure/pairing" component={Pairing} /> {/* Secure */}
       <Route path="/secure/wishlist" component={WishlistPrivate} />{' '}
       {/* Secure */}
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/login" component={LogIn} />
       <Route path="/registration" component={Registration} />
       <Route path="/wishlist" component={WishlistPublic} />
     </Switch>
