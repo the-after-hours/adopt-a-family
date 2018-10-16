@@ -23,7 +23,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 // required for passport
 app.use(
   session({

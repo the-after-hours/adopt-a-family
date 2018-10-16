@@ -5,31 +5,51 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    index: { unique: true },
+  local: {
+    username: {
+      type: String,
+      required: true,
+      index: { unique: true },
+    },
+    name: {
+      type: Schema.Types.ObjectId,
+      ref: 'Name',
+      required: true,
+    },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    phone: String,
+    // Check below fields, if present, user is of that type
+    _donor: {
+      type: Schema.Types.ObjectId,
+      ref: 'Donor',
+    },
+    _family: {
+      type: Schema.Types.ObjectId,
+      ref: 'Family',
+    },
+    _organizer: {
+      type: Schema.Types.ObjectId,
+      ref: 'Organizer',
+    },
   },
-  name: {
-    type: Schema.Types.ObjectId,
-    ref: 'Name',
-    required: true,
+  facebook: {
+    id: String,
+    token: String,
+    name: String,
+    email: String,
   },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  phone: String,
-  // Check below fields, if present, user is of that type
-  _donor: {
-    type: Schema.Types.ObjectId,
-    ref: 'Donor',
+  twitter: {
+    id: String,
+    token: String,
+    displayName: String,
+    username: String,
   },
-  _family: {
-    type: Schema.Types.ObjectId,
-    ref: 'Family',
-  },
-  _organizer: {
-    type: Schema.Types.ObjectId,
-    ref: 'Organizer',
+  google: {
+    id: String,
+    token: String,
+    email: String,
+    name: String,
   },
 });
 
@@ -43,11 +63,9 @@ userSchema.pre('save', function(next) {
 });
 
 // Compare entered password with the hash stored in User
-userSchema.methods.comparePassword = function(password, cb) {
-  return bcrypt.compare(password, this.password, (err, isMatch) => {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
+// Async recommended since it will be less CPU intensive
+userSchema.methods.isValidPassword = async function(password) {
+  return await bcrypt.compareSync(password, this.local.password);
 };
 
 // TODO: Logout
