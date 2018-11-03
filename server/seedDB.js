@@ -224,12 +224,14 @@ const userCreate = async (
   });
 
   let userFields = {
-    username,
-    name: nameModel._id,
-    email,
-    password,
-    phone,
-    userType,
+    local: {
+      username,
+      name: nameModel._id,
+      email,
+      password,
+      phone,
+      userType,
+    },
   };
 
   /* eslint-disable */
@@ -241,7 +243,7 @@ const userCreate = async (
         userOptions.wishlist,
         userOptions.familySize
       );
-      userFields._family = familyModel;
+      userFields.local._family = familyModel;
       break;
     case DONOR:
       const donorModel = await donorCreate(
@@ -249,14 +251,14 @@ const userCreate = async (
         userOptions.budget,
         name.matchedFamily
       );
-      userFields._donor = donorModel;
+      userFields.local._donor = donorModel;
       break;
     case ORGANIZER:
       const organizerModel = await organizerCreate(
         nameModel,
         userOptions.organization
       );
-      userFields._organizer = organizerModel;
+      userFields.local._organizer = organizerModel;
       break;
     default:
       return;
@@ -275,7 +277,7 @@ const userCreate = async (
 const seedDB = async () => {
   await clearDatabase();
   await Promise.all(
-    MOCK_USERS.map(async user => {
+    MOCK_USERS.map(async (user) => {
       await userCreate(...Object.values(user));
     })
   );
