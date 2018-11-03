@@ -55,9 +55,9 @@ const userSchema = new Schema({
 
 // Hash password before saving
 userSchema.pre('save', function(next) {
-  bcrypt.hash(this.password, saltRounds, (err, hash) => {
+  bcrypt.hash(this.local.password, saltRounds, (err, hash) => {
     if (err) return next(err);
-    this.password = hash;
+    this.local.password = hash;
     next();
   });
 });
