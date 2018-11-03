@@ -1,5 +1,5 @@
 const routes = require('express').Router();
-const login = require('userController').login;
+const login = require('../controllers/userController').login;
 
 // Routes relative to root
 
