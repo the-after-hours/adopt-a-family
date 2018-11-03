@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const passport = require('passport');
 
 exports.signUp = (req, res) => {
   const {
@@ -52,4 +53,21 @@ exports.signUp = (req, res) => {
   });
 };
 
-exports.login = (req, res) => {};
+exports.login = (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+
+    if (!user) {
+      return res.redirect('/login');
+    }
+
+    req.logIn(user, function(err) {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect('/users/' + user.username);
+    });
+  });
+};
