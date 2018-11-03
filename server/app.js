@@ -29,7 +29,7 @@ app.use(
   session({
     secret: 'phuc-change-this-later-pls?',
     resave: false, // will not resave to the session store unless the session is modified
-    saveUnitialized: false, // will not save session unless modified
+    saveUninitialized: false, // will not save session unless modified
   })
 ); // session secret
 app.use(passport.initialize());
