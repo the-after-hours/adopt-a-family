@@ -10,6 +10,7 @@ const Wishlist = require('../models/wishlist');
 // Controllers
 const donorController = require('../controllers/donorController');
 const wishlistController = require('../controllers/wishlistController');
+const userController = require('../controllers/userController');
 
 const dbUrl = require('../config/database');
 
@@ -222,5 +223,7 @@ routes.patch('/wishlist/:familyId/addItem', wishlistController.addItem);
 routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
 
 routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
+
+routes.post('/signup', userController.signUp);
 
 module.exports = routes;

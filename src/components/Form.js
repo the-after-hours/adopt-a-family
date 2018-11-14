@@ -24,30 +24,34 @@ class Form extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('registration form username: ', this.state.username);
+    console.log('registration email: ', this.state.email);
     this.props.onSubmit(event);
 
-    const {
-      firstName,
-      middleInitial,
-      lastName,
-      address,
-      accountType,
-      email,
-      password,
-    } = this.state;
+    // const {
+    //   firstName,
+    //   middleInitial,
+    //   lastName,
+    //   address,
+    //   accountType,
+    //   email,
+    //   password,
+    // } = this.state;
+    // console.log(this.state);
 
-    fetch('/', {
+    const signupData = {
+      firstName: this.state.firstName,
+      middleInitial: this.state.middleInitial,
+      lastName: this.state.lastName,
+      address: this.state.address,
+      accountType: this.state.accountType,
+      email: this.state.email,
+      password: this.state.password,
+    };
+    console.log(`signupData: ${JSON.parse(signupData)}`);
+
+    fetch('/api/signup', {
       method: 'POST',
-      body: JSON.stringify({
-        firstName,
-        middleInitial,
-        lastName,
-        address,
-        accountType,
-        email,
-        password,
-      }),
+      body: JSON.stringify(signupData),
     })
       .then((response) => {
         if (response.data) {
@@ -55,6 +59,9 @@ class Form extends React.Component {
           this.setState({
             redirectTo: './login',
           });
+        } else if (response.error) {
+          console.log(`Signup error: ${response.error}`);
+          console.log(`Error message: ${response.message}`);
         } else {
           console.error('signup error');
         }
@@ -96,7 +103,12 @@ class Form extends React.Component {
         <div className="contact">
           <form onSubmit={this.handleSubmit}>
             <span className="contact-label">First Name:</span>
-            <Input name="firstName" placeholder="First Name" type="text" />
+            <Input
+              name="firstName"
+              placeholder="First Name"
+              type="text"
+              onChange={this.handleChange}
+            />
             <br />
             <span className="contact-label">Middle Initial:</span>
             <Input
@@ -107,13 +119,23 @@ class Form extends React.Component {
             />
             <br />
             <span className="contact-label">Last Name:</span>
-            <Input name="lastName" placeholder="Last Name" type="text" />
+            <Input
+              name="lastName"
+              placeholder="Last Name"
+              type="text"
+              onChange={this.handleChange}
+            />
             <br />
             <span className="contact-label">Address</span>
-            <Input name="address" placeholder="Address" type="text" />
+            <Input
+              name="address"
+              placeholder="Address"
+              type="text"
+              onChange={this.handleChange}
+            />
             <br />
             <span className="contact-label">Account Type:</span>
-            <Select name="accountType" />
+            <Select name="accountType" onChange={this.handleChange} />
             <br />
             <span className="contact-label">Email:</span>
             <Input
@@ -141,6 +163,7 @@ class Form extends React.Component {
               type="password"
               pattern=".{6,}"
               title="Must be at least 6 characters."
+              onChange={this.handleChange}
             />
             <br />
             <span className="contact-label">Confirm Password</span>

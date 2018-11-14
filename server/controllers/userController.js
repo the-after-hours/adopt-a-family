@@ -2,6 +2,7 @@ const User = require('../models/user');
 const passport = require('passport');
 
 exports.signUp = (req, res) => {
+  console.log(req);
   const {
     firstName,
     middleInitial,
@@ -27,13 +28,15 @@ exports.signUp = (req, res) => {
     } else {
       // Ok to create the new user
       const newUser = new User({
-        firstName,
-        middleInitial,
-        lastName,
-        address,
-        accountType,
-        email,
-        password,
+        local: {
+          firstName,
+          middleInitial,
+          lastName,
+          address,
+          accountType,
+          email,
+          password,
+        },
       });
 
       newUser.save((error, savedUser) => {
