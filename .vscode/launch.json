@@ -6,7 +6,7 @@
   "configurations": [
     {
       "type": "node",
-      "name": "vscode-jest-tests",
+      "name": "Jest - ALL",
       "request": "launch",
       "args": [
         "--runInBand"
@@ -16,12 +16,30 @@
       "internalConsoleOptions": "neverOpen",
       "program": "${workspaceFolder}/node_modules/jest/bin/jest"
     },
+    // Copied from MERN recipe -- https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${file}"
+      "name": "Jest - Current",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "${relativeFile}"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
     },
+    // Lets you debug a single JS file (such as seedDB.js)
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "single-file-node",
+      "program": "${file}",
+      "protocol": "inspector"
+    },
+    // Launch the server (npm run start) then you can run this debug config
     {
       "type": "chrome",
       "request": "launch",
