@@ -1,42 +1,35 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const ACCOUNT_TYPES = require('../constants/accountTypes');
 
 const saltRounds = 10;
 
 const userSchema = new Schema({
   local: {
-    // username: {
-    //   type: String,
-    //   required: true,
-    //   index: { unique: true },
-    // },
-    firstName: String,
-    middleInitial: String,
-    lastName: String,
-    // name: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Name',
-    //   required: true,
-    // },
     email: { type: String, required: true, index: { unique: true } },
     password: { type: String, required: true },
+    name: {
+      type: Schema.Types.ObjectId,
+      ref: 'Name',
+      required: true,
+    },
     phone: String,
     address: String,
-    accountType: String,
+    // accountType: { type: String, required: true },
     // Check below fields, if present, user is of that type
-    // _donor: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Donor',
-    // },
-    // _family: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Family',
-    // },
-    // _organizer: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Organizer',
-    // },
+    _donor: {
+      type: Schema.Types.ObjectId,
+      ref: ACCOUNT_TYPES.DONOR,
+    },
+    _family: {
+      type: Schema.Types.ObjectId,
+      ref: ACCOUNT_TYPES.FAMILY,
+    },
+    _organizer: {
+      type: Schema.Types.ObjectId,
+      ref: ACCOUNT_TYPES.ORGANIZER,
+    },
   },
   facebook: {
     id: String,
