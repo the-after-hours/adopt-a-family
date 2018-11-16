@@ -6,50 +6,46 @@ const Name = require('./models/name');
 const Organizer = require('./models/organizer');
 const User = require('./models/user');
 const Wishlist = require('./models/wishlist');
-const DONOR = 'DONOR';
-const FAMILY = 'FAMILY';
-const ORGANIZER = 'ORGANIZER';
+const { ACCOUNT_TYPES } = require('./constants/accountTypes');
+
 const MOCK_USERS = [
   {
-    username: 'superorganizer',
     name: {
       first: 'Missy',
       middle: 'B',
       last: 'Organizer',
     },
-    email: 'test@test.com',
+    email: 'test1@test.com',
     password: 'organizingsuperly',
     phone: '555-555-5555',
-    userType: ORGANIZER,
+    userType: ACCOUNT_TYPES.ORGANIZER,
     userOptions: {
       organization: 'Secret Squirrels',
     },
   },
   {
-    username: 'actuallybillgates',
     name: {
       first: 'Bill',
       last: 'Gates',
     },
-    email: 'test@test.com',
+    email: 'test2@test.com',
     password: 'billiamgates',
     phone: '555-555-5555',
-    userType: DONOR,
+    userType: ACCOUNT_TYPES.DONOR,
     userOptions: {
       budget: 50000,
     },
   },
   {
-    username: 'supermoms',
     name: {
       first: 'Stella',
       middle: 'Gotz',
       last: 'Groove',
     },
-    email: 'test@test.com',
+    email: 'test3@test.com',
     password: 'password',
     phone: '555-555-5555',
-    userType: FAMILY,
+    userType: ACCOUNT_TYPES.FAMILY,
     userOptions: {
       size: 4,
       wishlist: [
@@ -78,10 +74,10 @@ const MOCK_USERS = [
       middle: 'Gots',
       last: 'Grooved',
     },
-    email: 'test1@test.com',
+    email: 'test4@test.com',
     password: 'pasword',
     phone: '666-666-6666',
-    userType: FAMILY,
+    userType: ACCOUNT_TYPES.FAMILY,
     userOptions: {
       size: 4,
       wishlist: [],
@@ -89,7 +85,6 @@ const MOCK_USERS = [
   },
 ];
 
-console.log(dbUrl);
 mongoose.connect(
   dbUrl,
   {
@@ -204,15 +199,15 @@ const organizerCreate = async (nameModel, organization) => {
   Make the users based on MOCK_USERS
   Creates references to family, donor, or organizer as needed to determine user type
 */
-const userCreate = async (
+const userCreate = async ({
   username,
   name = {},
   email,
   password,
   phone,
   userType,
-  userOptions
-) => {
+  userOptions,
+}) => {
   const nameModel = new Name(name);
 
   await nameModel.save((err, name) => {
@@ -237,7 +232,7 @@ const userCreate = async (
   /* eslint-disable */
   // Had to disable es-lint for switch statements
   switch (userType) {
-    case FAMILY:
+    case ACCOUNT_TYPES.FAMILY:
       const familyModel = await familyCreate(
         nameModel,
         userOptions.wishlist,
@@ -245,7 +240,7 @@ const userCreate = async (
       );
       userFields.local._family = familyModel;
       break;
-    case DONOR:
+    case ACCOUNT_TYPES.DONOR:
       const donorModel = await donorCreate(
         nameModel,
         userOptions.budget,
@@ -253,7 +248,7 @@ const userCreate = async (
       );
       userFields.local._donor = donorModel;
       break;
-    case ORGANIZER:
+    case ACCOUNT_TYPES.ORGANIZER:
       const organizerModel = await organizerCreate(
         nameModel,
         userOptions.organization
@@ -278,7 +273,7 @@ const seedDB = async () => {
   await clearDatabase();
   await Promise.all(
     MOCK_USERS.map(async (user) => {
-      await userCreate(...Object.values(user));
+      await userCreate({ ...user });
     })
   );
 
