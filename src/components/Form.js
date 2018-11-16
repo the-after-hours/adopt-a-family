@@ -135,7 +135,7 @@ class Form extends React.Component {
               name="email"
               placeholder="Email"
               type="email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              pattern="[a-z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$"
               onChange={this.handleChange}
             />
             <br />
