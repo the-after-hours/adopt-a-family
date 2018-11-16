@@ -1,6 +1,5 @@
 import React from 'react';
 import Input from './Input';
-import Select from './Select';
 
 class Form extends React.Component {
   constructor(props) {
@@ -24,19 +23,7 @@ class Form extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('registration email: ', this.state.email);
     this.props.onSubmit(event);
-
-    // const {
-    //   firstName,
-    //   middleInitial,
-    //   lastName,
-    //   address,
-    //   accountType,
-    //   email,
-    //   password,
-    // } = this.state;
-    // console.log(this.state);
 
     const signupData = {
       firstName: this.state.firstName,
@@ -47,23 +34,23 @@ class Form extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-    console.log(`signupData: ${JSON.parse(signupData)}`);
 
     fetch('/api/signup', {
       method: 'POST',
       body: JSON.stringify(signupData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then((response) => {
-        if (response.data) {
+        if (response.status === 200) {
           console.log('successful signup');
           this.setState({
             redirectTo: './login',
           });
-        } else if (response.error) {
+        } else {
           console.log(`Signup error: ${response.error}`);
           console.log(`Error message: ${response.message}`);
-        } else {
-          console.error('signup error');
         }
       })
       .catch((error) => {
@@ -135,7 +122,13 @@ class Form extends React.Component {
             />
             <br />
             <span className="contact-label">Account Type:</span>
-            <Select name="accountType" onChange={this.handleChange} />
+            <select name="accountType" onChange={this.handleChange}>
+              <option value="donor" selected="selected">
+                Donor
+              </option>
+              <option value="family">Family</option>
+              <option value="organizer">Organizer</option>
+            </select>
             <br />
             <span className="contact-label">Email:</span>
             <Input
