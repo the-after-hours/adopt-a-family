@@ -80,7 +80,6 @@ exports.signUp = (req, res) => {
 
           res.status(200).json({
             message: 'Successfully created new user.',
-            savedUser,
           });
         });
       }

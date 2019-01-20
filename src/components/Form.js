@@ -4,7 +4,9 @@ import Input from './Input';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      accountType: 'donor',
+    };
     this.handleChange = this.handleChange.bind(this);
     this.validateMatch = this.validateMatch.bind(this);
     this.validateLength = this.validateLength.bind(this);
@@ -122,10 +124,12 @@ class Form extends React.Component {
             />
             <br />
             <span className="contact-label">Account Type:</span>
-            <select name="accountType" onChange={this.handleChange}>
-              <option value="donor" selected="selected">
-                Donor
-              </option>
+            <select
+              name="accountType"
+              onChange={this.handleChange}
+              value={this.state.accountType}
+            >
+              <option value="donor">Donor</option>
               <option value="family">Family</option>
               <option value="organizer">Organizer</option>
             </select>
