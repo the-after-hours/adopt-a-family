@@ -8,6 +8,7 @@
     "build-css": "node-sass-chokidar src/ -o src/devBuild",
     "sass-lint": "sass-lint ./src --config .sass-lint.yml 'src/**/*.scss' --verbose --ignore 'node_modules/**/*'",
     "server": "nodemon server/app.js",
+    "webapp": "react-scripts start",
     "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
     "eslint": "eslint ./",
     "test:webapp": "react-scripts test --env=jsdom",
