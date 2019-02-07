@@ -10,7 +10,8 @@ exports[`Pairing Pairing snapshot 1`] = `
   </p>
   <ul>
     <li>
-      personA 
+      personA
+       
       <span
         style={
           Object {
@@ -25,7 +26,8 @@ exports[`Pairing Pairing snapshot 1`] = `
       </span>
     </li>
     <li>
-      personB 
+      personB
+       
       <span
         style={
           Object {
@@ -40,7 +42,8 @@ exports[`Pairing Pairing snapshot 1`] = `
       </span>
     </li>
     <li>
-      personC 
+      personC
+       
       <span
         style={
           Object {
@@ -55,7 +58,8 @@ exports[`Pairing Pairing snapshot 1`] = `
       </span>
     </li>
     <li>
-      personD 
+      personD
+       
       <span
         style={
           Object {
