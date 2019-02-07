@@ -6,6 +6,7 @@
   "scripts": {
     "build": "react-scripts build",
     "build-css": "node-sass-chokidar src/ -o src/devBuild",
+    "format": "prettier --write */**/*.js",
     "sass-lint": "sass-lint ./src --config .sass-lint.yml 'src/**/*.scss' --verbose --ignore 'node_modules/**/*'",
     "server": "nodemon server/app.js",
     "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
@@ -45,8 +46,6 @@
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
-    "jest": "^22.2.2",
-    "jest-cli": "^22.2.2",
     "node-sass-chokidar": "^1.3.0",
     "nodemon": "^1.14.12",
     "prettier": "^1.14.2",
