@@ -11,7 +11,7 @@
     "server": "nodemon server/app.js",
     "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
     "eslint": "eslint ./",
-    "test:webapp": "react-scripts test --env=jsdom",
+    "test:webapp": "jest src/",
     "test:api": "jest Api --notify --env=node --forceExit",
     "test:all": "concurrently 'npm run test:webapp' 'npm run test:api'",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/devBuild/ --watch --recursive"
@@ -26,6 +26,17 @@
     "url": "https://github.com/5-gwoap/adopt-a-family/issues"
   },
   "homepage": "https://test-aaf.herokuapp.com/",
+  "jest": {
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/server/"
+    ],
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ],
+    "testURL": "http://localhost",
+    "timers": "fake"
+  },
   "dependencies": {
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.2",
@@ -38,6 +49,8 @@
     "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.3.3",
     "concurrently": "^3.5.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -46,6 +59,8 @@
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
+    "jest": "^22.4.4",
+    "jest-cli": "^22.2.2",
     "node-sass-chokidar": "^1.3.0",
     "nodemon": "^1.14.12",
     "prettier": "^1.14.2",
