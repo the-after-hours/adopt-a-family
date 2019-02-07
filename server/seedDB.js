@@ -89,12 +89,9 @@ const MOCK_USERS = [
   },
 ];
 
-mongoose.connect(
-  localDB,
-  {
-    useMongoClient: true,
-  }
-);
+mongoose.connect(localDB, {
+  useMongoClient: true,
+});
 
 // Set mongoose promises to use Node native Promise
 mongoose.Promise = global.Promise;
@@ -274,7 +271,7 @@ const userCreate = async (
 const seedDB = async () => {
   await clearDatabase();
   await Promise.all(
-    MOCK_USERS.map(async user => {
+    MOCK_USERS.map(async (user) => {
       await userCreate(...Object.values(user));
     })
   );
