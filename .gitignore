@@ -61,3 +61,4 @@ src/devBuild
 build/
 test/lintConfigTest.js
 coverage/
+.awcache
