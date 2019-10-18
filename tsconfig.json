@@ -1,0 +1,21 @@
+{
+  "awesomeTypescriptLoaderOptions": {
+    "transpileOnly": false,
+    "useBabel": true,
+    "useCache": true
+  },
+  "babelCore": "@babel/core",
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src/js",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "ES5"
+  },
+  "include": ["./src/js/**/*"]
+}
