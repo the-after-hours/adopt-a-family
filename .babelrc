@@ -1,12 +1,16 @@
 {
   "presets": [
-     "react"
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "corejs": "3.0.0",
+        "useBuiltIns": "entry"
+      }
+    ]
   ],
-  "env": {
-    "test": {
-      "presets": [
-        ["env", { "modules": "commonjs" }]
-      ]
-    }
-  }
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
