@@ -8,7 +8,7 @@ exports[`Footer Footer snapshot 1`] = `
     <div
       className="footer-item footer-copyright"
     >
-      © 2017 Adopt A Family
+      © 2020 Adopt A Family
     </div>
     <div
       className="footer-item footer-spacer"
