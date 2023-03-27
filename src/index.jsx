@@ -24,17 +24,18 @@ import WishlistPublic from './pages/WishlistPublic';
  */
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route exact path="/" element={Landing}>
-      <Route path="aboutus" element={AboutUs} />
-      <Route path="dashboard" element={Dashboard} />
-      <Route path="secure/messaging" element={Messaging} /> {/* Secure */}
-      <Route path="secure/org" element={SecureOrg} /> {/* Secure */}
-      <Route path="secure/pairing" element={Pairing} /> {/* Secure */}
-      <Route path="secure/wishlist" element={WishlistPrivate} />
+    <>
+      <Route path="/" element={<Landing />} />
+      <Route path="aboutus" element={<AboutUs />} />
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="secure/messaging" element={<Messaging />} /> {/* Secure */}
+      <Route path="secure/org" element={<SecureOrg />} /> {/* Secure */}
+      <Route path="secure/pairing" element={<Pairing />} /> {/* Secure */}
+      <Route path="secure/wishlist" element={<WishlistPrivate />} />
       {/* Secure */}
-      <Route path="registration" element={Registration} />
-      <Route path="wishlist" element={WishlistPublic} />
-    </Route>
+      <Route path="registration" element={<Registration />} />
+      <Route path="wishlist" element={<WishlistPublic />} />
+    </>
   )
 );
 
