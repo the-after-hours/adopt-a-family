@@ -89,9 +89,9 @@ export const create = (req, res) => {
   });
 };
 
-export const delete = (req, res) => {
-  res.send('NOT YET IMPLEMENTED');
-};
+// export const delete = (req, res) => {
+//   res.send('NOT YET IMPLEMENTED');
+// };
 
 export const removeItem = (req, res) => {
   // Bad request if no body is sent
