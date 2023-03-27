@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
-import Donor from './models/donor';
-import Family from './models/family';
-import Name from './models/name';
-import Organizer from './models/organizer';
-import User from './models/user';
-import Wishlist from './models/wishlist';
+import Donor from './models/donor.js';
+import Family from './models/family.js';
+import Name from './models/name.js';
+import Organizer from './models/organizer.js';
+import User from './models/user.js';
+import Wishlist from './models/wishlist.js';
 
 const localDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/aaf';
 const DONOR = 'DONOR';

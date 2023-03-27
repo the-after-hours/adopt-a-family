@@ -1,5 +1,5 @@
-import Family from '../models/family';
-import Wishlist from './wishlist';
+import Family from '../models/family.js';
+import Wishlist from './wishlist.js';
 
 export const readWishlist = (req, res) => {
   Family.findById(req.params.wishlist_id)

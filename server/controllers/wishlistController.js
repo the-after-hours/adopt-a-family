@@ -1,4 +1,4 @@
-import Wishlist from '../models/wishlist';
+import Wishlist from '../models/wishlist.js';
 
 const _getWishlistCost = (list) => {
   // Accept list as Array of objects

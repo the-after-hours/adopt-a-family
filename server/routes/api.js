@@ -2,11 +2,11 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import mongoose from 'mongoose';
 
-import donorController from '../controllers/donorController';
-import wishlistController from '../controllers/wishlistController';
-import Donor from '../models/donor';
-import Family from '../models/family';
-import Wishlist from '../models/wishlist';
+import * as donorController from '../controllers/donorController.js';
+import * as wishlistController from '../controllers/wishlistController.js';
+import Donor from '../models/donor.js';
+import Family from '../models/family.js';
+import Wishlist from '../models/wishlist.js';
 
 const routes = express.Router();
 mongoose.connect('mongodb://localhost/aaf');
@@ -77,11 +77,14 @@ routes.get('/pairing/balance', (req, res) => {
 
   // The entire code snippet below probably needs to be reworked. right now it's just mapping out the logic
   // this is pseudo code that assumes (1) we can sum the response and (2) organizer name is passed as the request
+  const total = Math.sum(Donor.budget.where('organizer', req.params.organizer));
+  const spent = Math.sum(
+    Family.wishlist.totalListCost.where('organizer', req.params.organizer)
+  );
+
   let money = {
-    total: Math.sum(Donor.budget.where('organizer', req.params.organizer)),
-    spent: Math.sum(
-      Family.wishlist.totalListCost.where('organizer', req.params.organizer)
-    ), // This needs to use Family.readWishlist() probably
+    total,
+    spent, // This needs to use Family.readWishlist() probably
     balance: total - spent,
   };
 

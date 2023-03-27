@@ -1,10 +1,11 @@
-import express from 'express';
-const app = express();
 import bodyParser from 'body-parser';
-const port = process.env.PORT || 3005;
-import indexRoutes from './routes';
-import apiRoutes from './routes/api';
+import express from 'express';
 
+import rootRoutes from './routes/root.js';
+import apiRoutes from './routes/api.js';
+
+const app = express();
+const port = process.env.PORT || 3005;
 // Eventually we will need to refer to the build folder for production
 // It would look like:
 if (process.env.NODE_ENV === 'production') {
@@ -17,7 +18,7 @@ app.use(
   })
 );
 
-app.use('/', indexRoutes);
+app.use('/', rootRoutes);
 app.use('/api', apiRoutes);
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));

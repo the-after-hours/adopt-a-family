@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-import Wishlist from './wishlist';
 
+import Wishlist from './wishlist.js';
+
+const Schema = mongoose.Schema;
 const familySchema = new Schema({
   name: {
     // Head of household name is fine

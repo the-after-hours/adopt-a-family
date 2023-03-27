@@ -1,8 +1,8 @@
-import Donor from '../models/donor';
+import Donor from '../models/donor.js';
 import mongoose from 'mongoose';
 
-export const readWishList = (req, res) => {
-  Donor.findOne({ id: req.params.id })
+export const readWishList = async (req, res) => {
+  await Donor.findOne({ id: req.params.id })
     .populate({
       path: matchedFamily,
       populate: { path: wishlist },
