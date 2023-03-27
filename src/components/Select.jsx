@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Select = (props) => (
   <select name={props.name}>
@@ -8,9 +7,5 @@ const Select = (props) => (
     <option value="organizer">Organizer</option>
   </select>
 );
-
-Select.propTypes = {
-  name: PropTypes.string,
-};
 
 export default Select;
