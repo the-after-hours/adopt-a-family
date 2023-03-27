@@ -60,3 +60,4 @@ typings/
 build/
 test/lintConfigTest.js
 coverage/
+dist
