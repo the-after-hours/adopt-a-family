@@ -4,15 +4,12 @@
   "description": "basic routes",
   "main": "app.js",
   "scripts": {
-    "format": "prettier --write */**/*.js",
-    "server": "nodemon server/app.js",
-    "eslint": "eslint ./",
-    "start": "vite",
     "build": "tsc && vite build",
+    "lint:fix": "eslint --fix . && prettier --write .",
+    "lint": "eslint .; prettier --check .",
     "serve": "vite preview",
-    "test:webapp": "jest src/",
-    "test:api": "jest Api --notify --env=node --forceExit",
-    "test:all": "concurrently 'npm run test:webapp' 'npm run test:api'"
+    "server": "nodemon server/app.js",
+    "start": "vite"
   },
   "repository": {
     "type": "git",
