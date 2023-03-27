@@ -5,9 +5,11 @@
   "main": "app.js",
   "scripts": {
     "format": "prettier --write */**/*.js",
-    "sass-lint": "sass-lint ./src --config .sass-lint.yml 'src/**/*.scss' --verbose --ignore 'node_modules/**/*'",
     "server": "nodemon server/app.js",
     "eslint": "eslint ./",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
     "test:webapp": "jest src/",
     "test:api": "jest Api --notify --env=node --forceExit",
     "test:all": "concurrently 'npm run test:webapp' 'npm run test:api'"
@@ -53,6 +55,5 @@
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.7"
   },
-  "proxy": "http://localhost:3005/",
-  "sasslintConfig": "./.sass-lint.yml"
+  "proxy": "http://localhost:3005/"
 }
