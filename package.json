@@ -21,17 +21,6 @@
     "url": "https://github.com/5-gwoap/adopt-a-family/issues"
   },
   "homepage": "https://test-aaf.herokuapp.com/",
-  "jest": {
-    "roots": [
-      "<rootDir>/src/",
-      "<rootDir>/server/"
-    ],
-    "setupFiles": [
-      "<rootDir>/test/setup.js"
-    ],
-    "testURL": "http://localhost",
-    "timers": "fake"
-  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
