@@ -1,12 +1,14 @@
-const routes = require('express').Router();
 import bodyParser from 'body-parser';
+import express from 'express';
 import mongoose from 'mongoose';
+
+import donorController from '../controllers/donorController';
+import wishlistController from '../controllers/wishlistController';
 import Donor from '../models/donor';
 import Family from '../models/family';
 import Wishlist from '../models/wishlist';
-import donorController from '../controllers/donorController';
-import wishlistController from '../controllers/wishlistController';
 
+const routes = express.Router();
 mongoose.connect('mongodb://localhost/aaf');
 
 // Configure app to use bodyParser()

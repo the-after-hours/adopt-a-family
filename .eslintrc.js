@@ -26,6 +26,9 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react-refresh/only-export-components': 'warn',
+    '@typescript-eslint/no-unsafe-call': 'warn', // TODO: remove after ts migration
+     '@typescript-eslint/no-unsafe-member-access': 'warn', // TODO: remove after ts migration
+    '@typescript-eslint/restrict-template-expressions': 'warn', // TODO: remove after ts migration
     '@typescript-eslint/prefer-ts-expect-error': 'warn',
     '@typescript-eslint/ban-ts-comment': [
       'warn',
