@@ -1,4 +1,4 @@
-const Wishlist = require('../models/wishlist');
+import Wishlist from '../models/wishlist';
 
 const _getWishlistCost = (list) => {
   // Accept list as Array of objects
@@ -12,7 +12,7 @@ const _getWishlistCost = (list) => {
   return totalCost;
 };
 
-exports.addItem = (req, res) => {
+export const addItem = (req, res) => {
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({
@@ -47,7 +47,7 @@ exports.addItem = (req, res) => {
   });
 };
 
-exports.create = (req, res) => {
+export const create = (req, res) => {
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({
@@ -89,12 +89,11 @@ exports.create = (req, res) => {
   });
 };
 
-// TODO: Write delete route
-exports.delete = (req, res) => {
+export const delete = (req, res) => {
   res.send('NOT YET IMPLEMENTED');
 };
 
-exports.removeItem = (req, res) => {
+export const removeItem = (req, res) => {
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({
@@ -139,7 +138,7 @@ exports.removeItem = (req, res) => {
     });
 };
 
-exports.updateItem = (req, res) => {
+export const updateItem = (req, res) => {
   // Bad request if no body is sent
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({

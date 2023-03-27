@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
 const port = process.env.PORT || 3005;
-const indexRoutes = require('./routes');
-const apiRoutes = require('./routes/api');
+import indexRoutes from './routes';
+import apiRoutes from './routes/api';
 
 // Eventually we will need to refer to the build folder for production
 // It would look like:

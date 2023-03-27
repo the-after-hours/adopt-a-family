@@ -6,4 +6,4 @@ routes.get('/', (req, res) => {
   res.send('You have hit the backend root!');
 });
 
-module.exports = routes;
+export default routes;

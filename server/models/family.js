@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
-const Wishlist = require('./wishlist');
+import Wishlist from './wishlist';
 
 const familySchema = new Schema({
   name: {
@@ -48,4 +48,4 @@ familySchema.methods.readWishlist = function() {
 
 const Family = mongoose.model('Family', familySchema);
 
-module.exports = Family;
+export default Family;

@@ -1,15 +1,11 @@
 const routes = require('express').Router();
-const bodyParser = require('body-parser');
-
-// Possibly move these imports into sub files when each api route has it's own js file
-const mongoose = require('mongoose');
-const Donor = require('../models/donor');
-const Family = require('../models/family');
-const Wishlist = require('../models/wishlist');
-
-// Controllers
-const donorController = require('../controllers/donorController');
-const wishlistController = require('../controllers/wishlistController');
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import Donor from '../models/donor';
+import Family from '../models/family';
+import Wishlist from '../models/wishlist';
+import donorController from '../controllers/donorController';
+import wishlistController from '../controllers/wishlistController';
 
 mongoose.connect('mongodb://localhost/aaf');
 
@@ -218,4 +214,4 @@ routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
 
 routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
-module.exports = routes;
+export default routes;

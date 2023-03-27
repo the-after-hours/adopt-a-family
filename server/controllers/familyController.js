@@ -1,7 +1,7 @@
-const Family = require('../models/family');
-const Wishlist = require('./wishlist');
+import Family from '../models/family';
+import Wishlist from './wishlist';
 
-exports.readWishlist = (req, res) => {
+export const readWishlist = (req, res) => {
   Family.findById(req.params.wishlist_id)
     .populate({ path: wishlist })
     .then((err, wishlist) => {
@@ -9,7 +9,7 @@ exports.readWishlist = (req, res) => {
     });
 };
 
-exports.createWishlist = (req, res) => {
+export const createWishlist = (req, res) => {
   Wishlist.create({
     family: req.body.family_id,
     list: req.body.wishlist,
@@ -19,7 +19,7 @@ exports.createWishlist = (req, res) => {
   });
 };
 
-exports.addItem = (req, res) => {
+export const addItem = (req, res) => {
   const newItem = req.body.new_item;
   Wishlist.findByIdAndUpdate(req.body.wishlist_id, {
     $push: { list: newItem },
@@ -30,8 +30,8 @@ exports.addItem = (req, res) => {
   });
 };
 
-exports.removeItem = (req, res) => {};
+export const removeItem = (req, res) => {};
 
-exports.deleteWishlist = (req, res) => {
+export const deleteWishlist = (req, res) => {
   Wishlist.findByIdAndRemove(req.params.wishlist_id);
 };
