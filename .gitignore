@@ -57,7 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
-src/devBuild
 build/
 test/lintConfigTest.js
 coverage/
+dist

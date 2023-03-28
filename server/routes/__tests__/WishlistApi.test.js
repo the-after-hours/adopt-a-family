@@ -1,7 +1,7 @@
-const request = require('supertest');
-const express = require('express');
+import request from 'supertest';
+import express from 'express';
 const app = express();
-const apiRoutes = require('../../routes/api');
+import apiRoutes from '../../routes/api';
 
 const WISHLIST_ENDPOINT = '/api/wishlist';
 const WISHLIST_CREATE_ENDPOINT = '/api/wishlist/addItem';

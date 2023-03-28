@@ -1,16 +1,14 @@
-const routes = require('express').Router();
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
+import express from 'express';
+import mongoose from 'mongoose';
 
-// Possibly move these imports into sub files when each api route has it's own js file
-const mongoose = require('mongoose');
-const Donor = require('../models/donor');
-const Family = require('../models/family');
-const Wishlist = require('../models/wishlist');
+import * as donorController from '../controllers/donorController.js';
+import * as wishlistController from '../controllers/wishlistController.js';
+import Donor from '../models/donor.js';
+import Family from '../models/family.js';
+import Wishlist from '../models/wishlist.js';
 
-// Controllers
-const donorController = require('../controllers/donorController');
-const wishlistController = require('../controllers/wishlistController');
-
+const routes = express.Router();
 mongoose.connect('mongodb://localhost/aaf');
 
 // Configure app to use bodyParser()
@@ -79,11 +77,14 @@ routes.get('/pairing/balance', (req, res) => {
 
   // The entire code snippet below probably needs to be reworked. right now it's just mapping out the logic
   // this is pseudo code that assumes (1) we can sum the response and (2) organizer name is passed as the request
+  const total = Math.sum(Donor.budget.where('organizer', req.params.organizer));
+  const spent = Math.sum(
+    Family.wishlist.totalListCost.where('organizer', req.params.organizer)
+  );
+
   let money = {
-    total: Math.sum(Donor.budget.where('organizer', req.params.organizer)),
-    spent: Math.sum(
-      Family.wishlist.totalListCost.where('organizer', req.params.organizer)
-    ), // This needs to use Family.readWishlist() probably
+    total,
+    spent, // This needs to use Family.readWishlist() probably
     balance: total - spent,
   };
 
@@ -218,4 +219,4 @@ routes.patch('/wishlist/:familyId/updateItem', wishlistController.updateItem);
 
 routes.patch('/wishlist/:familyId/removeItem', wishlistController.removeItem);
 
-module.exports = routes;
+export default routes;

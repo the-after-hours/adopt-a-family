@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const organizerSchema = new Schema({
@@ -15,4 +15,4 @@ const organizerSchema = new Schema({
 
 const Organizer = mongoose.model('Organizer', organizerSchema);
 
-module.exports = Organizer;
+export default Organizer;

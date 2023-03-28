@@ -1,8 +1,8 @@
-const Donor = require('../models/donor');
-const mongoose = require('mongoose');
+import Donor from '../models/donor.js';
+import mongoose from 'mongoose';
 
-exports.readWishList = (req, res) => {
-  Donor.findOne({ id: req.params.id })
+export const readWishList = async (req, res) => {
+  await Donor.findOne({ id: req.params.id })
     .populate({
       path: matchedFamily,
       populate: { path: wishlist },
@@ -16,7 +16,7 @@ exports.readWishList = (req, res) => {
     });
 };
 
-exports.showAll = (req, res) => {
+export const showAll = (req, res) => {
   const queryKeys = Object.keys(req.query);
 
   if (queryKeys.length === 0) {
@@ -38,7 +38,7 @@ exports.showAll = (req, res) => {
   }
 };
 
-exports.filterBySingleValue = (req, res) => {
+export const filterBySingleValue = (req, res) => {
   const { value } = req.query;
   const { filter } = req.params;
   const queryKeys = Object.keys(req.query);

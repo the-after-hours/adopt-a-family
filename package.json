@@ -2,19 +2,13 @@
   "name": "adopt-a-family",
   "version": "0.1.0",
   "description": "basic routes",
-  "main": "app.js",
   "scripts": {
-    "build": "react-scripts build",
-    "build-css": "node-sass-chokidar src/ -o src/devBuild",
-    "format": "prettier --write */**/*.js",
-    "sass-lint": "sass-lint ./src --config .sass-lint.yml 'src/**/*.scss' --verbose --ignore 'node_modules/**/*'",
+    "build": "tsc && vite build",
+    "lint:fix": "eslint --fix . && prettier --write .",
+    "lint": "eslint .; prettier --check .",
+    "serve": "vite preview",
     "server": "nodemon server/app.js",
-    "start": "concurrently --prefix \"[AAF]\" \"npm run watch-css\" \"npm run server\" \"react-scripts start\"",
-    "eslint": "eslint ./",
-    "test:webapp": "jest src/",
-    "test:api": "jest Api --notify --env=node --forceExit",
-    "test:all": "concurrently 'npm run test:webapp' 'npm run test:api'",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/devBuild/ --watch --recursive"
+    "start": "vite"
   },
   "repository": {
     "type": "git",
@@ -26,50 +20,39 @@
     "url": "https://github.com/5-gwoap/adopt-a-family/issues"
   },
   "homepage": "https://test-aaf.herokuapp.com/",
-  "jest": {
-    "roots": [
-      "<rootDir>/src/",
-      "<rootDir>/server/"
-    ],
-    "setupFiles": [
-      "<rootDir>/test/setup.js"
-    ],
-    "testURL": "http://localhost",
-    "timers": "fake"
-  },
   "dependencies": {
-    "bcrypt": "^3.0.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.1",
-    "mongoose": "^4.13.11",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-tap-event-plugin": "^3.0.2"
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.9.0",
+    "react-router-dom": "^6.9.0",
+    "react-test-renderer": "^18.2.0"
   },
   "devDependencies": {
-    "babel-jest": "^22.4.3",
-    "babel-preset-env": "^1.3.3",
-    "concurrently": "^3.5.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.1",
-    "eslint": "^4.17.0",
-    "eslint-config-prettier": "^3.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-react": "^7.11.1",
-    "jest": "^22.4.4",
-    "jest-cli": "^22.4.4",
-    "node-sass-chokidar": "^1.3.0",
-    "nodemon": "^1.14.12",
-    "prettier": "^1.14.2",
-    "react-scripts": "^1.1.1",
-    "react-test-renderer": "^16.2.0",
-    "sass-lint": "^1.12.1",
-    "superagent": "^3.8.2",
-    "supertest": "^3.0.0"
+    "@types/node": "^18.15.10",
+    "@types/react": "^18.0.30",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.34.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "lint-staged": "^13.1.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7",
+    "superagent": "^8.0.9",
+    "vite": "^4.2.1",
+    "vite-plugin-svgr": "^2.4.0",
+    "vite-tsconfig-paths": "^4.0.7",
+    "vitest": "^0.29.7"
   },
-  "proxy": "http://localhost:3005/",
-  "sasslintConfig": "./.sass-lint.yml"
+  "proxy": "http://localhost:3005/"
 }

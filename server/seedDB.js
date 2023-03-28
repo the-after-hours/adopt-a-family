@@ -1,11 +1,13 @@
-const mongoose = require('mongoose');
-const Donor = require('./models/donor');
-const Family = require('./models/family');
+import mongoose from 'mongoose';
+
+import Donor from './models/donor.js';
+import Family from './models/family.js';
+import Name from './models/name.js';
+import Organizer from './models/organizer.js';
+import User from './models/user.js';
+import Wishlist from './models/wishlist.js';
+
 const localDB = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/aaf';
-const Name = require('./models/name');
-const Organizer = require('./models/organizer');
-const User = require('./models/user');
-const Wishlist = require('./models/wishlist');
 const DONOR = 'DONOR';
 const FAMILY = 'FAMILY';
 const ORGANIZER = 'ORGANIZER';

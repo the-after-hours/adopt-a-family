@@ -1,7 +1,7 @@
-const request = require('supertest');
-const express = require('express');
+import request from 'supertest';
+import express from 'express';
 const app = express();
-const apiRoutes = require('../../routes/api');
+import apiRoutes from '../../routes/api';
 
 const BUDGET_PAIRING_ENDPOINT = '/api/pairing/budget';
 const WISHLIST_PAIRING_ENDPOINT = '/api/pairing/:familyId';

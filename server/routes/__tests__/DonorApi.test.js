@@ -1,8 +1,8 @@
-const request = require('supertest');
-const express = require('express');
+import request from 'supertest';
+import express from 'express';
 const app = express();
-const apiRoutes = require('../../routes/api');
-const Donor = require('../../models/family');
+import apiRoutes from '../../routes/api';
+import Donor from '../../models/family';
 
 const DONOR_ENDPOINT = '/api/donors';
 

@@ -1,9 +1,10 @@
-const request = require('supertest');
-const express = require('express');
-const app = express();
-const apiRoutes = require('../../routes/api');
-const Family = require('../../models/family');
+import express from 'express';
+import request from 'supertest';
 
+import Family from '../../models/family.js';
+import apiRoutes from '../../routes/api.js';
+
+const app = express();
 const FAMILY_ENDPOINT = '/api/families';
 
 app.use('/api', apiRoutes);
