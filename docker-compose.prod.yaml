@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  client:
+    container_name: aaf-client
+    build: client/
+    ports:
+      - ${UI_PORT}:${UI_PORT}
+    volumes:
+      - shared:/client
+
+  server:
+    container_name: aaf-server
+    build: server/
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    depends_on:
+      - db
+      - client
+    volumes:
+      - shared:/client
+
+  db:
+    container_name: aaf-postgres
+    image: postgres
+    ports:
+      - "5433:${DB_PORT}"
+    volumes:
+      - data:/data/db
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+
+volumes:
+  data: {}
+  shared:
