@@ -25,6 +25,7 @@ module.exports = {
   root: true,
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'space-infix-ops': 'error',
     'react-refresh/only-export-components': 'warn',
     '@typescript-eslint/no-unsafe-call': 'warn', // TODO: remove after ts migration
      '@typescript-eslint/no-unsafe-member-access': 'warn', // TODO: remove after ts migration
